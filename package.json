@@ -1,0 +1,14 @@
+{
+  "name": "personalized-weekly-briefing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dashboard for ChatGPT Work personalized daily and weekly briefings",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

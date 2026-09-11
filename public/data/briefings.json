@@ -1,0 +1,799 @@
+{
+  "generatedAt": "2026-09-11T18:54:58.927Z",
+  "count": 4,
+  "briefings": [
+    {
+      "slug": "weekly-2026-09-11",
+      "kind": "weekly",
+      "date": "2026-09-11",
+      "weekday": "Friday",
+      "dateLabel": "September 11, 2026",
+      "shortDate": "Sep 11",
+      "file": "briefings/2026-09-11-weekly.html",
+      "title": "Friday Briefing Sep 11",
+      "theme": "Data moves closer to the work.",
+      "kicker": "Your Friday field notes · 5 stories",
+      "deck": "This week’s useful shift is not another model score: connected files, governed business data and source-traceable finance work are converging inside cloud AI. Here is what deserves a test—and what still needs a control.",
+      "glance": [
+        {
+          "label": "Connected-data reporting",
+          "note": "OpenAI · Sep 10"
+        },
+        {
+          "label": "Finance-grade ChatGPT",
+          "note": "OpenAI · Sep 10"
+        },
+        {
+          "label": "Cheaper agentic QA",
+          "note": "Google · Sep 2"
+        },
+        {
+          "label": "OAuth for remote MCP",
+          "note": "Perplexity · Sep"
+        },
+        {
+          "label": "Ebola spreads west",
+          "note": "World · Sep 11"
+        }
+      ],
+      "stories": [
+        {
+          "id": "story-1",
+          "headline": "ChatGPT can now turn connected business data into an interactive report",
+          "summary": "The new Data plugin in ChatGPT Work and Codex can investigate changes and build interactive dashboards from connected business data. On the same day, Box, Dropbox and SharePoint joined Google Drive in ChatGPT Library, letting web users work across source folders without repeated uploads and follow citations back to the files.",
+          "chips": [
+            "OpenAI",
+            "Audit workflow",
+            "Sep 10"
+          ],
+          "topics": [
+            "openai",
+            "workflow",
+            "accounting"
+          ],
+          "accent": "blue",
+          "whatChanged": "One cloud workflow can now find the PBC folder, query the connected data, explain a variance and produce a reviewable visual deliverable. That reduces upload churn, but inherited permissions are not a substitute for engagement-level scoping.",
+          "whyItMatters": "For your TB/GL and audit dashboard work, this is the closest productized path yet from authorized source files to a source-linked, interactive deliverable.",
+          "tryThis": "",
+          "prompt": "Use @Data with the selected TB/GL folder. Reconcile beginning balance + activity to ending balance; flag accounts over my threshold; build an interactive variance dashboard by account and month; cite every figure to its source file; list unresolved mapping or completeness questions separately. Do not infer missing values.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+              "label": "OpenAI release notes"
+            }
+          ],
+          "art": "<svg viewBox=\"0 0 420 250\" role=\"img\" aria-label=\"Illustration of three connected files feeding a variance dashboard\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"><path d=\"M76 64h88M76 98h58M76 132h76\" opacity=\".55\"/><rect x=\"45\" y=\"35\" rx=\"18\" fill=\"var(--bg)\"/><path d=\"M195 101h42\"/><path d=\"M226 91l12 10-12 10\"/><rect x=\"238\" y=\"52\" rx=\"20\" fill=\"var(--bg)\"/><path d=\"M266 163v-42M298 163V91M330 163v-27M353 163V72\" stroke=\"var(--accent)\" stroke-width=\"14\"/><path d=\"M263 181h94\" opacity=\".4\"/></g></svg>"
+        },
+        {
+          "id": "story-2",
+          "headline": "ChatGPT for Financial Services makes traceability—and firm templates—first-class",
+          "summary": "OpenAI launched a tailored ChatGPT Work experience with GPT‑6 Astra, built-in premium financial data, granular source tracing and interactive charts. Admins can publish Excel, Word and PowerPoint templates, while compliance teams can export supported workspace logs.",
+          "chips": [
+            "OpenAI",
+            "Financial services",
+            "Sep 10"
+          ],
+          "topics": [
+            "openai",
+            "accounting"
+          ],
+          "accent": "teal",
+          "whatChanged": "The important design signal is the bundle: licensed data, evidence highlighting, standardized output templates, role-based controls and logs in one governed workspace. OpenAI says 50+ connectors sit in the wider ecosystem.",
+          "whyItMatters": "Even without eligibility, this is a useful blueprint for an audit AI control stack: authoritative inputs, reproducible calculations, source-level review, locked templates and retained activity evidence.",
+          "tryThis": "",
+          "prompt": "Draft a one-page control matrix for an AI-assisted financial analysis workflow. Cover: approved data sources, completeness checks, recalculation, source-level citations, template/version locking, reviewer sign-off, exception handling, access by role, retention, and log export. Separate preventive, detective, and governance controls.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://openai.com/index/introducing-chatgpt-financial-services/",
+              "label": "OpenAI"
+            },
+            {
+              "href": "https://www.reuters.com/business/openai-launches-chatgpt-financial-services-industry-2026-09-10/",
+              "label": "Reuters context"
+            }
+          ],
+          "art": "<svg viewBox=\"0 0 420 250\" role=\"img\" aria-label=\"Illustration of a spreadsheet, cited evidence and governance shield\"><rect x=\"40\" y=\"38\" rx=\"18\" fill=\"var(--bg)\" stroke=\"currentColor\" stroke-width=\"3\"/><path d=\"M40 79h226M103 79v123M170 79v123M40 120h226M40 160h226\" stroke=\"currentColor\" opacity=\".35\" stroke-width=\"2\"/><path d=\"M121 143l27-20 28 10 43-36\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"7\"/><path d=\"M308 76l55 21v39c0 36-23 61-55 75-32-14-55-39-55-75V97l55-21z\" fill=\"var(--bg)\" stroke=\"currentColor\" stroke-width=\"3\"/><path d=\"M284 139l16 16 33-38\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"8\"/></svg>"
+        },
+        {
+          "id": "story-3",
+          "headline": "Gemini 3.8 Flash targets long-horizon agent work at Flash pricing",
+          "summary": "Google says Gemini 3.8 Flash improves on 3.7 across software engineering, agentic tasks and multi-step professional reasoning while keeping the introductory price at $0.75 per million input and $3.75 per million output tokens. Perplexity’s Agent API added the same model in September, including a lower cached-input rate.",
+          "chips": [
+            "Google",
+            "Frontend + agents",
+            "Sep 2"
+          ],
+          "topics": [
+            "workflow",
+            "frontend"
+          ],
+          "accent": "amber",
+          "whatChanged": "A cheaper frontier model can now serve as the repeatable QA pass after a stronger model builds the artifact—especially where the task is a long checklist rather than a single answer.",
+          "whyItMatters": "For your portable HTML and property-site work, this creates a plausible low-cost second-review layer for mobile layout, keyboard access, state persistence and data-label consistency.",
+          "tryThis": "",
+          "prompt": "Review this web artifact as an independent QA agent. Test at 390px and desktop widths; keyboard-only navigation; light/dark contrast; reduced motion; empty/error states; persistent favorites; chart labels vs source data; and every outbound link. Return only: blocking defects, reproducible steps, expected result, and the smallest safe fix.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+              "label": "Google"
+            },
+            {
+              "href": "https://docs.perplexity.ai/docs/resources/changelog",
+              "label": "Perplexity model access"
+            }
+          ],
+          "art": "<svg viewBox=\"0 0 420 250\" role=\"img\" aria-label=\"Illustration of browser and mobile layouts passing an automated QA checklist\"><rect x=\"38\" y=\"42\" rx=\"16\" fill=\"var(--bg)\" stroke=\"currentColor\" stroke-width=\"3\"/><path d=\"M38 76h256\" stroke=\"currentColor\" opacity=\".4\" stroke-width=\"3\"/><circle cx=\"60\" cy=\"60\" r=\"5\" fill=\"var(--accent)\"/><circle cx=\"78\" cy=\"60\" r=\"5\" fill=\"currentColor\" opacity=\".25\"/><rect x=\"72\" y=\"100\" rx=\"8\" fill=\"color-mix(in srgb,var(--accent),transparent 78%)\"/><path d=\"M203 110h60M203 132h44M203 154h54\" stroke=\"currentColor\" opacity=\".55\" stroke-width=\"6\"/><rect x=\"308\" y=\"80\" rx=\"14\" fill=\"var(--bg)\" stroke=\"currentColor\" stroke-width=\"3\"/><path d=\"M325 116l10 10 20-23M325 151l10 10 20-23\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"6\"/></svg>"
+        },
+        {
+          "id": "story-4",
+          "headline": "Perplexity’s remote MCP now signs into claude.ai with OAuth",
+          "summary": "Perplexity’s hosted MCP endpoint now supports OAuth, so compatible cloud clients such as claude.ai can connect through a Perplexity sign-in instead of a pasted API key. You choose the API organization to bill during sign-in; API keys remain available for clients without OAuth.",
+          "chips": [
+            "Perplexity",
+            "Cloud MCP",
+            "September"
+          ],
+          "topics": [
+            "workflow"
+          ],
+          "accent": "purple",
+          "whatChanged": "The remote endpoint is . OAuth removes the secret-copying step and makes organization selection explicit during connection.",
+          "whyItMatters": "This fits your cloud-only integration preference and gives a clean research connector for recurring runs without storing a long-lived key in every workflow.",
+          "tryThis": "",
+          "prompt": "In claude.ai, add https://api.perplexity.ai/mcp as a custom remote connector, sign in with Perplexity, and select the intended billing organization. First test: find primary-source updates from the last 7 days, return title/date/direct URL, and omit any claim that cannot be tied to a source.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://docs.perplexity.ai/docs/resources/changelog",
+              "label": "Perplexity docs"
+            },
+            {
+              "href": "https://docs.perplexity.ai/docs/getting-started/mcp",
+              "label": "MCP setup"
+            }
+          ],
+          "art": "<svg viewBox=\"0 0 420 250\" role=\"img\" aria-label=\"Illustration of two cloud services linked by an OAuth authorization key\"><rect x=\"45\" y=\"79\" rx=\"24\" fill=\"var(--bg)\" stroke=\"currentColor\" stroke-width=\"3\"/><rect x=\"263\" y=\"79\" rx=\"24\" fill=\"var(--bg)\" stroke=\"currentColor\" stroke-width=\"3\"/><text x=\"101\" y=\"136\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"24\" font-weight=\"800\">C</text><text x=\"319\" y=\"136\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"24\" font-weight=\"800\">P</text><path d=\"M157 127h106\" stroke=\"var(--accent)\" stroke-width=\"6\"/><circle cx=\"210\" cy=\"127\" r=\"31\" fill=\"var(--bg)\" stroke=\"var(--accent)\" stroke-width=\"5\"/><path d=\"M199 127a11 11 0 1 1 14 10v12h-6v-12a11 11 0 0 1-8-10z\" fill=\"var(--accent)\"/></svg>"
+        },
+        {
+          "id": "story-5",
+          "headline": "Congo’s fast-growing Ebola outbreak reaches a seventh province",
+          "summary": "The outbreak has reached Sud-Ubangi in western Democratic Republic of Congo, the first confirmed westward spread, with a rare Bundibugyo strain detected there. AP reports 6,942 cases and 3,349 deaths; conflict, displacement, staff shortages and limited strain-matched vaccine options are complicating containment.",
+          "chips": [
+            "World snapshot",
+            "Health",
+            "Sep 11"
+          ],
+          "topics": [
+            "world"
+          ],
+          "accent": "coral",
+          "whatChanged": "The geographic jump matters more than the headline count: spread from the conflict-hit east to the west increases cross-border risk toward Central African Republic and potentially South Sudan.",
+          "whyItMatters": "This is the one world development this week worth keeping on your situational-awareness list, especially for travel, supply-chain or multinational client exposure.",
+          "tryThis": "For decisions, bookmark the official situation reports and record the report date beside every figure; do not reuse today’s case count as a standing fact.",
+          "prompt": "",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://apnews.com/article/58a2b25c752eaa8344ff16564a8e3547",
+              "label": "Associated Press · Sep 11"
+            },
+            {
+              "href": "https://www.reuters.com/business/healthcare-pharmaceuticals/who-says-staff-shortage-funding-challenges-hamper-congo-ebola-response-2026-09-08/",
+              "label": "Reuters · Sep 8"
+            }
+          ],
+          "art": "<svg viewBox=\"0 0 420 250\" role=\"img\" aria-label=\"Abstract map-style illustration showing an outbreak crossing Congo from east to west\"><path d=\"M90 50l50 17 35-14 54 19 48-9 49 28 3 42-28 21-18 43-48 6-38-25-37 10-37-27 7-42-23-27 24-42z\" fill=\"var(--bg)\" stroke=\"currentColor\" stroke-width=\"3\"/><circle cx=\"285\" cy=\"128\" r=\"13\" fill=\"var(--accent)\"/><circle cx=\"245\" cy=\"114\" r=\"10\" fill=\"color-mix(in srgb,var(--accent),transparent 25%)\"/><circle cx=\"205\" cy=\"122\" r=\"8\" fill=\"color-mix(in srgb,var(--accent),transparent 45%)\"/><circle cx=\"158\" cy=\"132\" r=\"7\" fill=\"color-mix(in srgb,var(--accent),transparent 58%)\"/><path d=\"M285 128C250 85 190 96 143 129\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"5\" stroke-dasharray=\"8 9\"/><path d=\"M151 118l-11 12 15 7\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"5\"/></svg>"
+        }
+      ],
+      "watch": [
+        {
+          "label": "Deep Research enters ChatGPT Work",
+          "note": "On Sep 9 it gained web, file and connected-app research with editable docs, slides, sheets or Sites; it consumes Work/Codex allowance."
+        },
+        {
+          "label": "Anthropic’s misuse report",
+          "note": "Claude abuse cases in cyber, surveillance and influence operations are a reminder to scope tools and log outputs—even when the workflow is “research only.”"
+        }
+      ],
+      "topics": [
+        "openai",
+        "workflow",
+        "accounting",
+        "frontend",
+        "world"
+      ],
+      "storyCount": 5
+    },
+    {
+      "slug": "weekly-2026-09-04",
+      "kind": "weekly",
+      "date": "2026-09-04",
+      "weekday": "Friday",
+      "dateLabel": "September 4, 2026",
+      "shortDate": "Sep 4",
+      "file": "briefings/2026-09-04-weekly.html",
+      "title": "Friday Briefing Sep 4",
+      "theme": "The week AI work became more capable—and more governed.",
+      "kicker": "Friday · September 4, 2026 · five useful developments",
+      "deck": "Astra is the headline, but the practical story is broader: better workspace controls, voice-first Gmail, and a remarkably cheap cloud research tier.",
+      "glance": [
+        {
+          "label": "GPT-6 Astra",
+          "note": "Sep 3 · monitor access"
+        },
+        {
+          "label": "ChatGPT Work",
+          "note": "Sep 3 · assess controls"
+        },
+        {
+          "label": "Gmail Live",
+          "note": "Sep 3 · try on iPhone"
+        },
+        {
+          "label": "Perplexity",
+          "note": "Sep 2026 · cheap sidecar"
+        },
+        {
+          "label": "Food prices",
+          "note": "Sep 4 · world snapshot"
+        }
+      ],
+      "stories": [
+        {
+          "id": "story-1",
+          "headline": "GPT-6 Astra aims at finished work, not just stronger answers",
+          "summary": "OpenAI says Astra improves coding, research, computer use, and complex multi-step work, including producing documents, spreadsheets, and presentations that follow supplied templates. Access began with a limited set of organizations on September 3; Plus, Pro, Business, Enterprise, and API availability is planned over the coming days, so it may not yet appear in your model picker.",
+          "chips": [
+            "OpenAI",
+            "New · Sep 3",
+            "Limited rollout"
+          ],
+          "topics": [
+            "ai",
+            "workflow"
+          ],
+          "accent": "blue",
+          "whatChanged": "Astra is framed as an end-to-end work model: it can adapt when requirements change and carry a task from research through a formatted deliverable. The useful caveat is availability—this is a staged release, not universal access today.",
+          "whyItMatters": "Your strongest test is a complete audit loop, such as reconciling a TB to support and returning a review-ready workbook in your established format.",
+          "tryThis": "Using the attached TB, GL, and prior-year workpaper, build the requested audit schedule in the supplied template. Preserve formulas, identify every exception, independently recompute totals, and finish with a Purpose / Scope / Procedures / Conclusion memo. Do not conclude until all source-to-output ties are documented.",
+          "prompt": "Using the attached TB, GL, and prior-year workpaper, build the requested audit schedule in the supplied template. Preserve formulas, identify every exception, independently recompute totals, and finish with a Purpose / Scope / Procedures / Conclusion memo. Do not conclude until all source-to-output ties are documented.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+              "label": "ChatGPT release notes"
+            },
+            {
+              "href": "https://developers.openai.com/codex/whats-new",
+              "label": "OpenAI weekly digest"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-2",
+          "headline": "ChatGPT Work adds governed plugins and fresher workspace memory",
+          "summary": "OpenAI added beta Zendesk and OneNote plugins for eligible workspaces, along with centralized plugin permissions. Enterprise and Edu are also receiving improved memory that can keep relevant context current across chats; Enterprise begins with roughly two weeks of admin-controlled early access before default enablement for eligible workspaces.",
+          "chips": [
+            "ChatGPT Work",
+            "New · Sep 3",
+            "Plan-limited"
+          ],
+          "topics": [
+            "ai",
+            "workflow"
+          ],
+          "accent": "teal",
+          "whatChanged": "Admins can search, install, enable, or restrict plugins by role from one settings surface, while users connect their own authorized accounts. Improved memory includes a reviewable summary, and admins or users can revert to legacy saved memories.",
+          "whyItMatters": "This is the governance layer your Kayenta and other audit projects need before cross-chat memory or Office content becomes dependable workpaper context.",
+          "tryThis": "If your work workspace receives improved memory, review its memory summary before the next Kayenta status run. Remove stale engagement facts, then compare the run’s conclusions with the authoritative tracker and source files—memory should guide retrieval, never replace evidence.",
+          "prompt": "Review the workspace memory summary for this engagement. Identify stale, unsupported, or conflicting facts, then compare each retained fact against the authoritative tracker and source files. Treat memory as retrieval guidance only, never as audit evidence.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://help.openai.com/en/articles/10128477-chatgpt-enterprise-edu-release-notes",
+              "label": "Enterprise & Edu notes"
+            },
+            {
+              "href": "https://help.openai.com/en/articles/11391654-chatgpt-business-release-notes",
+              "label": "Business notes"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-3",
+          "headline": "Gmail Live turns inbox search into a voice conversation",
+          "summary": "Google is rolling out Gmail Live globally in English on iOS and Android, letting you ask follow-up questions about inbox details and see the supporting emails in the transcript. Gmail Live requires Google AI Plus, Pro, or Ultra; Docs Live is iOS/Android for Pro and Ultra, while business Workspace support is still “coming soon.”",
+          "chips": [
+            "Google",
+            "Rolling out · Sep 3",
+            "iOS"
+          ],
+          "topics": [
+            "ai",
+            "workflow"
+          ],
+          "accent": "amber",
+          "whatChanged": "The features were previewed in May and began general mobile rollout on September 3. Gmail Live retrieves and cites inbox information; Docs Live can structure spoken ideas and, with permission, pull context from Gmail, Drive, Chat, and the web.",
+          "whyItMatters": "On your iPhone, this could become the fastest way to extract a viewing time or lender detail from Kathy’s thread while keeping the original email one tap away.",
+          "tryThis": "Open Gmail on iPhone and ask: “From Kathy’s latest property-viewing thread, list only confirmed addresses, viewing times, access instructions, and unresolved financing restrictions. Cite the email for every item.” Verify each cited message before using it.",
+          "prompt": "From Kathy’s latest property-viewing thread, list only confirmed addresses, viewing times, access instructions, and unresolved financing restrictions. Cite the email for every item. Do not infer missing details.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://www.theverge.com/tech/989508/google-gmail-docs-keep-live-voice-modes-gemini",
+              "label": "The Verge rollout report"
+            },
+            {
+              "href": "https://workspace.google.com/blog/product-announcements/workspace-updates",
+              "label": "Google’s feature overview"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-4",
+          "headline": "A $0.15-per-million-token research sidecar is now realistic",
+          "summary": "Perplexity’s Agent and Router APIs added GLM 5.3 Flash at $0.15 per million uncached input tokens, $0.03 cached input, and $0.50 output. It is not a free tier, but the published rates make it practical to use for cheap preprocessing—classifying listings, compacting state, or normalizing OCR text—before sending only the difficult exceptions to a frontier model.",
+          "chips": [
+            "Perplexity",
+            "New · Sep 2026",
+            "Cloud API"
+          ],
+          "topics": [
+            "ai",
+            "workflow"
+          ],
+          "accent": "purple",
+          "whatChanged": "The new router model joins automatic prompt-cache keys for presets, which Perplexity says can reduce recurring preset costs by about 5% depending on cache reuse. Availability is through the cloud-hosted API and requires a Perplexity API account.",
+          "whyItMatters": "Your property and audit automations carry large repeated instructions; a cheap normalization pass plus a tiny exception packet can reduce both token use and context clutter.",
+          "tryThis": "Have the low-cost model convert each new listing into one fixed JSON schema and compare it with your Google Sheet state. Send the frontier model only changed fields, conflicts, and missing high-risk facts; retain the original source URL and agent value (chatgpt or KDT) unchanged.",
+          "prompt": "Normalize each new listing into the fixed schema, compare it with the current Google Sheet row by listing_key and agent, and output only: changed fields, conflicts, and missing high-risk facts. Preserve source URL and agent exactly; never convert KDT rows to chatgpt.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://docs.perplexity.ai/docs/resources/changelog",
+              "label": "Perplexity changelog"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-5",
+          "headline": "Global food prices reach their highest level since late 2022",
+          "summary": "The UN FAO Food Price Index rose 1.9% in August to 133.3, with every major commodity group higher; it was 2.5% above a year earlier but still 16.8% below the March 2022 peak. Sugar jumped 11.9%, while cereal prices rose amid weather concerns, disrupted Black Sea logistics, and input pressure linked to the Strait of Hormuz.",
+          "chips": [
+            "World snapshot",
+            "Published · Sep 4"
+          ],
+          "topics": [
+            "world"
+          ],
+          "accent": "coral",
+          "whatChanged": "The September 4 release shows price pressure broadening across cereals, oils, meat, dairy, and sugar rather than staying isolated. FAO also highlighted lower crop prospects in parts of Europe and the United States.",
+          "whyItMatters": "This is an early signal for household grocery costs and for audit clients whose budgets or operations are sensitive to food, fuel, or transportation inputs.",
+          "tryThis": "For any food-service or assistance-program client, compare year-to-date food and transport costs with budget and prior year before planning analytics. Treat the FAO index as external context—not direct audit evidence for a recorded balance.",
+          "prompt": "Compare year-to-date food and transportation expense with budget and prior year. Investigate whether price, volume, or program mix explains the variance, and use the FAO index only as external context—not as direct audit evidence.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://www.fao.org/newsroom/detail/supply-concerns-drive-fao-food-price-index-higher/en",
+              "label": "FAO release"
+            },
+            {
+              "href": "https://www.reuters.com/world/europe/world-food-prices-highest-since-2022-supply-risks-mount-fao-says-2026-09-04/",
+              "label": "Reuters"
+            }
+          ],
+          "art": ""
+        }
+      ],
+      "watch": [
+        {
+          "label": "Grok Bot",
+          "note": "enterprise availability began September 3, with a two-week free period for Grok and Cursor Enterprise customers; the current public page emphasizes enterprise activation and a macOS download, so it falls outside today’s web/iOS shortlist."
+        },
+        {
+          "label": "Astra access",
+          "note": "watch your model picker and plan pricing before assigning a large engagement."
+        }
+      ],
+      "topics": [
+        "ai",
+        "workflow",
+        "world"
+      ],
+      "storyCount": 5
+    },
+    {
+      "slug": "daily-2026-09-02",
+      "kind": "daily",
+      "date": "2026-09-02",
+      "weekday": "Wednesday",
+      "dateLabel": "September 2, 2026",
+      "shortDate": "Sep 2",
+      "file": "briefings/2026-09-02-daily.html",
+      "title": "Daily Briefing Sep 2",
+      "theme": "Context gets cheaper—and more portable",
+      "kicker": "Personalized daily briefing",
+      "deck": "Today’s useful thread is not a bigger benchmark number. It is lower-cost repeated context, multi-account access, and cleaner evidence bridges: the plumbing that makes cloud workflows sustainable.",
+      "glance": [
+        {
+          "label": "Claude 5.1",
+          "note": "New Sep 1 · test now"
+        },
+        {
+          "label": "Google accounts",
+          "note": "New Aug 28 · immediate fit"
+        },
+        {
+          "label": "Perplexity cache",
+          "note": "August · cost lever"
+        },
+        {
+          "label": "Pension bridge",
+          "note": "Try today · audit"
+        },
+        {
+          "label": "U.S.–Iran",
+          "note": "Developing Sep 2"
+        }
+      ],
+      "stories": [
+        {
+          "id": "story-1",
+          "headline": "Claude Fable 5.1 makes long, repeated agent work materially cheaper",
+          "summary": "Anthropic released Fable 5.1 across Claude.ai, Cowork, its API, AWS, Google Cloud, and Azure. It says typical token-billed workloads cost about 25% less than Fable 5, with savings up to roughly 45% for context-heavy agentic work, mainly because cache reads fell 75% to $0.25 per million tokens.",
+          "chips": [
+            "Anthropic · AI",
+            "Released Sep 1"
+          ],
+          "topics": [
+            "ai",
+            "workflow"
+          ],
+          "accent": "blue",
+          "whatChanged": "",
+          "whyItMatters": "Your long scheduled prompts repeatedly contain the same property-search rules, audit safeguards, schemas, and state contracts. Fable 5.1’s economics reward converting that stable block into cacheable context while keeping only the run-specific delta dynamic.",
+          "tryThis": "Cache-friendly prompt split Keep the stable instructions byte-identical; put timestamps and state after them.",
+          "prompt": "Restructure this automation into two blocks. Block A is immutable: role, safeguards, output schema, field definitions, and source hierarchy. Block B is run-specific: date, last successful issue, new feedback, and changed records. Keep Block A byte-for-byte stable between runs so prompt caching can reuse it.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+              "label": "Anthropic announcement"
+            },
+            {
+              "href": "https://support.claude.com/en/articles/12138966-release-notes",
+              "label": "Release notes"
+            }
+          ],
+          "art": "<svg viewBox=\"0 0 520 250\" aria-hidden=\"true\"><rect x=\"48\" y=\"38\" rx=\"18\" fill=\"var(--card)\" stroke=\"var(--border)\"/><rect x=\"85\" y=\"79\" rx=\"10\" fill=\"var(--story)\" opacity=\".22\"/><rect x=\"337\" y=\"139\" rx=\"10\" fill=\"var(--story)\" opacity=\".7\"/><path d=\"M205 127h104\" stroke=\"var(--story)\" stroke-width=\"5\" stroke-linecap=\"round\"/><path d=\"m294 112 18 15-18 15\" fill=\"none\" stroke=\"var(--story)\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M97 99h74M97 119h74M97 139h74M97 159h48M349 153h74\" stroke=\"var(--foreground)\" stroke-width=\"7\" stroke-linecap=\"round\" opacity=\".28\"/></svg>"
+        },
+        {
+          "id": "story-2",
+          "headline": "ChatGPT can now search multiple Google accounts in one conversation",
+          "summary": "ChatGPT now supports multiple connected Gmail, Google Calendar, and Google Contacts accounts on supported Plus, Pro, Business, and Enterprise plans across web and iOS. You can search personal and formal inboxes together or compare calendars without forwarding mail between accounts.",
+          "chips": [
+            "OpenAI · Workflow",
+            "Released Aug 28"
+          ],
+          "topics": [
+            "ai",
+            "workflow"
+          ],
+          "accent": "teal",
+          "whatChanged": "",
+          "whyItMatters": "This directly addresses your sqeaky4100/ktevis1990 split for ChatGPT research: connect both, name the target account in the request, and keep Gmail’s own forwarding/send-as setup as a separate human-email convenience.",
+          "tryThis": "Two-inbox test Run read-only first and verify every result shows which inbox received it.",
+          "prompt": "Search both connected Gmail accounts for messages from the last 30 days about Apple Card, property listings, or rental tours. Label every result with the receiving account. Do not mark, move, delete, draft, or send anything.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://openai.com/products/release-notes/",
+              "label": "OpenAI release notes"
+            }
+          ],
+          "art": "<svg viewBox=\"0 0 520 250\" aria-hidden=\"true\"><circle cx=\"112\" cy=\"89\" r=\"42\" fill=\"var(--story)\" opacity=\".22\"/><circle cx=\"112\" cy=\"166\" r=\"42\" fill=\"var(--story)\" opacity=\".45\"/><path d=\"M154 89c64 0 63 36 112 36h42M154 166c64 0 63-41 112-41\" fill=\"none\" stroke=\"var(--story)\" stroke-width=\"5\" stroke-linecap=\"round\"/><rect x=\"308\" y=\"67\" rx=\"18\" fill=\"var(--card)\" stroke=\"var(--border)\"/><circle cx=\"338\" cy=\"97\" r=\"10\" fill=\"var(--story)\"/><rect x=\"360\" y=\"90\" rx=\"7\" fill=\"var(--foreground)\" opacity=\".25\"/><rect x=\"328\" y=\"126\" rx=\"16\" fill=\"var(--story)\" opacity=\".2\"/></svg>"
+        },
+        {
+          "id": "story-3",
+          "headline": "Perplexity’s Agent API adds automatic prompt caching and newer frontier models",
+          "summary": "Agent API presets now reuse stable system prompts and tool definitions automatically, which Perplexity estimates can cut frequent-preset costs by about 5% depending on cache use. The same cloud endpoint also added Gemini 3.7 Flash and Grok 4.6, while its remote MCP server requires no local installation.",
+          "chips": [
+            "Perplexity · Cloud API",
+            "August update"
+          ],
+          "topics": [
+            "ai",
+            "workflow"
+          ],
+          "accent": "amber",
+          "whatChanged": "",
+          "whyItMatters": "One inexpensive hosted research layer can handle fresh web evidence and citations while your main ChatGPT or Claude agent focuses on judgment, file work, and final presentation.",
+          "tryThis": "Cheap research sidecar Measure tokens before and after; savings come from smaller evidence handoffs, not model switching alone.",
+          "prompt": "Use Perplexity's remote MCP only for discovery and citation gathering. Return a compact JSON array with title, source URL, publication date, exact supporting excerpt, and confidence. Pass that small evidence package to the main agent; do not pass full scraped pages unless requested.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://docs.perplexity.ai/docs/resources/changelog",
+              "label": "Perplexity changelog"
+            }
+          ],
+          "art": "<svg viewBox=\"0 0 520 250\" aria-hidden=\"true\"><rect x=\"35\" y=\"74\" rx=\"16\" fill=\"var(--card)\" stroke=\"var(--border)\"/><path d=\"M62 100h92M62 123h92M62 146h58\" stroke=\"var(--foreground)\" stroke-width=\"8\" stroke-linecap=\"round\" opacity=\".25\"/><path d=\"M180 125h76\" stroke=\"var(--story)\" stroke-width=\"5\"/><circle cx=\"273\" cy=\"125\" r=\"28\" fill=\"var(--story)\"/><path d=\"M301 125h66M301 125l66-57M301 125l66 57\" stroke=\"var(--story)\" stroke-width=\"4\"/><circle cx=\"397\" cy=\"68\" r=\"26\" fill=\"var(--c1)\" opacity=\".6\"/><circle cx=\"397\" cy=\"125\" r=\"26\" fill=\"var(--c2)\" opacity=\".6\"/><circle cx=\"397\" cy=\"182\" r=\"26\" fill=\"var(--c4)\" opacity=\".6\"/></svg>"
+        },
+        {
+          "id": "story-4",
+          "headline": "Build a pension disclosure bridge—don’t force one TB account to answer two questions",
+          "summary": "Employee contributions and employer pension expense are different measures, so a single payroll deduction or pension account may align with only one disclosure. A reusable Excel bridge should separately map employee-withholding accounts, employer pension expense, cash/remittance activity, and year-end accruals, then explain the reconciling difference.",
+          "chips": [
+            "Audit · Excel",
+            "Workflow to try today"
+          ],
+          "topics": [
+            "workflow"
+          ],
+          "accent": "purple",
+          "whatChanged": "",
+          "whyItMatters": "This turns the recurring “which of two amounts aligns with prior-year wording?” issue into auditable logic with an account-level trail rather than a judgment buried in chat.",
+          "tryThis": "Formula pattern Start from the GL/TB and use the draft financial statements only as a comparison—not the source.",
+          "prompt": "Create a Pension Bridge sheet with columns: TB Account, Description, Employee/Employer classification, Current-year activity, Cash paid, Accrual change, Disclosure bucket, and Source. Use XLOOKUP for the account map, FILTER to display each bucket, SUMIFS for totals, and LET to calculate Employee Contributions, Employer Pension Expense, and the reconciliation once with readable variable names. Flag unmapped accounts and any bridge difference above the audit threshold.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://support.microsoft.com/en-us/excel/functions/let-function",
+              "label": "LET"
+            },
+            {
+              "href": "https://support.microsoft.com/en-us/excel/functions/filter-function",
+              "label": "FILTER"
+            },
+            {
+              "href": "https://support.microsoft.com/en-us/excel/functions/xlookup-function",
+              "label": "XLOOKUP"
+            }
+          ],
+          "art": "<svg viewBox=\"0 0 520 250\" aria-hidden=\"true\"><rect x=\"36\" y=\"57\" rx=\"15\" fill=\"var(--card)\" stroke=\"var(--border)\"/><rect x=\"57\" y=\"82\" rx=\"6\" fill=\"var(--story)\" opacity=\".65\"/><rect x=\"57\" y=\"109\" rx=\"6\" fill=\"var(--foreground)\" opacity=\".2\"/><rect x=\"57\" y=\"136\" rx=\"6\" fill=\"var(--foreground)\" opacity=\".2\"/><path d=\"M168 125h72\" stroke=\"var(--story)\" stroke-width=\"5\"/><circle cx=\"267\" cy=\"125\" r=\"30\" fill=\"var(--story)\" opacity=\".7\"/><path d=\"M297 125h58M355 125V85M355 125v40\" stroke=\"var(--story)\" stroke-width=\"5\"/><rect x=\"374\" y=\"57\" rx=\"13\" fill=\"var(--story)\" opacity=\".16\"/><rect x=\"374\" y=\"137\" rx=\"13\" fill=\"var(--story)\" opacity=\".34\"/></svg>"
+        },
+        {
+          "id": "story-5",
+          "headline": "U.S.–Iran fighting surges; Hormuz and oil return to the center of global risk",
+          "summary": "The United States struck Iranian military sites along the southern coast, and Iran responded with missiles and drones aimed at U.S. assets and allies in Bahrain, Jordan, Kuwait, and Iraq—the largest exchange since July. Initial U.S. assessments reported no American casualties, while claims surrounding a strike on an Iranian wedding remain disputed; Brent rose to around $95 as shipping risk intensified.",
+          "chips": [
+            "World · Middle East",
+            "Developing Sep 2"
+          ],
+          "topics": [
+            "world"
+          ],
+          "accent": "coral",
+          "whatChanged": "",
+          "whyItMatters": "The Strait of Hormuz carried roughly one-fifth of traded oil before the conflict, so sustained disruption can flow quickly into fuel costs, inflation expectations, travel, markets, and client budgets.",
+          "tryThis": "",
+          "prompt": "",
+          "watchFor": "Watch verified shipping volumes, official casualty assessments, and whether attacks spread to additional Gulf infrastructure. Treat state-media casualty and attribution claims as provisional until independently confirmed.",
+          "links": [
+            {
+              "href": "https://www.reuters.com/world/middle-east/us-iran-exchange-attacks-lull-war-appears-over-2026-09-02/",
+              "label": "Reuters · Sep 2"
+            },
+            {
+              "href": "https://apnews.com/article/iran-us-strikes-hormuz-trump-september-2-2026-cc891e22860d7a53bf7ade9a3d74c0ae",
+              "label": "AP · Sep 2"
+            }
+          ],
+          "art": "<svg viewBox=\"0 0 520 250\" aria-hidden=\"true\"><path d=\"M0 167c85-34 142 28 229 0s151-28 291 0v83H0Z\" fill=\"var(--blue)\" opacity=\".23\"/><path d=\"M0 176c85-34 142 28 229 0s151-28 291 0\" fill=\"none\" stroke=\"var(--blue)\" stroke-width=\"5\"/><path d=\"M69 151h111l-20 32H90Z\" fill=\"var(--story)\" opacity=\".7\"/><rect x=\"105\" y=\"126\" rx=\"3\" fill=\"var(--story)\" opacity=\".45\"/><path d=\"M60 57c89 6 137 47 181 91M460 55c-83 7-132 47-177 92\" fill=\"none\" stroke=\"var(--story)\" stroke-width=\"4\" stroke-dasharray=\"8 8\"/><circle cx=\"260\" cy=\"153\" r=\"17\" fill=\"var(--yellow)\" opacity=\".65\"/></svg>"
+        }
+      ],
+      "watch": [
+        {
+          "label": "Signal",
+          "note": "Anthropic’s customer-controlled Enterprise Frontier Safeguards are planned for phased release later this fall"
+        },
+        {
+          "label": "Signal",
+          "note": "OpenAI’s new healthcare plugins show how tightly scoped, read-only connectors may expand into other regulated domains."
+        }
+      ],
+      "topics": [
+        "ai",
+        "workflow",
+        "world"
+      ],
+      "storyCount": 5
+    },
+    {
+      "slug": "daily-2026-09-01",
+      "kind": "daily",
+      "date": "2026-09-01",
+      "weekday": "Tuesday",
+      "dateLabel": "September 1, 2026",
+      "shortDate": "Sep 1",
+      "file": "briefings/2026-09-01-daily.html",
+      "title": "Daily Briefing Sep 1",
+      "theme": "Agents move from chat to real work",
+      "kicker": "Personalized daily briefing",
+      "deck": "Today’s clearest signal: cloud agents are gaining persistent context, authenticated browsing, event triggers, and task-specific integrations—the pieces needed to automate work without a local machine.",
+      "glance": [
+        {
+          "label": "Today",
+          "note": "Nepal flood · global"
+        },
+        {
+          "label": "Aug 29",
+          "note": "Grok Bot + X · high fit"
+        },
+        {
+          "label": "Aug 25",
+          "note": "Work webhooks · highest fit"
+        },
+        {
+          "label": "Aug 25",
+          "note": "Cowork memory · high fit"
+        },
+        {
+          "label": "Aug 19/26",
+          "note": "Ask Gemini · plan-limited"
+        }
+      ],
+      "stories": [
+        {
+          "id": "story-1",
+          "headline": "ChatGPT Work gains event triggers and signed-in cloud browsing",
+          "summary": "Work can now trigger from new Gmail messages, Slack messages, or GitHub pull-request activity, and its browser on web and mobile can continue tasks on supported signed-in sites. Webhook tasks are available to Plus and Pro; authenticated browsing is also Plus/Pro and still pauses for consequential approvals.",
+          "chips": [
+            "OpenAI · Agent",
+            "Aug 25 · new"
+          ],
+          "topics": [
+            "agent",
+            "workflow"
+          ],
+          "accent": "blue",
+          "whatChanged": "",
+          "whyItMatters": "This is the closest cloud-only replacement yet for workflows that previously needed a continuously running local browser: a client email can initiate research, document preparation, or a status update while your laptop is off.",
+          "tryThis": "PBC-email triage pilot Trigger on one trusted client sender first; keep tracker writes and replies approval-gated.",
+          "prompt": "When a new Gmail message arrives from a named audit client contact, read it and its attachments read-only. Match each requested item to the existing PBC tracker, summarize what changed, identify duplicates or conflicts, and draft proposed tracker updates. Do not write to the tracker or send email until I approve.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+              "label": "OpenAI release notes"
+            }
+          ],
+          "art": "<svg viewBox=\"0 0 520 260\" aria-hidden=\"true\">\n          <rect x=\"28\" y=\"35\" rx=\"18\" fill=\"var(--card)\" stroke=\"var(--border)\"/>\n          <rect x=\"48\" y=\"58\" rx=\"12\" fill=\"var(--muted)\"/>\n          <circle cx=\"74\" cy=\"86\" r=\"9\" fill=\"var(--story)\"/><rect x=\"94\" y=\"80\" rx=\"6\" fill=\"var(--foreground)\" opacity=\".22\"/>\n          <circle cx=\"74\" cy=\"126\" r=\"9\" fill=\"var(--viz-series-3)\"/><rect x=\"94\" y=\"120\" rx=\"6\" fill=\"var(--foreground)\" opacity=\".22\"/>\n          <circle cx=\"74\" cy=\"166\" r=\"9\" fill=\"var(--viz-series-4)\"/><rect x=\"94\" y=\"160\" rx=\"6\" fill=\"var(--foreground)\" opacity=\".22\"/>\n          <path d=\"M242 130h42\" stroke=\"var(--story)\" stroke-width=\"4\" stroke-linecap=\"round\"/><path d=\"m276 120 12 10-12 10\" fill=\"none\" stroke=\"var(--story)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n          <rect x=\"304\" y=\"58\" rx=\"12\" fill=\"var(--muted)\"/>\n          <rect x=\"324\" y=\"78\" rx=\"8\" fill=\"var(--card)\" stroke=\"var(--border)\"/>\n          <circle cx=\"338\" cy=\"92\" r=\"4\" fill=\"var(--story)\"/><circle cx=\"351\" cy=\"92\" r=\"4\" fill=\"var(--viz-series-2)\"/><rect x=\"324\" y=\"168\" rx=\"7\" fill=\"var(--story)\" opacity=\".35\"/>\n        </svg>"
+        },
+        {
+          "id": "story-2",
+          "headline": "Grok Bot reaches SuperGrok plans—and plugs into X",
+          "summary": "Grok Bot is now included with SuperGrok, SuperGrok Plus, and SuperGrok Heavy, with usage separate from the main Grok allowance. Paid users can connect X, receive starter API credits, and ask a cloud Bot to search posts, review timelines, check mentions, and surface trends.",
+          "chips": [
+            "xAI · Agent",
+            "Aug 26–29 · new"
+          ],
+          "topics": [
+            "agent",
+            "workflow"
+          ],
+          "accent": "teal",
+          "whatChanged": "",
+          "whyItMatters": "The separate Bot allowance makes it practical to offload a recurring research lane—such as frontier-AI release monitoring—without consuming the interactive Grok quota you use for ad hoc questions.",
+          "tryThis": "Frontier release scout Use X for discovery, then verify every claim against an official release note before acting.",
+          "prompt": "Each morning, scan official X accounts for OpenAI, Anthropic, Google Gemini, xAI, and Perplexity. Return only product availability changes for cloud, web, or iOS users. Separate released, rolling out, preview, and rumor. Include the original post link and plan restrictions.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://x.ai/news/grok-bot-more-plans",
+              "label": "Plan expansion"
+            },
+            {
+              "href": "https://x.ai/news/grok-bot-and-x",
+              "label": "X integration"
+            }
+          ],
+          "art": "<svg viewBox=\"0 0 520 250\" aria-hidden=\"true\">\n          <path d=\"M96 126h98M326 126h98\" stroke=\"var(--story)\" stroke-width=\"4\" stroke-dasharray=\"7 9\"/>\n          <circle cx=\"260\" cy=\"126\" r=\"58\" fill=\"var(--story)\" opacity=\".16\"/><circle cx=\"260\" cy=\"126\" r=\"31\" fill=\"var(--story)\"/>\n          <rect x=\"36\" y=\"74\" rx=\"16\" fill=\"var(--card)\" stroke=\"var(--border)\"/>\n          <circle cx=\"72\" cy=\"108\" r=\"14\" fill=\"var(--story)\"/><rect x=\"96\" y=\"98\" rx=\"5\" fill=\"var(--foreground)\" opacity=\".25\"/><rect x=\"58\" y=\"140\" rx=\"5\" fill=\"var(--foreground)\" opacity=\".16\"/>\n          <rect x=\"358\" y=\"74\" rx=\"16\" fill=\"var(--card)\" stroke=\"var(--border)\"/>\n          <path d=\"M394 102l32 48M426 102l-32 48\" stroke=\"var(--foreground)\" stroke-width=\"9\" stroke-linecap=\"round\"/>\n        </svg>"
+        },
+        {
+          "id": "story-3",
+          "headline": "Claude memory now follows work into cloud Cowork",
+          "summary": "Claude’s editable memory topics now work across ordinary chat and Cowork in the cloud. Memory is on by default for Free, Pro, and Max, but off by default for Team and Enterprise; sensitive topics remain excluded unless explicitly enabled.",
+          "chips": [
+            "Anthropic · Context",
+            "Aug 25 · new"
+          ],
+          "topics": [
+            "agent",
+            "workflow"
+          ],
+          "accent": "amber",
+          "whatChanged": "",
+          "whyItMatters": "Your preferences and working conventions can follow a Cowork run without a giant bootstrap prompt, but exact run counters, authoritative listing history, and audit status still belong in structured files—not probabilistic memory.",
+          "tryThis": "Split semantic and exact state Let memory save tokens; let Sheets preserve auditability and counters.",
+          "prompt": "Use memory only for stable preferences, style, and workflow conventions. At the start of every run, read the Google Sheet control row for last successful issue, exact listing keys, and current open-item status. At the end, write only verified deltas and re-read the written range.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://support.claude.com/en/articles/12138966-release-notes",
+              "label": "Anthropic release notes"
+            }
+          ],
+          "art": "<svg viewBox=\"0 0 520 250\" aria-hidden=\"true\">\n          <circle cx=\"260\" cy=\"125\" r=\"78\" fill=\"var(--story)\" opacity=\".12\"/>\n          <path d=\"M260 58v134M193 125h134M211 76l98 98M309 76l-98 98\" stroke=\"var(--story)\" stroke-width=\"4\" opacity=\".55\"/>\n          <circle cx=\"260\" cy=\"58\" r=\"18\" fill=\"var(--story)\"/><circle cx=\"327\" cy=\"125\" r=\"18\" fill=\"var(--story)\"/><circle cx=\"260\" cy=\"192\" r=\"18\" fill=\"var(--story)\"/><circle cx=\"193\" cy=\"125\" r=\"18\" fill=\"var(--story)\"/>\n          <rect x=\"224\" y=\"101\" rx=\"12\" fill=\"var(--card)\" stroke=\"var(--border)\"/><rect x=\"241\" y=\"117\" rx=\"4\" fill=\"var(--foreground)\" opacity=\".3\"/>\n        </svg>"
+        },
+        {
+          "id": "story-4",
+          "headline": "Ask Gemini turns Google Chat into a Workspace command center",
+          "summary": "Ask Gemini can search Gmail, Drive, and Calendar; summarize conversations; create content; and manage meetings or tasks from a persistent session in Google Chat. The rollout is gradual for eligible Workspace editions, with temporary higher limits through October 1.",
+          "chips": [
+            "Google · Workflow",
+            "Rollout began Aug 26"
+          ],
+          "topics": [
+            "workflow"
+          ],
+          "accent": "purple",
+          "whatChanged": "",
+          "whyItMatters": "It could provide a fast “what changed across mail and Drive?” layer for audit status checks, but your personal Google One subscription alone likely does not qualify.",
+          "tryThis": "Check eligibility first If your work Workspace is eligible, test a read-only engagement recap before enabling task or calendar actions.",
+          "prompt": "Search my Gmail, Drive, and Calendar for changes related to [engagement] since [date]. Return: new client evidence, scheduling changes, unresolved conflicts, and source links. Read only; do not send messages, alter files, or create events.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://workspaceupdates.googleblog.com/2026/08/ask-gemini-in-chat.html",
+              "label": "Google Workspace announcement"
+            }
+          ],
+          "art": "<svg viewBox=\"0 0 520 250\" aria-hidden=\"true\">\n          <rect x=\"42\" y=\"48\" rx=\"18\" fill=\"var(--card)\" stroke=\"var(--border)\"/>\n          <rect x=\"68\" y=\"72\" rx=\"23\" fill=\"var(--muted)\"/><circle cx=\"94\" cy=\"95\" r=\"11\" fill=\"var(--story)\"/><rect x=\"120\" y=\"88\" rx=\"7\" fill=\"var(--foreground)\" opacity=\".22\"/>\n          <rect x=\"68\" y=\"140\" rx=\"10\" fill=\"var(--story)\" opacity=\".16\"/><rect x=\"208\" y=\"140\" rx=\"10\" fill=\"var(--viz-series-2)\" opacity=\".16\"/><rect x=\"348\" y=\"140\" rx=\"10\" fill=\"var(--viz-series-3)\" opacity=\".16\"/>\n          <circle cx=\"88\" cy=\"159\" r=\"7\" fill=\"var(--story)\"/><circle cx=\"228\" cy=\"159\" r=\"7\" fill=\"var(--viz-series-2)\"/><circle cx=\"368\" cy=\"159\" r=\"7\" fill=\"var(--viz-series-3)\"/>\n        </svg>"
+        },
+        {
+          "id": "story-5",
+          "headline": "Nepal flood toll passes 1,000 as rescuers reach remote valleys",
+          "summary": "Reuters reports more than 1,050 confirmed deaths and roughly 4,000 people missing after an August 26 glacier collapse sent floodwater and debris through Himalayan valleys. More than 11,000 people have been rescued, while damaged roads, power systems, and hydropower tunnels continue to slow access.",
+          "chips": [
+            "World · Nepal",
+            "Sep 1 · developing"
+          ],
+          "topics": [
+            "world"
+          ],
+          "accent": "coral",
+          "whatChanged": "",
+          "whyItMatters": "The scale makes this one of the world’s defining humanitarian and climate-risk stories this week, with consequences for Nepal’s communities, tourism, and hydroelectric infrastructure.",
+          "tryThis": "",
+          "prompt": "",
+          "watchFor": "Casualty figures remain provisional. Watch official rescue updates and established news organizations; avoid sharing unverified victim lists or dramatic social clips without location and date confirmation.",
+          "links": [
+            {
+              "href": "https://www.reuters.com/business/environment/nepal-rescuers-reach-remote-areas-electricity-restored-nearly-week-after-2026-09-01/",
+              "label": "Reuters · Sep 1"
+            },
+            {
+              "href": "https://apnews.com/world-news",
+              "label": "AP continuing coverage"
+            }
+          ],
+          "art": "<svg viewBox=\"0 0 520 250\" aria-hidden=\"true\">\n          <path d=\"M20 176 120 68l58 67 70-97 76 92 45-54 131 100Z\" fill=\"var(--story)\" opacity=\".18\"/>\n          <path d=\"M20 176 120 68l58 67 70-97 76 92 45-54 131 100\" fill=\"none\" stroke=\"var(--story)\" stroke-width=\"5\" stroke-linejoin=\"round\"/>\n          <path d=\"M0 183c74-26 121 25 192 2s112-33 169-5 100 30 159 2v68H0Z\" fill=\"var(--blue)\" opacity=\".24\"/>\n          <path d=\"M0 192c74-26 121 25 192 2s112-33 169-5 100 30 159 2\" fill=\"none\" stroke=\"var(--blue)\" stroke-width=\"6\"/>\n          <circle cx=\"420\" cy=\"55\" r=\"22\" fill=\"var(--yellow)\" opacity=\".5\"/>\n        </svg>"
+        }
+      ],
+      "watch": [
+        {
+          "label": "Signal",
+          "note": "Kyiv endured a sixth consecutive day of Russian air attacks"
+        },
+        {
+          "label": "Signal",
+          "note": "Claude in Chrome is moving toward broader paid-plan availability, but browser-agent safety remains the key test."
+        }
+      ],
+      "topics": [
+        "agent",
+        "workflow",
+        "world"
+      ],
+      "storyCount": 5
+    }
+  ]
+}

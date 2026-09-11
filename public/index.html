@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work Briefings · Personalized Daily &amp; Weekly Briefing</title>
+<meta name="description" content="Dashboard for personalized ChatGPT Work daily and weekly briefings: select a briefing in the sidebar, read its stories as cards, open the published briefing in full.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#171717" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<script>
+  // Set the stored theme before first paint to avoid a flash of the wrong one.
+  try {
+    const stored = localStorage.getItem('briefing-theme');
+    document.documentElement.dataset.theme =
+      stored ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  } catch { /* private mode: the default light theme applies */ }
+</script>
+</head>
+<body data-drawer="closed">
+<a class="skip-link" href="#view">Skip to briefing cards</a>
+
+<div class="app">
+  <aside class="sidebar" aria-label="Briefings">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 6h10M4 12h16M4 18h7"/>
+          <circle cx="18.5" cy="6" r="2.2"/>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <strong>Work Briefings</strong>
+        <span>Personalized daily &amp; weekly</span>
+      </span>
+    </div>
+
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/>
+      </svg>
+      <input id="search" type="search" autocomplete="off" placeholder="Search stories  (press /)" aria-label="Search briefings and stories">
+    </div>
+
+    <nav class="nav" id="nav" aria-label="Briefing list"></nav>
+
+    <div class="sidebar-foot">
+      <span id="brief-count">Loading…</span>
+      <a href="https://github.com/sqeaky4100-lab/personalized-weekly-briefing" target="_blank" rel="noopener">Source repository ↗</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="btn btn-icon btn-ghost menu-btn" data-menu type="button" aria-label="Show briefing list">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+      <div class="crumbs">
+        <div class="eyebrow" id="topbar-eyebrow">Dashboard</div>
+        <h1 id="topbar-title">Briefings</h1>
+      </div>
+      <div class="topbar-actions" id="topbar-actions"></div>
+      <button class="btn btn-icon btn-ghost" data-theme-toggle type="button" aria-label="Switch theme"></button>
+    </header>
+
+    <main class="view" id="view" tabindex="-1">
+      <noscript>
+        <div class="empty">
+          <p>This dashboard needs JavaScript to assemble the cards. The published briefings are static pages and always readable on their own:</p>
+          <!-- briefing-links:start -->
+          <p><a href="briefings/2026-09-11-weekly.html">Weekly briefing · September 11, 2026 — Data moves closer to the work.</a></p>
+          <p><a href="briefings/2026-09-04-weekly.html">Weekly briefing · September 4, 2026 — The week AI work became more capable—and more governed.</a></p>
+          <p><a href="briefings/2026-09-02-daily.html">Daily briefing · September 2, 2026 — Context gets cheaper—and more portable</a></p>
+          <p><a href="briefings/2026-09-01-daily.html">Daily briefing · September 1, 2026 — Agents move from chat to real work</a></p>
+          <!-- briefing-links:end -->
+        </div>
+      </noscript>
+    </main>
+  </div>
+</div>
+
+<div class="backdrop" aria-hidden="true"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="module" src="assets/app.js"></script>
+</body>
+</html>
