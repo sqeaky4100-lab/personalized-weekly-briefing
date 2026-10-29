@@ -619,6 +619,7 @@ details.more .more-body {
   padding: 12px 17px;
   border-top: 1px solid var(--line-soft);
   background: color-mix(in srgb, var(--surface-soft) 60%, transparent);
+  overflow: hidden;
 }
 .card-foot a {
   font-size: .79rem;
@@ -628,6 +629,7 @@ details.more .more-body {
   align-items: center;
   gap: 4px;
   white-space: nowrap;
+  min-width: 0;
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -636,6 +638,12 @@ details.more .more-body {
   width: 13px;
   height: 13px;
   flex: none;
+}
+.card-foot a .label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .card-foot a:hover { color: var(--ink); text-decoration: underline; }
 .card-foot .spacer { flex: 1; }

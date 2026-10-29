@@ -1,7 +1,1225 @@
 {
-  "generatedAt": "2026-09-11T18:54:58.927Z",
-  "count": 4,
+  "generatedAt": "2026-10-29T22:51:00.288Z",
+  "count": 10,
   "briefings": [
+    {
+      "slug": "weekly-2026-10-23",
+      "kind": "weekly",
+      "date": "2026-10-23",
+      "weekday": "Friday",
+      "dateLabel": "October 23, 2026",
+      "shortDate": "Oct 23",
+      "file": "briefings/2026-10-23-weekly.html",
+      "title": "Personalized Weekly Briefing — October 23, 2026",
+      "theme": "The proactive-agent race just became practical.",
+      "kicker": "Friday briefing · October 23, 2026",
+      "deck": "Claude Duet brings an approval-first agent to connected cloud apps; ChatGPT can now build collaborative slide decks; Gemini is turning messy financial inputs into interactive models; and xAI published a concrete pattern for event-driven monitoring. The final card tracks the week’s sharp energy-and-rates signal.",
+      "glance": [
+        {
+          "label": "Claude Duet",
+          "note": "Approval-first agent · Oct 21"
+        },
+        {
+          "label": "ChatGPT Slides",
+          "note": "Manager-ready decks · Oct 16"
+        },
+        {
+          "label": "Gemini hub",
+          "note": "Financial models · Oct 20"
+        },
+        {
+          "label": "Grok Bot pattern",
+          "note": "Event monitoring · Oct 20"
+        },
+        {
+          "label": "Energy + rates",
+          "note": "Planning risk · Oct 23"
+        }
+      ],
+      "stories": [
+        {
+          "id": "story-1",
+          "headline": "Claude Duet pairs proactive work with explicit approvals",
+          "summary": "Claude Duet is a separate proactive-agent app that checks connected accounts, searches prior Claude chats, brings back sourced summaries, and pauses before sending email, paying, signing, or deleting. It is available only through a U.S. waitlist for Pro and Max users, with access opening in waves.",
+          "chips": [
+            "01 · Anthropic",
+            "Research preview",
+            "Oct 21"
+          ],
+          "topics": [
+            "anthropic",
+            "workflow"
+          ],
+          "accent": "blue",
+          "whatChanged": "Restrictions: U.S.-only waitlist, Pro or Max, invitation required; Team and Enterprise are not yet supported. It runs on Opus 5.5, uses normal plan limits—including background checks—and cannot be watched or taken over in its browser. Microsoft 365 is not yet available and Slack is limited.",
+          "whyItMatters": "This is close to the approval-first cloud pattern you want for property-tour intake and inbox cleanup: collect evidence automatically, but hold consequential actions for review.",
+          "tryThis": "",
+          "prompt": "Create a read-only morning check across my connected Gmail and Drive. Report: new property-tour emails, listing-status changes, missing source files, and anything requiring my decision. Cite the exact email or file for every item. Do not send, delete, move, purchase, sign, or change anything. Group proposed actions into one approval list.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://support.claude.com/en/articles/17631495-get-started-with-claude-duet",
+              "label": "Anthropic · Get started with Claude Duet"
+            },
+            {
+              "href": "https://support.claude.com/en/articles/12138966-release-notes",
+              "label": "Anthropic · Release notes"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-2",
+          "headline": "ChatGPT Slides turns source files into a shared, editable deck",
+          "summary": "ChatGPT Slides can start from a conversation, uploaded files, an outline, or an example deck, then let collaborators edit text, shapes, images, and charts in real time. On the web it exports to PowerPoint, PDF, or Google Slides, which makes it practical for manager-ready audit status and issue presentations.",
+          "chips": [
+            "02 · OpenAI",
+            "Rolling out",
+            "Oct 16"
+          ],
+          "topics": [
+            "openai",
+            "workflow"
+          ],
+          "accent": "teal",
+          "whatChanged": "Access: rolling out to eligible Pro, Business, and Enterprise users with Space access on web and desktop. Web export supports PowerPoint, PDF, and Google Slides. Managed-workspace availability depends on admin settings.",
+          "whyItMatters": "Your numbered SEFA issues, TB/GL bridges, and manager emails can now feed one living deck instead of being reformatted separately for each review meeting.",
+          "tryThis": "",
+          "prompt": "Create a concise manager-review deck from the attached SEFA issues workbook and supporting memo. Use: executive status; issue-by-issue bridge; amounts and evidence citations; decisions needed; and next actions. Keep observed facts separate from conclusions. Add speaker notes with the exact source file and cell or section for every amount. Export to PowerPoint only after I approve the outline.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+              "label": "OpenAI · ChatGPT release notes, October 16"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-3",
+          "headline": "Gemini’s new business hub turns messy finance inputs into interactive models",
+          "summary": "Google is adding a central small-business workspace in Gemini that connects Google Workspace plus services such as Dropbox, Shopify, Xero, Canva, Wix, and Zoho. Its finance workflow is designed to transform spreadsheets, receipts, and purchase records into graphics and interactive models in seconds.",
+          "chips": [
+            "03 · Google",
+            "Global staged rollout",
+            "Oct 20"
+          ],
+          "topics": [
+            "google",
+            "workflow"
+          ],
+          "accent": "amber",
+          "whatChanged": "Availability: Google says the tools are rolling out globally over the coming days; plan-by-plan access was not specified in the announcement. Connected-app availability can differ by account and region. Use only firm-approved client data.",
+          "whyItMatters": "The workflow matches your recurring need to turn TBs, GLs, receipts, and property-budget exports into an understandable decision view without hand-building every chart.",
+          "tryThis": "",
+          "prompt": "Using this approved trial balance and account map, create an interactive financial model with fund, department, natural account, and period filters. Tie every visual to a reconciliation table. Show unmapped accounts, duplicate mappings, missing periods, and totals that do not agree. Do not change the source workbook or treat classifications as audited conclusions.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://blog.google/innovation-and-ai/products/gemini-app/new-tools-small-business-owners/",
+              "label": "Google · New Gemini tools for small business owners"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-4",
+          "headline": "Grok Bot shows a concrete event-monitoring pattern: detect, hold, approve, sweep",
+          "summary": "xAI described two cloud teammates: one checks the preceding 15 minutes of support tickets every five minutes for spikes, while another prepares an approved batch once an incident is resolved. In one example, a human-reviewed sweep cleared 204 related tickets in about 10 minutes.",
+          "chips": [
+            "04 · xAI",
+            "Published use case",
+            "Oct 20"
+          ],
+          "topics": [
+            "xai",
+            "workflow"
+          ],
+          "accent": "purple",
+          "whatChanged": "This is a newly published implementation pattern, not a new entitlement. Grok Bot access still depends on your subscription or enterprise setup. The useful design is the separation between detection, temporary holding, a human-reviewed batch, and final action.",
+          "whyItMatters": "The same pattern can protect your property-brief ingestion and PBC workflows from duplicate emails, clustered failures, or partial updates while keeping one approval gate.",
+          "tryThis": "",
+          "prompt": "Design a cloud-only monitor for my property-brief pipeline. Every five minutes, review events since last_seen. Normalize each error into a fingerprint, group repeats in a rolling 15-minute window, and alert only when the same fingerprint appears three times or affects multiple listings. Hold matching updates, prepare one review batch, and require approval before publishing or emailing. Store last_seen, fingerprint, listing ID, source URL, and disposition in a Google Sheet state file.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://x.ai/news/incident-sweep",
+              "label": "xAI · Using Grok Bot to detect and respond to incidents"
+            },
+            {
+              "href": "https://x.ai/news/x-subscription",
+              "label": "xAI · X Subscription and Grok Bot access"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-5",
+          "headline": "Oil above $114 puts energy, inflation, and rates back on one dashboard",
+          "summary": "Brent crude moved above $114 a barrel as Middle East tensions intensified, while global markets shifted toward safer assets ahead of next week’s central-bank meetings. The practical signal is not a one-day market move: energy costs, inflation expectations, borrowing costs, and AI infrastructure spending are now interacting at the same time.",
+          "chips": [
+            "05 · World",
+            "Markets snapshot",
+            "Oct 23"
+          ],
+          "topics": [
+            "world",
+            "workflow"
+          ],
+          "accent": "coral",
+          "whatChanged": "Reuters reported Brent above $114 amid renewed attacks and escalating regional risk. Investors moved toward U.S. Treasuries while the Federal Reserve and several other central banks prepare decisions next week. Markets remain fluid, so treat the price as a dated snapshot.",
+          "whyItMatters": "For governmental and tribal audits, sustained fuel and borrowing-cost pressure can flow into budgets, grants, estimates, capital plans, liquidity, and subsequent-event discussions.",
+          "tryThis": "",
+          "prompt": "Add a one-page macro sensitivity note to this planning file. Trace sustained oil above $110 and higher-for-longer rates to fuel, utilities, travel, construction, debt service, grant budgets, estimates, liquidity, and going concern. Identify the account or assertion affected, the evidence to request, and the threshold that would trigger an updated conclusion. Keep management assumptions separate from auditor analysis.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-10-23/",
+              "label": "Reuters · Global markets: Safety first, October 23"
+            },
+            {
+              "href": "https://www.reuters.com/business/take-five/global-markets-themes-graphic-2026-10-23/",
+              "label": "Reuters · Central banks, energy, and AI earnings week ahead"
+            }
+          ],
+          "art": ""
+        }
+      ],
+      "watch": [
+        {
+          "label": "Regression-test agents from real failures",
+          "note": "Save representative inputs, use exact checks where possible, calibrate model graders against human judgments, and rerun prior passing cases after every prompt or model change. OpenAI · Oct 16"
+        },
+        {
+          "label": "GPT-6 Pro can split a task across parallel agents",
+          "note": "The rollout is limited to eligible Pro users and managed-workspace settings. Best use: independent extraction, tie-out, and presentation lanes that reconcile before delivery."
+        }
+      ],
+      "topics": [
+        "anthropic",
+        "workflow",
+        "openai",
+        "google",
+        "xai",
+        "world"
+      ],
+      "storyCount": 5
+    },
+    {
+      "slug": "weekly-2026-10-16",
+      "kind": "weekly",
+      "date": "2026-10-16",
+      "weekday": "Friday",
+      "dateLabel": "October 16, 2026",
+      "shortDate": "Oct 16",
+      "file": "briefings/2026-10-16-weekly.html",
+      "title": "Personalized Weekly Briefing — October 16, 2026",
+      "theme": "Build the dashboard. Keep the evidence visible.",
+      "kicker": "Friday briefing · October 16, 2026",
+      "deck": "This week’s strongest workflow idea is Claude’s query-visible dashboard beta—an unusually good fit for your SEFA issue review and bank-reconciliation work. The other four stories cover a new reasoning model, an immediate ChatGPT model change, a bundled Grok plan, and a world-economy signal worth carrying into planning.",
+      "glance": [
+        {
+          "label": "Claude Dashboards",
+          "note": "Direct audit use · Oct 8"
+        },
+        {
+          "label": "Gemini 4 Argon",
+          "note": "Complex cross-checks · Oct 13"
+        },
+        {
+          "label": "GPT-5.5 retired",
+          "note": "Test workflows now · Oct 14"
+        },
+        {
+          "label": "X Subscription",
+          "note": "Plan-cost decision · Oct 12"
+        },
+        {
+          "label": "IMF outlook",
+          "note": "Macro planning · Oct 13"
+        }
+      ],
+      "stories": [
+        {
+          "id": "story-1",
+          "headline": "Claude Dashboards exposes the query behind every chart",
+          "summary": "Claude can now turn a connected warehouse or app into a dashboard by writing the queries, building charts, and showing each query with its last-refresh time. Anthropic positions the beta for quick exploratory questions—not as a substitute for deeper analysis—so the visible logic is the feature that matters most.",
+          "chips": [
+            "01 · Anthropic",
+            "Beta",
+            "Oct 8"
+          ],
+          "topics": [
+            "anthropic",
+            "workflow"
+          ],
+          "accent": "blue",
+          "whatChanged": "Access: beta on Pro, Max, Team, and Enterprise; Enterprise owners must enable it. The dashboard needs a connected data source or app. Each chart exposes what it counted and when the data last refreshed.",
+          "whyItMatters": "Your current SEFA-issues workbook and January–March bank-reconciliation package are natural candidates for a reviewer-friendly view that keeps the source logic inspectable.",
+          "tryThis": "",
+          "prompt": "Build a read-only dashboard from this manager-ready SEFA issues workbook. Include: issue status; program and ALN; potential adjustment; evidence gap; owner; and next action. Show the exact source query and last-refreshed time for every view. Do not alter source data. Flag unmatched rows, duplicate keys, and totals that do not tie.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://support.claude.com/en/articles/17454700-get-started-with-claude-dashboards",
+              "label": "Anthropic · Get started with Claude Dashboards"
+            },
+            {
+              "href": "https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them",
+              "label": "Anthropic · Artifacts availability and plan notes"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-2",
+          "headline": "Gemini 4 Argon reaches the Gemini app for Pro and Ultra",
+          "summary": "Google moved Gemini 4 Argon from preview into the Gemini app and AI Mode for Google AI Pro and Ultra subscribers, targeting difficult multi-step work in finance, legal, science, and engineering. Antigravity access remains Ultra-only; public API pricing is introductory through November 30.",
+          "chips": [
+            "02 · Google",
+            "Released",
+            "Oct 13"
+          ],
+          "topics": [
+            "google",
+            "workflow"
+          ],
+          "accent": "teal",
+          "whatChanged": "Access: Gemini app and AI Mode on Google AI Pro and Ultra; Antigravity on Ultra only. Google lists introductory API pricing of $2 per million input tokens and $10 per million output tokens, rising to $4/$20 after November 30, 2026.",
+          "whyItMatters": "It gives you a fresh independent-review lane for complex, cross-file work such as reconciling a SEFA draft, issue log, and supporting evidence without changing the source package.",
+          "tryThis": "",
+          "prompt": "Act as an independent reviewer of this approved SEFA package. Build a conflict matrix linking each issue to program/ALN, supporting file, amount, exact evidence citation, and proposed next step. Separate observed facts, inferences, and unresolved questions. Do not infer missing amounts or overwrite the manager-ready conclusion.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+              "label": "Google · Gemini 4 Argon announcement"
+            },
+            {
+              "href": "https://blog.google/intl/en-mena/product-updates/explore-get-answers/gemini-4-argon-built-to-solve-your-hardest-problems/",
+              "label": "Google · availability and pricing notes"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-3",
+          "headline": "GPT-5.5 is retired from ChatGPT, Work, and Codex",
+          "summary": "OpenAI removed GPT-5.5 from ChatGPT, ChatGPT Work, and Codex on October 14. API access is unaffected, but any saved cloud workflow that depended on the model’s particular formatting or judgment should be re-baselined instead of assumed equivalent.",
+          "chips": [
+            "03 · OpenAI",
+            "Immediate",
+            "Oct 14"
+          ],
+          "topics": [
+            "openai",
+            "workflow"
+          ],
+          "accent": "amber",
+          "whatChanged": "The retirement applies to the ChatGPT model picker, ChatGPT Work, and Codex. OpenAI says API access is unchanged. The note does not promise that a specific replacement will reproduce prior outputs, so treat migration as a testing event.",
+          "whyItMatters": "Your repeatable reconciliation, indexing, and manager-email workflows are exactly where silent changes in row counts, exception logic, or citations are most expensive.",
+          "tryThis": "",
+          "prompt": "Regression-test this established bank-reconciliation workflow using the same sanitized input and known-good output. Compare row counts, totals, unmatched items, exception classifications, source citations, and final formatting. Report only differences, their likely cause, and the review risk. Do not revise the source files.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://help.openai.com/en/articles/9624314-model-release-notes",
+              "label": "OpenAI · Model release notes"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-4",
+          "headline": "xAI bundles Grok Bot and shared usage into one X Subscription",
+          "summary": "The new X Subscription combines Grok chat, voice, image/video tools, Grok Bot, X, and Cursor under shared model usage. New customers can buy it now; the option to switch is rolling out to existing SuperGrok, Cursor, and X Premium subscribers, who can also keep their current plans.",
+          "chips": [
+            "04 · xAI",
+            "New customers now",
+            "Oct 12"
+          ],
+          "topics": [
+            "xai",
+            "workflow"
+          ],
+          "accent": "purple",
+          "whatChanged": "Plans: Free $0, Plus $8, Premium $30, Super $100, Ultra $200 per month; xAI says regional pricing may vary. Premium includes SuperGrok, Cursor Pro, and X Premium+. Existing subscribers may not see the switch option yet because rollout is staged.",
+          "whyItMatters": "This is the first practical route to Grok Bot plus broader Grok access in one subscription—but only saves money if you actually use the bundled services.",
+          "tryThis": "",
+          "prompt": "Before I switch plans, build a one-page comparison of my current monthly spend and actual usage across SuperGrok, X Premium, and Cursor versus X Subscription Premium. Separate web/iOS features from desktop-only benefits. Flag staged availability, overlapping entitlements, and anything I would lose. Recommend “keep” or “switch” only if the savings and access are verified.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://x.ai/news/x-subscription",
+              "label": "xAI · Introducing X Subscription"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-5",
+          "headline": "AI investment props up growth while energy and debt raise the floor on risk",
+          "summary": "The IMF’s October outlook projects 3.1% global growth in 2026 and 3.4% in 2027, with AI investment and trade supporting activity. It simultaneously warns that higher energy and food prices, conflict, debt, and an uneven distribution of gains leave the outlook tilted to the downside.",
+          "chips": [
+            "05 · World",
+            "IMF outlook",
+            "Oct 13"
+          ],
+          "topics": [
+            "world",
+            "workflow"
+          ],
+          "accent": "coral",
+          "whatChanged": "The IMF says global resilience is increasingly uneven: countries tied to the AI-investment boom are benefiting while energy importers and lower-income economies face greater pressure. Its near-term inflation forecast reaches 4.7% globally, largely from energy and food.",
+          "whyItMatters": "For planning and review, the combination of higher-for-longer rates, energy volatility, and uneven demand is more useful than the headline growth number alone.",
+          "tryThis": "",
+          "prompt": "Add a concise macro-watch section to this planning memo. Map higher energy costs, higher-for-longer rates, and uneven demand to the client’s debt service, liquidity, estimates, impairment, and going-concern assumptions. Define the evidence or threshold that would trigger an update. Keep this separate from management’s assertions.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://mediacenter.imf.org/news/imf---world-economic-outlook-annual-meetings--2026/s/22f94667-d194-473b-87b2-34c692b5a5a3",
+              "label": "IMF · October 2026 World Economic Outlook summary"
+            },
+            {
+              "href": "https://www.reuters.com/world/china/imf-says-ai-investment-propping-up-global-growth-war-debt-threaten-outlook-2026-10-13/",
+              "label": "Reuters · AI investment, war, and debt risks"
+            }
+          ],
+          "art": ""
+        }
+      ],
+      "watch": [
+        {
+          "label": "ChatGPT Sites removes its fixed creation cap",
+          "note": "Plus and Pro no longer have a fixed number-of-Sites limit, though storage and usage limits still apply—useful for separating experimental property pages from production versions. Voice · Oct 15"
+        },
+        {
+          "label": "GPT-Live-1.1 improves accents and search phrasing",
+          "note": "ChatGPT Voice added region-dependent voices and more natural phrasing. Useful, but less consequential for your evidence-heavy workflows than the five main items."
+        }
+      ],
+      "topics": [
+        "anthropic",
+        "workflow",
+        "google",
+        "openai",
+        "xai",
+        "world"
+      ],
+      "storyCount": 5
+    },
+    {
+      "slug": "weekly-2026-10-09",
+      "kind": "weekly",
+      "date": "2026-10-09",
+      "weekday": "Friday",
+      "dateLabel": "October 9, 2026",
+      "shortDate": "Oct 9",
+      "file": "briefings/2026-10-09-weekly.html",
+      "title": "Personalized Weekly Briefing — October 9, 2026",
+      "theme": "The interface is becoming part of the answer.",
+      "kicker": "Friday briefing · October 9, 2026",
+      "deck": "The most useful shift this week is not another benchmark: ChatGPT can now choose interactive controls, comparisons, and diagrams when plain text is not enough. Four workflow changes follow, plus one urgent U.S. news snapshot.",
+      "glance": [
+        {
+          "label": "Intelligent UI",
+          "note": "Interactive deliverables · Oct 7"
+        },
+        {
+          "label": "Haiku 5.5",
+          "note": "Low-cost triage · Oct 7"
+        },
+        {
+          "label": "Audio uploads",
+          "note": "Evidence intake · Oct 6"
+        },
+        {
+          "label": "SynthID Detector",
+          "note": "Media provenance · Oct 7"
+        },
+        {
+          "label": "Hurricane Isaias",
+          "note": "U.S. emergency · Oct 9"
+        }
+      ],
+      "stories": [
+        {
+          "id": "story-1",
+          "headline": "GPT-6 can now build the interface that best fits the answer",
+          "summary": "ChatGPT’s new Intelligent UI can combine prose with diagrams, side-by-side comparisons, calculators, and small interactive tools directly in a response. It can also begin answering while it continues thinking or using tools, adding findings without requiring another prompt.",
+          "chips": [
+            "01 · OpenAI",
+            "Released",
+            "Oct 7"
+          ],
+          "topics": [
+            "openai",
+            "workflow"
+          ],
+          "accent": "blue",
+          "whatChanged": "Paid plans use GPT-6 Sol; Free and Go use GPT-6 Luna. The rollout began globally for Plus, Pro, Business, and Enterprise on October 7 and for Free/Go on October 8. Enterprise access can depend on admin settings. The Astra-powered Pro reasoning option does not support Intelligent UI, and Work/Codex models did not change with this release.",
+          "whyItMatters": "Your property due-diligence reports, SFUL indexes, and audit status memos can become inspectable decision tools instead of long static pages—while keeping sources and uncertainty visible.",
+          "tryThis": "",
+          "prompt": "Using the attached property due-diligence memorandum, create a mobile-friendly interactive decision surface with: a source-linked issue matrix; price, HOA, commute, and repair assumptions I can change; a red/yellow/green risk view that explains every classification; and a print-ready conclusion. Do not add facts that are not in the memo. Mark unknowns explicitly.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+              "label": "OpenAI · ChatGPT release notes"
+            },
+            {
+              "href": "https://openai.com/index/introducing-gpt-6/",
+              "label": "OpenAI · GPT-6 announcement"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-2",
+          "headline": "Claude Haiku 5.5 turns repetitive review into a low-cost first pass",
+          "summary": "Anthropic’s fastest small model is designed for summaries, compaction, classification, database queries, and browser work. Anthropic says it costs about 75% less per task than Haiku 4.5 on average, while Sonnet 5.5 cache reads were cut in half.",
+          "chips": [
+            "02 · Anthropic",
+            "Released",
+            "Oct 7"
+          ],
+          "topics": [
+            "anthropic",
+            "workflow"
+          ],
+          "accent": "teal",
+          "whatChanged": "Haiku 5.5 is available across Anthropic’s platforms and major clouds. For prompts up to 100,000 tokens, API pricing is $0.10 per million input tokens, $0.50 per million output tokens, and $0.01 per million cache-read tokens. Monthly API credit is rolling out to Max and Team subscribers: $100 for Max 5x, $200 for Max 20x, and up to $500 pooled for Team.",
+          "whyItMatters": "Your 22-selection Cocopah SFUL support file and kitchen-photo inventory both contain high-volume, low-judgment steps that can be delegated cheaply, reserving the stronger model—and your attention—for conflicting evidence and conclusions.",
+          "tryThis": "",
+          "prompt": "Process each indexed selection independently. Extract document type, vendor/payee, date, amount, selection number, supporting-agent section, and missing-evidence flags. Return strict JSON plus a one-row exception summary. Do not conclude whether the item passes; route conflicts, unreadable pages, and missing support to the reviewer.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://www.anthropic.com/claude-haiku-5-5",
+              "label": "Anthropic · Claude Haiku 5.5"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-3",
+          "headline": "ChatGPT can now accept audio files as source material",
+          "summary": "Paid ChatGPT plans and workspaces can upload audio for transcription, summaries, questions, and follow-up drafts. This moves recorded client walkthroughs and interviews into the same source-grounded workflow as PDFs and spreadsheets.",
+          "chips": [
+            "03 · OpenAI",
+            "Paid plans",
+            "Oct 6"
+          ],
+          "topics": [
+            "openai",
+            "workflow"
+          ],
+          "accent": "amber",
+          "whatChanged": "Attach a supported audio file and ask ChatGPT to transcribe or analyze it. Availability can vary by workspace settings, region, client version, and model. OpenAI warns that transcripts may contain errors and language performance varies, so high-stakes facts still need source verification.",
+          "whyItMatters": "A Sage Intacct export walkthrough, pension explanation, or controls interview can be converted into a timestamped memo and a PBC request list—provided recording consent and your firm’s data policy are satisfied.",
+          "tryThis": "",
+          "prompt": "Transcribe this approved recording verbatim enough to preserve accounting terms. Then create: (1) a timestamped process narrative, (2) systems and reports mentioned, (3) control owners and frequencies, (4) unresolved questions, and (5) a draft PBC request list. Quote no more than needed and label uncertain words with timestamps.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://help.openai.com/en/articles/8555545-uploading-files-and-audio-to-chatgpt",
+              "label": "OpenAI · Uploading files and audio"
+            },
+            {
+              "href": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+              "label": "OpenAI · ChatGPT release notes"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-4",
+          "headline": "Google opens SynthID Detector globally for AI-media provenance checks",
+          "summary": "Anyone can now upload an image, video, or audio file to check for invisible SynthID watermarks from Google and participating partners, including OpenAI, NVIDIA, and Kakao. The tool is available globally in English and adds a useful verification step—but it is not a universal detector.",
+          "chips": [
+            "04 · Google",
+            "Free web tool",
+            "Oct 7"
+          ],
+          "topics": [
+            "workflow",
+            "google"
+          ],
+          "accent": "purple",
+          "whatChanged": "Google says SynthID has already watermarked more than 180 billion images and videos plus 240,000 years of audio. Detector access is now global in English. Important limitation: “No watermark found” does not prove media is human-made; the tool only recognizes supported watermarks and participating systems.",
+          "whyItMatters": "For property due diligence and your photo inventory, the detector gives you one more way to flag virtual staging, altered listing media, or generated imagery before treating a picture as evidence.",
+          "tryThis": "",
+          "prompt": "For one shortlisted property, check the most decision-relevant listing images—roof, HVAC, kitchen, windows, and structural areas. Record filename, source URL, upload date, SynthID result, and whether the image appears virtually staged. Treat a negative result as “no supported watermark detected,” not proof of authenticity.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/",
+              "label": "Google DeepMind · global SynthID Detector access"
+            },
+            {
+              "href": "https://synthid.com/",
+              "label": "Open SynthID Detector"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-5",
+          "headline": "Category 3 Hurricane Isaias is approaching the Alabama–Florida Gulf Coast",
+          "summary": "Isaias strengthened to 120 mph and is forecast to make landfall Friday evening near the Alabama–Florida line. Officials warn of life-threatening storm surge, damaging winds, flash flooding, and tornadoes; some coastal areas are under mandatory evacuation orders.",
+          "chips": [
+            "05 · World snapshot",
+            "Active emergency",
+            "Oct 9"
+          ],
+          "topics": [
+            "world"
+          ],
+          "accent": "coral",
+          "whatChanged": "NOAA says Isaias is at or near major-hurricane strength ahead of landfall. The National Weather Service forecasts 5–7 feet of storm-surge inundation along parts of the Panhandle coast, with widespread 4–10 inches of rain and localized totals near 15 inches. Conditions can change quickly; use current official advisories.",
+          "whyItMatters": "This is a significant U.S. emergency with likely travel, logistics, insurance, and recovery effects across the Gulf Coast and Southeast—even if Arizona is outside the impact area.",
+          "tryThis": "",
+          "prompt": "If you have travel, clients, family, or vendors in the affected region, check the current NHC advisory and local emergency-management instructions rather than relying on this morning snapshot. Avoid travel into warning areas and treat evacuation orders as authoritative.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://www.nhc.noaa.gov/",
+              "label": "NOAA · National Hurricane Center"
+            },
+            {
+              "href": "https://www.weather.gov/mob/",
+              "label": "National Weather Service · Mobile/Pensacola"
+            },
+            {
+              "href": "https://apnews.com/article/b647d3e93f2b7bcd41ed1843d5a2a0e9",
+              "label": "Associated Press · current impacts and preparations"
+            }
+          ],
+          "art": ""
+        }
+      ],
+      "watch": [
+        {
+          "label": "Intelligent UI has not changed Work or Codex models",
+          "note": "Watch for the interface layer to reach longer-running Work deliverables; OpenAI has not announced that expansion yet. Perplexity / xAI"
+        },
+        {
+          "label": "No consequential cloud-workflow release this week",
+          "note": "Research updates landed, but nothing new cleared your usefulness threshold for a main story."
+        }
+      ],
+      "topics": [
+        "openai",
+        "workflow",
+        "anthropic",
+        "google",
+        "world"
+      ],
+      "storyCount": 5
+    },
+    {
+      "slug": "weekly-2026-10-02",
+      "kind": "weekly",
+      "date": "2026-10-02",
+      "weekday": "Friday",
+      "dateLabel": "October 2, 2026",
+      "shortDate": "Oct 2",
+      "file": "briefings/2026-10-02-weekly.html",
+      "title": "Personalized Weekly Briefing — October 2, 2026",
+      "theme": "Your workflows are becoming continuously updateable.",
+      "kicker": "Friday intelligence · October 2, 2026",
+      "deck": "This week’s useful shift: cloud agents and Sites can keep work moving between chats—while faster document models and better phone capture shorten the intake-to-review loop.",
+      "glance": [
+        {
+          "label": "Sites schedules",
+          "note": "Property workflow · Sep 29"
+        },
+        {
+          "label": "ChatGPT Dots",
+          "note": "Always-on agent · Sep 29"
+        },
+        {
+          "label": "Sonnet 5.5",
+          "note": "Audit throughput · Sep 28"
+        },
+        {
+          "label": "iOS Scan",
+          "note": "Document intake · Oct 1"
+        },
+        {
+          "label": "G7 fuel release",
+          "note": "Cost pressure · Oct 2"
+        }
+      ],
+      "stories": [
+        {
+          "id": "story-1",
+          "headline": "Published ChatGPT Sites can now be edited in place—and refreshed on a cloud schedule",
+          "summary": "You can open a published Site in a desktop browser, request changes, review the proposed result, and republish. Sites can also run recurring cloud work through Automations, creating a practical path for keeping your property-viewing briefs current without rebuilding the page each time.",
+          "chips": [
+            "OpenAI",
+            "Property workflow",
+            "Public beta"
+          ],
+          "topics": [
+            "openai",
+            "workflow"
+          ],
+          "accent": "blue",
+          "whatChanged": "Editing a published Site now starts a new workflow from the live page; changes do not appear until you review and publish. An owner can also add cloud schedules for recurring work. Limit: Sites remains a rolling public beta for eligible ChatGPT workspaces, Plus, and Pro; scheduled work needs its own usable data source.",
+          "whyItMatters": "Your property-viewing-briefs project can become a lightweight status monitor: check listing price/status/source freshness, surface only exceptions, then let you approve the revised page.",
+          "tryThis": "",
+          "prompt": "Every Friday, review the source links used by this property-viewing Site. Create a change queue showing listing status, price changes, stale or inaccessible sources, and the last verified timestamp. Do not publish automatically. Preserve my layout and ask me to approve any content change before publishing.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://help.openai.com/en/articles/20001339-creating-and-using-chatgpt-sites",
+              "label": "OpenAI · Creating and using ChatGPT Sites"
+            },
+            {
+              "href": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+              "label": "OpenAI · ChatGPT release notes"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-2",
+          "headline": "ChatGPT Dots introduces an always-on agent for responsibilities that outlive a conversation",
+          "summary": "A Dot gets its own cloud computer, connected apps, instructions, and an activity log so it can keep advancing an ongoing goal. It can work on schedules or proactively surface changes, with action rules that let you require approval for sensitive steps.",
+          "chips": [
+            "OpenAI",
+            "Cloud agent",
+            "Pro / Business Premium"
+          ],
+          "topics": [
+            "openai",
+            "workflow"
+          ],
+          "accent": "teal",
+          "whatChanged": "Dots can maintain context and operate a cloud computer between chats, ask for judgment, and use pre-set action rules. Rollout: gradual for adults on Pro (not EEA, Switzerland, or UK) and Business Premium in supported regions; Enterprise is a limited beta and admin-disabled by default. Creation starts on desktop web or the desktop app, not mobile.",
+          "whyItMatters": "This is the closest current fit for ongoing PBC readiness—watching approved inputs and preparing an exception report—provided you keep workpaper changes and external messages behind explicit approval.",
+          "tryThis": "",
+          "prompt": "Monitor PBC and TB/GL/SEFA bridge readiness. Report only changed inputs with file name, timestamp, tie-out status, owner, and blocker. Never modify workpapers, infer unsupported mappings, post entries, or send messages without my explicit approval.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://help.openai.com/en/articles/20001530-getting-started-with-your-dot",
+              "label": "OpenAI · Getting started with your Dot"
+            },
+            {
+              "href": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+              "label": "OpenAI · ChatGPT release notes"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-3",
+          "headline": "Claude Sonnet 5.5 makes routine document and spreadsheet work faster and cheaper",
+          "summary": "Anthropic says Sonnet 5.5 is more than 30% faster and can cost up to 30% less for most work because it uses fewer tokens. Its sweet spot is well-scoped everyday work—polished documents, spreadsheets, and source-grounded analysis—rather than the hardest open-ended judgment.",
+          "chips": [
+            "Anthropic",
+            "Audit throughput",
+            "Released"
+          ],
+          "topics": [
+            "anthropic",
+            "workflow"
+          ],
+          "accent": "amber",
+          "whatChanged": "Sonnet 5.5 is available across Claude platforms and major cloud providers. App users default to medium effort; lower effort prioritizes speed and cost, while higher effort adds checks. API pricing is listed at $2 per million input tokens, $10 per million output tokens, and $0.20 per million cache-read tokens.",
+          "whyItMatters": "For your Cocopah FY2025 bridge, this model looks well suited to first-pass mapping checks and exception extraction; keep unusual accounting treatment and final audit conclusions with a human reviewer or a higher-reasoning pass.",
+          "tryThis": "",
+          "prompt": "Compare the approved mapped TB 2025/2024, mapped GL, Jan–Mar 2026 subsequent GL, and PBC TB/GL/SEFA bridge. Return only: duplicate or unmapped accounts; TB-to-GL variances; fund/group exceptions; SEFA candidate tie-outs; subsequent-event flags; and source tab/cell references. Do not post entries or infer unsupported mappings.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://www.anthropic.com/claude-sonnet-5-5",
+              "label": "Anthropic · Claude Sonnet 5.5 announcement"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-4",
+          "headline": "ChatGPT’s iOS camera now turns a multi-page capture into one PDF",
+          "summary": "The iOS camera’s new Scan option captures several pages in sequence and automatically combines them into a single PDF. It is a small feature with immediate value for bank statements, signed support, invoices, and field documents that otherwise arrive as scattered photos.",
+          "chips": [
+            "OpenAI",
+            "iOS",
+            "Rolling out"
+          ],
+          "topics": [
+            "openai",
+            "workflow"
+          ],
+          "accent": "purple",
+          "whatChanged": "Open the camera button in ChatGPT for iOS and choose Scan; multiple captured pages are combined into one PDF. Availability: OpenAI says the feature is rolling out on iOS, so it may not appear for every account immediately.",
+          "whyItMatters": "You can consolidate a bank-statement or PBC packet at the point of capture, reducing page-order errors and giving the review workflow one stable attachment instead of a chain of images.",
+          "tryThis": "",
+          "prompt": "For the next non-sensitive test packet, scan every page in order, confirm the page count and date range before upload, then ask: “Create a page-indexed table of statement dates, ending balances, missing pages, and unusual gaps. Cite the PDF page for every finding.” Follow your firm’s approved-data policy.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+              "label": "OpenAI · ChatGPT release notes, October 1"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-5",
+          "headline": "G7 moves to release 100 million barrels as diesel prices stay under pressure",
+          "summary": "G7 members agreed to coordinate the release of 100 million barrels of diesel and other fuel reserves through the International Energy Agency over four months, with a substantial diesel share front-loaded into the first 20 days. Markets reacted, but the release is a supply cushion—not proof that fuel costs have permanently normalized.",
+          "chips": [
+            "World",
+            "Energy",
+            "Today"
+          ],
+          "topics": [
+            "world"
+          ],
+          "accent": "coral",
+          "whatChanged": "The coordinated reserve action is intended to ease tight fuel markets quickly, especially diesel. AP reported U.S. diesel at $6.37 per gallon on October 2 after a September 22 record of $6.52; oil prices fell on reserve-release discussions, but the outlook remains volatile.",
+          "whyItMatters": "Fuel volatility touches client-site travel, shipping, and property operating assumptions—so near-term relief should not be treated as a permanent baseline.",
+          "tryThis": "",
+          "prompt": "For travel or property comparisons this month, show fuel-sensitive costs separately and include a simple ±10% sensitivity. Refresh actual quotes before a decision rather than using today’s price as a long-term assumption.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://www.reuters.com/business/energy/g7-release-100-million-barrels-diesel-other-reserves-through-iea-2026-10-02/",
+              "label": "Reuters · G7 reserve release"
+            },
+            {
+              "href": "https://apnews.com/article/trump-europe-diesel-fuel-prices-774a360d1646d9ce8aba764fdd9959d2",
+              "label": "Associated Press · diesel-price context"
+            }
+          ],
+          "art": ""
+        }
+      ],
+      "watch": [
+        {
+          "label": "Interactive plugins grow up",
+          "note": "Panels, sidebars, file editors, and MCP event-triggered automations move connected apps closer to real workflow surfaces. 02"
+        },
+        {
+          "label": "GPT-6.1 Sol rollout",
+          "note": "Work and Codex access begins with Pro, then expands to Plus, Business, Enterprise, and Edu; Enterprise/Edu owners may need to enable it."
+        }
+      ],
+      "topics": [
+        "openai",
+        "workflow",
+        "anthropic",
+        "world"
+      ],
+      "storyCount": 5
+    },
+    {
+      "slug": "weekly-2026-09-25",
+      "kind": "weekly",
+      "date": "2026-09-25",
+      "weekday": "Friday",
+      "dateLabel": "September 25, 2026",
+      "shortDate": "Sep 25",
+      "file": "briefings/2026-09-25-weekly.html",
+      "title": "Weekly Briefing Sep 25",
+      "theme": "Voice becomes a working interface, not just a conversation.",
+      "kicker": "Personalized weekly briefing · five stories",
+      "deck": "This week’s strongest practical change is ChatGPT Voice gaining access to connected apps and Work on web and mobile. The rest of the briefing turns new finance, model-efficiency, search-cost and interest-rate developments into experiments for your audit, property and recurring-monitor workflows.",
+      "glance": [
+        {
+          "label": "Sep 16",
+          "note": "Fed rate hike · monitor"
+        },
+        {
+          "label": "Sep 21",
+          "note": "Credit scores · evaluate"
+        },
+        {
+          "label": "Sep 22",
+          "note": "Opus 5.5 · benchmark"
+        },
+        {
+          "label": "Sep 23",
+          "note": "Voice + apps · try now"
+        },
+        {
+          "label": "September",
+          "note": "Fast Search · pilot"
+        }
+      ],
+      "stories": [
+        {
+          "id": "story-1",
+          "headline": "ChatGPT Voice can now use plugins—and Work can keep going after you stop speaking",
+          "summary": "Voice can use the plugins and connected apps already available to your account on web, iOS and Android. In Work, it can also create documents, presentations or spreadsheets and use a browser; if a job is unfinished when the call ends, it can continue in text.",
+          "chips": [
+            "OpenAI",
+            "Voice + connected apps",
+            "Sep 23"
+          ],
+          "topics": [
+            "openai",
+            "workflow"
+          ],
+          "accent": "blue",
+          "whatChanged": "Voice is no longer isolated from cloud tools: it can invoke available plugins, show written results in the chat and hand an unfinished Work task into text for completion.",
+          "whyItMatters": "This lets you narrate a Sage Intacct export checklist beside a client while ChatGPT maintains the evidence log and drafts the handoff document.",
+          "tryThis": "",
+          "prompt": "We are exporting an audit PBC package from Sage Intacct. Maintain a live checklist with report name, entity, period, filters, run date, output filename, page/row count, and exceptions. After every spoken update, restate only the open items. Do not mark an item complete unless I explicitly confirm the export and validation.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+              "label": "OpenAI release notes · Sep 23"
+            },
+            {
+              "href": "https://help.openai.com/en/articles/20001274-chatgpt-voice",
+              "label": "ChatGPT Voice guide"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-2",
+          "headline": "ChatGPT Finances adds Experian credit-score tracking and monitoring",
+          "summary": "Eligible users can connect an Experian report and VantageScore 3.0, ask what is affecting the score and receive alerts for changes such as a new inquiry, account or address. The report updates monthly and the Experian connection is separate from bank accounts connected through Plaid.",
+          "chips": [
+            "OpenAI",
+            "Personal finance",
+            "Sep 21"
+          ],
+          "topics": [
+            "openai",
+            "workflow"
+          ],
+          "accent": "teal",
+          "whatChanged": "Finances now combines bank-account context with an optional, separately authorized credit-report view, while preserving separate connections and disconnect controls.",
+          "whyItMatters": "This can turn your property-purchase goal into a current mortgage-readiness checklist without requiring a live bank-account connection.",
+          "tryThis": "",
+          "prompt": "Using only the connected credit report and the assumptions I provide, build a 90-day mortgage-readiness plan. Separate verified report facts from assumptions, rank actions by likely impact and reversibility, flag anything that could temporarily lower the score, and tell me which questions require a lender or certified financial professional.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://help.openai.com/en/articles/20001222-finances-in-chatgpt",
+              "label": "Finances guide and disclosures"
+            },
+            {
+              "href": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+              "label": "OpenAI release notes · Sep 21"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-3",
+          "headline": "Claude Opus 5.5 targets the same class of work with lower cost and faster output",
+          "summary": "Anthropic says Opus 5.5 performs at Fable 5.1’s level on most work while costing about 40% less than Opus 5 on typical workloads. It lists $4 per million input tokens, $20 per million output tokens, $0.20 cache reads and output more than 30% faster than Opus 5.",
+          "chips": [
+            "Anthropic",
+            "Claude Opus 5.5",
+            "Sep 22"
+          ],
+          "topics": [
+            "workflow"
+          ],
+          "accent": "amber",
+          "whatChanged": "The flagship tier is being repositioned around efficiency: lower per-token prices, much cheaper cache reads and fewer tokens or calls on Anthropic’s test workloads.",
+          "whyItMatters": "Long, source-heavy jobs such as bank-statement consolidation or an evidence-indexed property brief are exactly where fewer calls and cheaper cached context could matter.",
+          "tryThis": "",
+          "prompt": "Run the same 20-page bank-statement bundle through my current model and Opus 5.5. Produce identical outputs: page-by-page coverage log, transaction table, opening/closing balance roll-forward, exceptions, and source citations. Score only completeness, arithmetic agreement, unsupported inferences, elapsed time, and total usage cost.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://www.anthropic.com/claude-opus-5-5",
+              "label": "Anthropic announcement · Sep 22"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-4",
+          "headline": "Perplexity Fast Search cuts lightweight web checks to $1 per 1,000 calls",
+          "summary": "Perplexity added search_type: \"fast\" for lower-latency web retrieval, priced at $1 per 1,000 Search API requests instead of $5 for standard web search. Its Agent API fast preset now uses the same path, with web-search calls dropping from $2.50 to $1 per 1,000 and Perplexity reporting about 800 ms lower latency.",
+          "chips": [
+            "Perplexity",
+            "Cloud API",
+            "September"
+          ],
+          "topics": [
+            "workflow"
+          ],
+          "accent": "purple",
+          "whatChanged": "The same result shape can now come from a cheaper fast path, making a two-stage retrieval design practical without rewriting downstream parsers.",
+          "whyItMatters": "Your listing-status and AI-news monitors can spend pennies on first-pass freshness checks, keep state in Google Sheets, and reserve full research for genuinely changed pages.",
+          "tryThis": "",
+          "prompt": "For each tracked URL, read url, last_seen_title, last_seen_date, content_hash, and checked_at from Google Sheets. Use Fast Search first. If title/date/hash is unchanged, update checked_at only and stop. If changed, missing, contradictory, or older than the expected cadence, escalate to standard search and return only the changed fields plus direct evidence links.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://docs.perplexity.ai/docs/search/fast-search",
+              "label": "Fast Search documentation"
+            },
+            {
+              "href": "https://docs.perplexity.ai/docs/resources/changelog",
+              "label": "Perplexity changelog"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-5",
+          "headline": "The Federal Reserve raises rates to 3.75%–4.00% as inflation stays broad",
+          "summary": "The FOMC unanimously raised its target range by a quarter point on September 16. This week, several Fed officials said persistent inflation—not only energy or tariff shocks—supported the move, reinforcing the risk that borrowing costs remain elevated.",
+          "chips": [
+            "U.S. snapshot",
+            "Rates + housing",
+            "Sep 16–23"
+          ],
+          "topics": [
+            "world"
+          ],
+          "accent": "coral",
+          "whatChanged": "The direction reversed from the 2025 easing cycle: the Fed tightened by 25 basis points, and this week’s commentary emphasized inflation persistence across the economy.",
+          "whyItMatters": "For your property search, the immediate practical variable is the actual lender quote and monthly-payment sensitivity, not a guess about the next Fed meeting.",
+          "tryThis": "",
+          "prompt": "Build a property-offer sensitivity table using my actual lender quote, not an assumed Fed pass-through. Show monthly principal and interest at the quoted rate, quoted rate ±0.50%, and quoted rate ±1.00%, holding price and down payment constant. Label taxes, insurance, HOA and maintenance separately, and do not present the result as financial advice.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+              "label": "Federal Reserve statement · Sep 16"
+            },
+            {
+              "href": "https://www.reuters.com/business/feds-barkin-says-economy-may-be-firming-inflation-not-limited-energy-tariff-2026-09-22/",
+              "label": "Reuters · Fed commentary · Sep 22"
+            }
+          ],
+          "art": ""
+        }
+      ],
+      "watch": [
+        {
+          "label": "GPT-6 Sol and Luna in Work",
+          "note": "OpenAI added both models on September 22; plan and workspace settings control access and reasoning levels, so benchmark only after they appear in your picker."
+        },
+        {
+          "label": "Grok 4.7 is not yet a SuperGrok story",
+          "note": "xAI launched it September 21 in Grok Build, Cursor, API and third-party cloud routes; the announcement does not claim consumer Grok or SuperGrok availability."
+        }
+      ],
+      "topics": [
+        "openai",
+        "workflow",
+        "world"
+      ],
+      "storyCount": 5
+    },
+    {
+      "slug": "weekly-2026-09-18",
+      "kind": "weekly",
+      "date": "2026-09-18",
+      "weekday": "Friday",
+      "dateLabel": "September 18, 2026",
+      "shortDate": "Sep 18",
+      "file": "briefings/2026-09-18-weekly.html",
+      "title": "Weekly Briefing Sep 18",
+      "theme": "Your work is moving into the document.",
+      "kicker": "Personalized weekly briefing · five stories",
+      "deck": "ChatGPT’s newest step is unusually practical for an auditor: it can now sit beside a Word workpaper, revise selected text and adjust formatting. The rest of this week is about keeping identities, reusable workflows and evidence paths under control.",
+      "glance": [
+        {
+          "label": "Sep 11",
+          "note": "GPT migration"
+        },
+        {
+          "label": "September",
+          "note": "Custom MCP connectors"
+        },
+        {
+          "label": "Sep 17",
+          "note": "ChatGPT for Word"
+        },
+        {
+          "label": "Sep 17",
+          "note": "Multiple plugin accounts"
+        },
+        {
+          "label": "Sep 18",
+          "note": "Hormuz shipping risk"
+        }
+      ],
+      "stories": [
+        {
+          "id": "story-1",
+          "headline": "ChatGPT arrives inside Microsoft Word",
+          "summary": "ChatGPT’s Microsoft add-in now supports Word alongside Excel and PowerPoint. From the sidebar it can draft from notes, summarize a document, revise selected text, and adjust headings or formatting; the Marketplace listing also says it can bring connected sources into the Word workflow.",
+          "chips": [
+            "OpenAI",
+            "Audit documentation",
+            "Sep 17"
+          ],
+          "topics": [
+            "openai",
+            "workflow"
+          ],
+          "accent": "blue",
+          "whatChanged": "The assistant now works against the open document and selected text instead of requiring a paste-export-repaste loop. OpenAI warns that important numbers, citations and claims still require primary-source verification.",
+          "whyItMatters": "This is well suited to your short experience writeups, status memos and workpaper conclusions: the source draft stays visible while you tighten wording and formatting, but the audit evidence remains outside the model’s authority.",
+          "tryThis": "",
+          "prompt": "Review only the selected conclusion paragraph. Preserve every amount, date, person, assertion and cross-reference exactly. Improve clarity and concision for an external-audit workpaper. Then list any statement that appears unsupported or internally inconsistent; do not silently correct it.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://marketplace.microsoft.com/en-us/product/office/WA200010215",
+              "label": "Microsoft Marketplace"
+            },
+            {
+              "href": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+              "label": "OpenAI release notes"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-2",
+          "headline": "Multiple-account plugin connections expand beyond Google’s core apps",
+          "summary": "ChatGPT now lets you connect multiple accounts to plugins beyond Gmail, Google Calendar and Google Contacts. That means personal and work identities can live in one conversation without signing out and reconnecting each service.",
+          "chips": [
+            "OpenAI",
+            "Account routing",
+            "Sep 17"
+          ],
+          "topics": [
+            "openai",
+            "workflow"
+          ],
+          "accent": "teal",
+          "whatChanged": "The earlier multi-account support was limited to three Google services; the September 17 update broadens the pattern to plugins generally.",
+          "whyItMatters": "You actively use separate Gmail identities for formal communications and personal property work. The useful part is less re-authentication; the control risk is asking the right question against the wrong account.",
+          "tryThis": "",
+          "prompt": "Before using any connected account, state the service and account identity you intend to search or act through. Keep firm/audit data and personal/property data in separate tasks. If the selected identity is ambiguous, stop before reading or sending anything.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+              "label": "OpenAI release notes · Sep 17"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-3",
+          "headline": "Custom GPT migration is starting—and custom actions will not come along automatically",
+          "summary": "OpenAI plans to retire custom GPTs and move their reusable instructions into plugin skills. Enterprise migration was targeted for September 17; new custom-GPT creation is planned to end September 25, with retirement scheduled for December 11.",
+          "chips": [
+            "OpenAI",
+            "Action required",
+            "Sep 17 target"
+          ],
+          "topics": [
+            "openai",
+            "workflow"
+          ],
+          "accent": "amber",
+          "whatChanged": "A migrated GPT becomes read-only until retirement. Its replacement plugin starts private, and access must be re-shared and tested; public-GPT access does not guarantee access to the replacement.",
+          "whyItMatters": "Any reusable audit, property-brief or HTML-generator GPT should be inventoried now. The highest-risk break is a hidden custom action that previously sent data or called a workflow.",
+          "tryThis": "",
+          "prompt": "Create a migration inventory with columns: GPT name, creator/workspace, business purpose, users, instructions captured, reference files, custom actions, replacement app/MCP, three regression prompts, expected output, owner, and tested date. Flag every custom action as “rebuild required.”",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://help.openai.com/en/articles/20001519",
+              "label": "OpenAI migration FAQ"
+            },
+            {
+              "href": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+              "label": "Release note"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-4",
+          "headline": "Perplexity Projects can now store a remote MCP connection once",
+          "summary": "Perplexity’s Agent API added custom connectors for remote MCP servers. A Project administrator registers the server URL and credential once; later runs reference a connector ID instead of resending the MCP secret every request.",
+          "chips": [
+            "Perplexity",
+            "Cloud MCP",
+            "September"
+          ],
+          "topics": [
+            "workflow"
+          ],
+          "accent": "purple",
+          "whatChanged": "Perplexity stores connection settings and credentials at the Project level. Managed connectors currently include GitHub, Slack, Google Drive, Datadog, Linear and Notion; a custom connector can point at another remote MCP server.",
+          "whyItMatters": "This fits your preference for cloud-hosted tools and makes a Google-Sheets state service or property-listing MCP reusable across scheduled runs without repeating a large tool definition or embedding the MCP credential in each script.",
+          "tryThis": "",
+          "prompt": "Pilot one read-only connector first. Expose only: get_state(run_key), upsert_state(run_key, last_seen_id, checked_at), and list_recent_changes(since). Keep large history in Sheets; return only changed rows plus stable IDs. Measure input tokens before and after deferred tool discovery.",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://docs.perplexity.ai/docs/agent-api/tools/connectors",
+              "label": "Connector documentation"
+            },
+            {
+              "href": "https://docs.perplexity.ai/docs/resources/changelog",
+              "label": "Perplexity changelog"
+            }
+          ],
+          "art": ""
+        },
+        {
+          "id": "story-5",
+          "headline": "Iran claims a tanker strike as Hormuz traffic remains roughly 90% below prewar levels",
+          "summary": "Iran said it struck the Togo-flagged tanker Trend over an allegedly unauthorized passage; AP could not independently confirm the claim. A separate tanker was reported hit by an unknown projectile, with its crew safe and fire extinguished, while military-facilitated traffic through the strait remains sharply reduced.",
+          "chips": [
+            "World snapshot",
+            "Shipping + inflation",
+            "Sep 18"
+          ],
+          "topics": [
+            "world"
+          ],
+          "accent": "coral",
+          "whatChanged": "The latest risk is not only a single claimed strike: multiple projectile incidents and authorization warnings are affecting one of the world’s most important oil-shipping chokepoints.",
+          "whyItMatters": "This is the week’s clearest global transmission channel into everyday costs: constrained energy shipping can lift oil, inflation expectations, borrowing costs and market volatility.",
+          "tryThis": "",
+          "prompt": "",
+          "watchFor": "",
+          "links": [
+            {
+              "href": "https://apnews.com/article/mideast-roundup-news-september-18-2026-024350a0820dfc5dd433b4e13445fab5",
+              "label": "Associated Press · Sep 18"
+            },
+            {
+              "href": "https://www.reuters.com/world/china/global-markets-flows-graphic-pix-2026-09-18/",
+              "label": "Reuters markets context · Sep 18"
+            }
+          ],
+          "art": ""
+        }
+      ],
+      "watch": [
+        {
+          "label": "Claude’s Life Sciences Verification Program",
+          "note": "Anthropic launched a September 17 program for vetted life-sciences access—important governance direction, but not a practical audit feature yet."
+        },
+        {
+          "label": "Manual model choice returns",
+          "note": "ChatGPT Plus and Pro retired automatic Instant-to-Thinking switching on September 14; explicitly choose reasoning for reconciliations and source-heavy reviews."
+        }
+      ],
+      "topics": [
+        "openai",
+        "workflow",
+        "world"
+      ],
+      "storyCount": 5
+    },
     {
       "slug": "weekly-2026-09-11",
       "kind": "weekly",
@@ -395,7 +1613,7 @@
       "watch": [
         {
           "label": "Grok Bot",
-          "note": "enterprise availability began September 3, with a two-week free period for Grok and Cursor Enterprise customers; the current public page emphasizes enterprise activation and a macOS download, so it falls outside today’s web/iOS shortlist."
+          "note": "enterprise availability began September 3, with a two-week free period for Grok and Cursor Enterprise customers; the current public page emphasizes enterprise activation and a macOS download, so it falls outside today’s web/iOS shortlist. ·"
         },
         {
           "label": "Astra access",
@@ -591,12 +1809,8 @@
       ],
       "watch": [
         {
-          "label": "Signal",
-          "note": "Anthropic’s customer-controlled Enterprise Frontier Safeguards are planned for phased release later this fall"
-        },
-        {
-          "label": "Signal",
-          "note": "OpenAI’s new healthcare plugins show how tightly scoped, read-only connectors may expand into other regulated domains."
+          "label": "Worth watching",
+          "note": "Anthropic’s customer-controlled Enterprise Frontier Safeguards are planned for phased release later this fall · OpenAI’s new healthcare plugins show how tightly scoped, read-only connectors may expand into other regulated domains."
         }
       ],
       "topics": [
@@ -780,12 +1994,8 @@
       ],
       "watch": [
         {
-          "label": "Signal",
-          "note": "Kyiv endured a sixth consecutive day of Russian air attacks"
-        },
-        {
-          "label": "Signal",
-          "note": "Claude in Chrome is moving toward broader paid-plan availability, but browser-agent safety remains the key test."
+          "label": "Worth watching",
+          "note": "Kyiv endured a sixth consecutive day of Russian air attacks · Claude in Chrome is moving toward broader paid-plan availability, but browser-agent safety remains the key test."
         }
       ],
       "topics": [

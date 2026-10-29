@@ -130,7 +130,8 @@ function artMarkup(story, fallbackLabel) {
 
 function linksMarkup(links) {
   return (links ?? []).map((link) => `
-    <a href="${escapeHtml(link.href)}" target="_blank" rel="noopener">${escapeHtml(link.label)} ${icon.external}</a>`).join('');
+    <a href="${escapeHtml(link.href)}" target="_blank" rel="noopener" title="${escapeHtml(link.label)}">
+      <span class="label">${escapeHtml(link.label)}</span>${icon.external}</a>`).join('');
 }
 
 function storyCard(brief, story, index, { showSource = false } = {}) {
@@ -172,7 +173,8 @@ function storyCard(brief, story, index, { showSource = false } = {}) {
       <div class="card-foot">
         ${linksMarkup(story.links)}
         <span class="spacer"></span>
-        <a href="${escapeHtml(`${brief.file}#${story.id}`)}" target="_blank" rel="noopener">In briefing ${icon.external}</a>
+        <a href="${escapeHtml(`${brief.file}#${story.id}`)}" target="_blank" rel="noopener">
+          <span class="label">In briefing</span>${icon.external}</a>
       </div>
     </article>`;
 }
@@ -196,14 +198,15 @@ function briefCard(brief, index) {
       <div class="card-foot">
         <button class="btn" data-route="${escapeHtml(brief.slug)}">Open cards</button>
         <span class="spacer"></span>
-        <a href="${escapeHtml(brief.file)}" target="_blank" rel="noopener">Full briefing ${icon.external}</a>
+        <a href="${escapeHtml(brief.file)}" target="_blank" rel="noopener">
+          <span class="label">Full briefing</span>${icon.external}</a>
       </div>
     </article>`;
 }
 
 const TOPIC_LABELS = {
-  all: 'All stories', ai: 'AI', openai: 'OpenAI', mcp: 'MCP', qa: 'QA',
-  ui: 'UI', api: 'API', world: 'World news',
+  all: 'All stories', ai: 'AI', openai: 'OpenAI', xai: 'xAI', mcp: 'MCP',
+  qa: 'QA', ui: 'UI', api: 'API', world: 'World news',
 };
 
 function topicFilters(topics) {

@@ -1,0 +1,2488 @@
+<!doctype html>
+<html lang="en" data-visualize-standalone>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Personalized Weekly Briefing — October 23, 2026</title>
+<style>:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 16px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans:
+    -apple-system-body, ui-sans-serif, -apple-system, system-ui, "Segoe UI",
+    Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  --font-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --icon-size: 16px;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --corner-shape: round;
+  --radius: var(--border-radius-lg, 8px);
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 2);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 17'%3E%3Cpath d='M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z'/%3E%3C/svg%3E");
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html > body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: var(--visualize-paint-gutter, 0px);
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  -webkit-font-smoothing: antialiased;
+  font-size: var(--font-size-base);
+  line-height: calc(var(--font-size-base) * 1.625);
+  font-weight: var(--font-weight-normal);
+}
+
+:root:not([data-app-block-surface], [data-visualize-standalone]) > body {
+  padding: 12px;
+}
+
+.cursor-interaction {
+  cursor: var(--cursor-interaction, pointer);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: var(--cursor-interaction, pointer);
+  text-decoration: none;
+  text-underline-offset: 2px;
+  font-weight: inherit;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+.table {
+  font-family: var(--font-sans);
+}
+
+h1 {
+  font-size: calc(var(--font-size-base) * 1.5);
+  line-height: 1.3333333333;
+}
+
+h2 {
+  font-size: calc(var(--font-size-base) * 1.25);
+  line-height: 1.4;
+}
+h3 {
+  font-size: calc(var(--font-size-base) * 1.125);
+  line-height: 1.5555555556;
+}
+h4 {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+h5,
+h6 {
+  font-size: var(--font-size-base);
+  line-height: calc(var(--font-size-base) * 1.625);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong,
+th {
+  font-weight: 600;
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+pre,
+pre code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: calc(var(--font-size-base) * 0.875);
+  line-height: calc(var(--font-size-base) * 1.625);
+  font-family: var(--font-sans);
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 5%, transparent);
+}
+.table :is(th, td):not(:last-child) {
+  padding-inline-end: calc(var(--font-size-base) * 1.5);
+}
+
+.table-responsive > .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead :is(th, td) {
+  border-bottom-color: var(--border-strong, var(--input));
+  padding-block: calc(var(--font-size-base) / 2);
+  line-height: var(--font-size-base);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+.table tbody :is(th, td) {
+  padding-block: calc(var(--font-size-base) * 0.625);
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 8px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align="right"]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align="center"]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: var(--corner-shape);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+.widget {
+  min-width: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  box-shadow: 0 0 0 0.5px var(--border-strong, var(--border));
+  color: var(--foreground);
+  background: var(--background);
+}
+
+#widget > :not(.card, .widget, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  border: 1px solid var(--border);
+  corner-shape: var(--corner-shape);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+  font-family: var(--font-sans);
+  padding: 5px 12px;
+  border-color: color-mix(
+    in oklab,
+    light-dark(var(--primary-foreground), var(--foreground)) 5%,
+    transparent
+  );
+  border-radius: var(--radius-2xl);
+  color: light-dark(var(--primary-foreground), var(--foreground));
+  background: light-dark(var(--foreground), var(--popover));
+  box-shadow: 0 8px 18px rgb(15 23 42 / 20%);
+  letter-spacing: -0.15px;
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+/* The shared runtime owns data-tooltip; suppress AppBlock's pseudo-tooltip. */
+main [data-tooltip]::after {
+  content: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin-block: 6px;
+  border: 0;
+  background: var(--border);
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress {
+  display: flex;
+  height: 8px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 8px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar:only-child {
+  border-radius: var(--radius-full);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  color: color-mix(in srgb, var(--foreground) 40%, var(--muted-foreground));
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  font-family: var(--font-sans);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 1;
+}
+
+small,
+.text-small {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls > .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls > .form-label > :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.nav-link,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+/* Match inline alignment without overriding a containing flex or grid layout. */
+.btn,
+.nav-link,
+.form-control,
+.form-select,
+.form-range,
+.form-check {
+  vertical-align: middle;
+}
+
+.btn,
+.nav-link {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  corner-shape: var(--corner-shape);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: inherit;
+  font-family: var(--font-sans);
+  height: fit-content;
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  padding-inline: var(--control-spacing, 12px);
+  border-color: transparent;
+  border-radius: var(--radius-full);
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+}
+
+.btn {
+  border-color: var(--border);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: var(--cursor-interaction, pointer);
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.nav-link:not(:disabled):not([aria-disabled="true"]):hover {
+  background: color-mix(in srgb, var(--foreground) 10%, transparent);
+}
+
+.btn-primary {
+  border-color: var(--border);
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: border-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: border-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--muted-foreground);
+  background: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.nav-pills .nav-link {
+  min-width: 0;
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.nav-justified .nav-link {
+  flex: 1 1 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.nav-pills .nav-link.active {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+/* Shared preview chrome; product styles stay inside each variant. */
+.viz-dotted-background {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--foreground) 14%, transparent) 0.8px,
+    transparent 0.8px
+  );
+  background-position: center;
+  background-size: 16px 16px;
+}
+
+.viz-carousel {
+  position: relative;
+  min-width: 0;
+}
+
+.viz-carousel:has(> .viz-carousel-controls) {
+  min-height: calc(60px + var(--viz-carousel-picker-height, 0px));
+  padding-bottom: 60px;
+}
+
+.viz-carousel > [data-variant][hidden] {
+  display: none !important;
+}
+
+.viz-carousel > [data-variant] {
+  isolation: isolate;
+}
+
+.viz-carousel-controls {
+  --viz-carousel-hover: light-dark(
+    color-mix(in srgb, var(--foreground) 5.4%, transparent),
+    color-mix(in srgb, var(--foreground) 7.8%, transparent)
+  );
+  position: absolute;
+  z-index: 2;
+  bottom: 8px;
+  left: 50%;
+  display: flex;
+  width: max-content;
+  /* Leave room for the host's design-controls launcher at the trailing edge. */
+  max-width: calc(100% - 96px);
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+  /* Match the settings dropdown chrome independently of the content font size. */
+  font-size: 13px;
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+  transform: translateX(-50%);
+  user-select: none;
+}
+
+/* Keep authored mockup button styles out of the shared carousel chrome. */
+.viz-carousel-controls button,
+.viz-carousel-picker > summary {
+  display: flex !important;
+  height: auto !important;
+  min-height: 30px;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px;
+  padding: 0 6px !important;
+  -webkit-app-region: no-drag;
+  border: 0 !important;
+  border-radius: 14px !important;
+  color: inherit !important;
+  background: transparent !important;
+  font: inherit !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.viz-carousel-controls > button,
+.viz-carousel-picker > summary {
+  position: relative;
+  isolation: isolate;
+}
+
+.viz-carousel-controls > button {
+  --icon-size: 16px;
+  width: 30px !important;
+  padding: 0 !important;
+}
+
+.viz-carousel-picker > summary {
+  padding-inline: 12px !important;
+}
+
+.viz-carousel-controls .viz-carousel-caret {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  margin: 0;
+  color: inherit;
+  transform: rotate(180deg);
+}
+
+.viz-carousel-controls > button > svg,
+.viz-carousel-controls .viz-carousel-caret,
+.viz-carousel-count {
+  opacity: 0.5;
+}
+
+.viz-carousel-controls > button::before,
+.viz-carousel-picker > summary::before {
+  position: absolute;
+  z-index: -1;
+  inset: 3px;
+  border-radius: 12px;
+  content: "";
+  pointer-events: none;
+}
+
+.viz-carousel-controls > button:hover::before,
+.viz-carousel-picker > summary:hover::before {
+  background: var(--viz-carousel-hover);
+}
+
+.viz-carousel-controls > button,
+.viz-carousel-controls [data-lucide],
+.viz-carousel-controls .lucide {
+  flex-shrink: 0;
+}
+
+.viz-carousel-picker {
+  min-width: 0;
+}
+
+.viz-carousel-picker > summary {
+  min-width: 0;
+  list-style: none;
+}
+
+.viz-carousel-picker > summary::-webkit-details-marker {
+  display: none;
+}
+
+.viz-carousel-count {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.viz-carousel-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.viz-carousel-options {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 4px);
+  left: 0;
+  display: flex;
+  max-height: 240px;
+  flex-direction: column;
+  gap: 2px;
+  overflow: auto;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--background);
+  box-shadow: 0 4px 12px light-dark(rgb(0 0 0 / 6%), rgb(0 0 0 / 25%));
+}
+
+.viz-carousel-options > button {
+  border-radius: max(0px, calc(var(--radius-lg) - 5px)) !important;
+  width: 100% !important;
+  min-height: 28px;
+  justify-content: flex-start !important;
+  padding: 4px 8px !important;
+  font-size: var(--font-size-small) !important;
+  text-align: start;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.viz-carousel-options > [aria-current="true"],
+.viz-carousel-options > button:hover {
+  background: var(--viz-carousel-hover) !important;
+}
+
+.btn:disabled,
+.nav-link:disabled,
+.nav-link[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  padding-inline: calc(4px + var(--control-spacing, 12px) / 2);
+  border-color: var(--input);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--popover) 96%, transparent);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.4285714286;
+}
+.form-control:is(
+  [type="file"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="week"],
+  [type="color"]
+) {
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  line-height: 18px;
+}
+.form-control:is(
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="week"]
+) {
+  padding-inline: var(--control-spacing, 12px);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type="file"] {
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+  padding: 0;
+}
+
+.form-control[type="file"]::file-selector-button {
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+  min-height: calc(10px + 2 * var(--control-spacing, 12px));
+  padding-inline: var(--control-spacing, 12px);
+  margin-inline-end: var(--control-spacing, 12px);
+}
+
+.form-control[type="file"]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type="color"] {
+  width: 40px;
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type="color"]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: var(--corner-shape);
+}
+
+textarea.form-control {
+  height: auto;
+  resize: vertical;
+  min-height: 96px;
+  padding: 8px 10px;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: none;
+}
+.form-control:disabled {
+  color: var(--muted-foreground);
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  opacity: 1;
+}
+.form-control[aria-invalid="true"] {
+  border-color: var(--red);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--red) 20%, transparent);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: fit-content;
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  margin: 0;
+  /* The secondary icon role is 14px at compact density and 16px at web density. */
+  --icon-size: calc(10px + var(--control-spacing, 12px) / 2);
+  /* Settings dropdowns retain a 12px inset and a 4px text-to-chevron gap. */
+  padding: 0 calc(16px + var(--icon-size)) 0 12px;
+  outline: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(
+      45deg,
+      transparent calc(50% - 0.6px),
+      var(--muted-foreground) calc(50% - 0.6px) calc(50% + 0.6px),
+      transparent calc(50% + 0.6px)
+    ),
+    linear-gradient(
+      135deg,
+      transparent calc(50% - 0.6px),
+      var(--muted-foreground) calc(50% - 0.6px) calc(50% + 0.6px),
+      transparent calc(50% + 0.6px)
+    );
+  background-position:
+    calc(100% - 12px - var(--icon-size) / 2) 50%,
+    calc(100% - 12px - var(--icon-size) * 0.18) 50%;
+  background-repeat: no-repeat;
+  background-size: calc(var(--icon-size) * 0.32) calc(var(--icon-size) * 0.32);
+  cursor: var(--cursor-interaction, default);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+}
+
+.form-select option {
+  color: var(--popover-foreground);
+  background-color: var(--popover);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.form-select:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+.form-select:disabled {
+  opacity: 0.4;
+}
+
+.form-check {
+  display: flex;
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type="checkbox"] {
+  corner-shape: round;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  width: calc(10px + var(--control-spacing, 12px) / 2);
+  height: calc(10px + var(--control-spacing, 12px) / 2);
+  border-color: var(--border-strong, var(--input));
+  border-radius: calc(var(--radius-sm) / 2);
+  background-color: transparent;
+  color: var(--foreground);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type="checkbox"]:is(:checked, :indeterminate) {
+  border-color: var(--border-strong, var(--input));
+  background-color: color-mix(in srgb, var(--popover) 96%, transparent);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type="checkbox"]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: "";
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+  background-color: var(--foreground);
+}
+.form-check:not(.form-switch)
+  .form-check-input[type="checkbox"]:indeterminate::before {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 65%;
+  height: 6.65%;
+  margin: auto;
+  border-radius: var(--radius-full);
+  background: var(--foreground);
+  mask: none;
+  content: "";
+}
+
+.form-check-input[type="radio"] {
+  border-radius: var(--radius-full);
+  width: 16px;
+  height: 16px;
+  border: 0;
+  box-shadow: inset 0 0 0 1px var(--input);
+}
+
+.form-check-input[type="radio"]:checked {
+  border: 0;
+  background: radial-gradient(
+    circle,
+    var(--primary-foreground) 0 3px,
+    var(--foreground) 3px
+  );
+  box-shadow: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+.form-check:not(.form-switch) .form-check-input[type="checkbox"]:focus-visible {
+  border-color: var(--ring);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+.form-check:not(.form-switch) .form-check-input[type="radio"]:disabled,
+.form-check:not(.form-switch)
+  .form-check-input[type="radio"]:disabled
+  + .form-check-label {
+  opacity: 0.5;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  content: "";
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+  border-color: #fff;
+  background: #fff;
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--blue);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+  outline: none;
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  accent-color: var(--primary);
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  outline: none;
+  border-radius: var(--radius-full);
+  color: var(--foreground);
+  background: transparent;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  background: var(--form-range-track, var(--border));
+  height: 2px;
+  border-radius: var(--radius-full);
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  margin-top: -9px;
+  border-color: transparent;
+  background: currentColor;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Outline the native track and thumb, preserving the larger input hit area. */
+.form-range:focus-visible::-webkit-slider-runnable-track {
+  outline: 2px auto Highlight;
+  outline-color: -webkit-focus-ring-color;
+}
+
+.form-range::-moz-range-track {
+  background: var(--form-range-track, var(--border));
+  height: 2px;
+  border-radius: var(--radius-full);
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  border-color: transparent;
+  background: currentColor;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  outline: 2px solid Highlight;
+  outline-offset: 2px;
+}
+
+.form-range:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed="true"],
+  [aria-selected="true"],
+  .is-selected
+) {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--blue);
+}
+
+.btn.viz-tile:is([aria-pressed="true"], [aria-selected="true"], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible {
+  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.viz-carousel-controls :is(button, summary):focus-visible {
+  outline: 2px solid var(--ring) !important;
+  outline-offset: 2px !important;
+}
+
+/* Web recipes are the default, including on renderers without inline style queries. */
+@supports (border-radius: if(style(--corner-shape: round): 1px; else: 2px)) {
+  /* Match the host's proportional text-sm scale at every text preference. */
+  .tooltip,
+  .viz-badge,
+  .btn,
+  .nav-link,
+  .form-control,
+  .form-select {
+    font-size: if(
+      style(--corner-shape: round): round(
+          nearest,
+          calc(var(--font-size-base) * 14 / 16),
+          1px
+        );
+        else: round(nearest, calc(var(--font-size-base) * 13 / 14), 1px)
+    );
+  }
+
+  .btn,
+  .nav-link,
+  .form-select {
+    border-radius: if(
+      style(--corner-shape: round): var(--radius-full); else: var(--radius-lg)
+    );
+  }
+
+  .form-check:not(.form-switch) .form-check-input[type="checkbox"] {
+    border-radius: if(
+      style(--corner-shape: round): calc(var(--radius-sm) / 2);
+        else: calc(var(--radius-lg) * 0.4)
+    );
+  }
+
+  .tooltip {
+    font-weight: if(
+      style(--corner-shape: round): 600; else: var(--font-weight-normal)
+    );
+  }
+}
+
+@media (pointer: coarse) {
+  .viz-carousel:has(> .viz-carousel-controls) {
+    min-height: calc(76px + var(--viz-carousel-picker-height, 0px));
+    padding-bottom: 76px;
+  }
+
+  .btn,
+  .nav-link,
+  .viz-carousel-controls button,
+  .viz-carousel-picker > summary,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Keep small-screen WebKit from zooming when a text field receives focus. */
+  .form-control,
+  .form-select {
+    font-size: max(16px, calc(var(--font-size-base) * 14 / 16));
+    font-size: max(
+      16px,
+      round(nearest, calc(var(--font-size-base) * 14 / 16), 1px)
+    );
+  }
+  .form-control:is(
+    [type="file"],
+    [type="date"],
+    [type="datetime-local"],
+    [type="month"],
+    [type="week"],
+    [type="time"],
+    [type="color"]
+  ) {
+    height: 44px;
+    min-height: 44px;
+    font-size: max(16px, calc(var(--font-size-base) * 14 / 16));
+    font-size: max(
+      16px,
+      round(nearest, calc(var(--font-size-base) * 14 / 16), 1px)
+    );
+  }
+
+  .form-control[type="file"]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type="color"] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type="date"],
+    [type="datetime-local"],
+    [type="month"],
+    [type="time"],
+    [type="week"]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: "";
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget > svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: var(--icon-size) !important;
+  height: var(--icon-size) !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html>body{padding:0}</style>
+</head>
+<body>
+
+<div id="weekly-briefing-oct23">
+  <header class="briefing-header">
+    <div>
+      <p class="text-small text-muted header-kicker"><i data-lucide="sunrise" aria-hidden="true"></i> Friday briefing · October 23, 2026</p>
+      <h1>The proactive-agent race just became practical.</h1>
+      <p class="header-dek">Claude Duet brings an approval-first agent to connected cloud apps; ChatGPT can now build collaborative slide decks; Gemini is turning messy financial inputs into interactive models; and xAI published a concrete pattern for event-driven monitoring. The final card tracks the week’s sharp energy-and-rates signal.</p>
+    </div>
+    <aside class="header-signal" aria-label="Editorial mix: four AI workflow stories and one world-news story">
+      <div class="signal-mark" aria-hidden="true"><span>4</span><i data-lucide="plus"></i><span>1</span></div>
+      <p class="text-small"><strong>Best first move</strong><br>Join the Duet waitlist, but pilot only a read-only Gmail and Drive morning check before granting any action authority.</p>
+    </aside>
+  </header>
+
+  <section class="glance-section" aria-labelledby="glance-title">
+    <div class="section-heading">
+      <div><p class="text-small text-muted">Today at a glance</p><h2 id="glance-title">Five developments, ordered for practical relevance</h2></div>
+      <p class="text-small text-muted"><i data-lucide="clock-3" aria-hidden="true"></i> Oct 16–23</p>
+    </div>
+    <div class="glance-track" role="list" aria-label="Five stories by announcement date and practical use">
+      <button type="button" class="glance-node cursor-interaction" data-jump="duet" role="listitem" aria-label="October 21, Anthropic Claude Duet, approval-first proactive work">
+        <span class="node-date">Oct 21</span><span class="node-dot"></span><strong>Claude Duet</strong><span class="text-small text-muted">Approval-first agent</span>
+      </button>
+      <button type="button" class="glance-node cursor-interaction" data-jump="slides" role="listitem" aria-label="October 16, OpenAI ChatGPT Slides, collaborative deliverables">
+        <span class="node-date">Oct 16</span><span class="node-dot"></span><strong>ChatGPT Slides</strong><span class="text-small text-muted">Manager-ready decks</span>
+      </button>
+      <button type="button" class="glance-node cursor-interaction" data-jump="gemini" role="listitem" aria-label="October 20, Google Gemini business hub, spreadsheet insights">
+        <span class="node-date">Oct 20</span><span class="node-dot"></span><strong>Gemini hub</strong><span class="text-small text-muted">Financial models</span>
+      </button>
+      <button type="button" class="glance-node cursor-interaction" data-jump="grok" role="listitem" aria-label="October 20, xAI Grok Bot, event monitoring pattern">
+        <span class="node-date">Oct 20</span><span class="node-dot"></span><strong>Grok Bot pattern</strong><span class="text-small text-muted">Event monitoring</span>
+      </button>
+      <button type="button" class="glance-node cursor-interaction world-node" data-jump="energy" role="listitem" aria-label="October 23, world markets, oil and rates signal">
+        <span class="node-date">Oct 23</span><span class="node-dot"></span><strong>Energy + rates</strong><span class="text-small text-muted">Planning risk</span>
+      </button>
+    </div>
+    <p class="text-small text-muted glance-note"><i data-lucide="info" aria-hidden="true"></i> Dates are publication or rollout dates. The order reflects fit with your Gmail/Drive automations, audit deliverables, property briefing, and cloud-only workflow preferences—not an invented score.</p>
+  </section>
+
+  <div class="controls-row" aria-label="Briefing controls">
+    <div class="viz-controls" role="group" aria-label="Filter stories by company or topic">
+      <button type="button" class="btn btn-primary brief-filter" data-filter="all" aria-pressed="true">All 5</button>
+      <button type="button" class="btn brief-filter" data-filter="anthropic" aria-pressed="false">Anthropic</button>
+      <button type="button" class="btn brief-filter" data-filter="openai" aria-pressed="false">OpenAI</button>
+      <button type="button" class="btn brief-filter" data-filter="google" aria-pressed="false">Google</button>
+      <button type="button" class="btn brief-filter" data-filter="xai" aria-pressed="false">xAI</button>
+      <button type="button" class="btn brief-filter" data-filter="world" aria-pressed="false">World</button>
+    </div>
+    <div class="view-controls">
+      <button type="button" class="btn" id="oct23-theme" aria-label="Color theme: auto. Activate to cycle."><i data-lucide="circle-half" aria-hidden="true"></i><span>Auto</span></button>
+      <button type="button" class="btn" id="oct23-density" aria-pressed="false"><i data-lucide="rows-3" aria-hidden="true"></i><span>Compact</span></button>
+    </div>
+  </div>
+  <p id="oct23-filter-status" class="sr-only" aria-live="polite">Showing all five stories.</p>
+
+  <main class="story-grid" id="oct23-stories">
+    <article id="story-1" class="card story-card lead-story" data-story="duet" data-tags="anthropic workflow">
+      <div class="story-inner">
+        <div class="story-meta"><span class="viz-badge">01 · Anthropic</span><span class="viz-badge">Research preview</span><time datetime="2026-10-21">Oct 21</time></div>
+        <h2>Claude Duet pairs proactive work with explicit approvals</h2>
+        <p class="story-summary">Claude Duet is a separate proactive-agent app that checks connected accounts, searches prior Claude chats, brings back sourced summaries, and pauses before sending email, paying, signing, or deleting. It is available only through a U.S. waitlist for Pro and Max users, with access opening in waves.</p>
+        <a class="source-figure duet-figure" href="https://support.claude.com/en/articles/17631495-get-started-with-claude-duet" target="_blank" rel="noopener" aria-label="Open Anthropic's official Claude Duet guide">
+          <div role="img" aria-label="Editorial illustration of Claude Duet reviewing Gmail and Drive, preparing a property update, and pausing for human approval before sending">
+            <div class="duet-inputs"><span><i data-lucide="mail" aria-hidden="true"></i> Gmail</span><span><i data-lucide="folder-open" aria-hidden="true"></i> Drive</span><span><i data-lucide="messages-square" aria-hidden="true"></i> Past chats</span></div>
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+            <div class="duet-task"><strong>Morning property check</strong><span>2 changed listings · 1 tour email</span><div class="approval-line"><i data-lucide="shield-check" aria-hidden="true"></i> Approval required before send</div></div>
+          </div>
+          <span class="text-small text-muted">Editorial visual · Source: Anthropic’s Claude Duet guide</span>
+        </a>
+        <div class="story-tabs">
+          <div class="nav nav-pills" role="tablist" aria-label="Claude Duet story sections">
+            <button class="nav-link active" id="duet-changed-tab" role="tab" aria-controls="duet-changed" aria-selected="true" type="button">What changed</button>
+            <button class="nav-link" id="duet-matters-tab" role="tab" aria-controls="duet-matters" aria-selected="false" type="button">Why it matters</button>
+            <button class="nav-link" id="duet-try-tab" role="tab" aria-controls="duet-try" aria-selected="false" type="button">Try this</button>
+            <button class="nav-link" id="duet-sources-tab" role="tab" aria-controls="duet-sources" aria-selected="false" type="button">Sources</button>
+          </div>
+          <div id="duet-changed" role="tabpanel" aria-labelledby="duet-changed-tab"><p><strong>Restrictions:</strong> U.S.-only waitlist, Pro or Max, invitation required; Team and Enterprise are not yet supported. It runs on Opus 5.5, uses normal plan limits—including background checks—and cannot be watched or taken over in its browser. Microsoft 365 is not yet available and Slack is limited.</p></div>
+          <div id="duet-matters" role="tabpanel" aria-labelledby="duet-matters-tab" hidden><p>This is close to the approval-first cloud pattern you want for property-tour intake and inbox cleanup: collect evidence automatically, but hold consequential actions for review.</p></div>
+          <div id="duet-try" role="tabpanel" aria-labelledby="duet-try-tab" hidden><div class="copy-block"><p>Create a read-only morning check across my connected Gmail and Drive. Report: new property-tour emails, listing-status changes, missing source files, and anything requiring my decision. Cite the exact email or file for every item. Do not send, delete, move, purchase, sign, or change anything. Group proposed actions into one approval list.</p><button type="button" class="btn copy-action"><i data-lucide="copy" aria-hidden="true"></i><span>Copy prompt</span></button></div></div>
+          <div id="duet-sources" role="tabpanel" aria-labelledby="duet-sources-tab" hidden><ul><li><a href="https://support.claude.com/en/articles/17631495-get-started-with-claude-duet" target="_blank" rel="noopener">Anthropic · Get started with Claude Duet</a></li><li><a href="https://support.claude.com/en/articles/12138966-release-notes" target="_blank" rel="noopener">Anthropic · Release notes</a></li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <article id="story-2" class="card story-card" data-story="slides" data-tags="openai workflow">
+      <div class="story-inner">
+        <div class="story-meta"><span class="viz-badge">02 · OpenAI</span><span class="viz-badge">Rolling out</span><time datetime="2026-10-16">Oct 16</time></div>
+        <h2>ChatGPT Slides turns source files into a shared, editable deck</h2>
+        <p class="story-summary">ChatGPT Slides can start from a conversation, uploaded files, an outline, or an example deck, then let collaborators edit text, shapes, images, and charts in real time. On the web it exports to PowerPoint, PDF, or Google Slides, which makes it practical for manager-ready audit status and issue presentations.</p>
+        <a class="source-figure slides-figure" href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener" aria-label="Open OpenAI's official ChatGPT Slides release note">
+          <div role="img" aria-label="Editorial illustration of a SEFA issue workbook becoming an executive slide deck with citations, issue status, and comments">
+            <div class="slides-source"><i data-lucide="sheet" aria-hidden="true"></i><span>SEFA issues.xlsx</span></div>
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+            <div class="deck-stack"><div><small>01</small><strong>Executive status</strong><span>Open · resolved · evidence gap</span></div><div><small>02</small><strong>Issue bridge</strong><span>Program · ALN · amount</span></div><div><i data-lucide="message-circle" aria-hidden="true"></i> 3 reviewer comments</div></div>
+          </div>
+          <span class="text-small text-muted">Editorial visual · Source: OpenAI’s ChatGPT Slides release note</span>
+        </a>
+        <div class="story-tabs">
+          <div class="nav nav-pills" role="tablist" aria-label="ChatGPT Slides story sections">
+            <button class="nav-link active" id="slides-changed-tab" role="tab" aria-controls="slides-changed" aria-selected="true" type="button">What changed</button>
+            <button class="nav-link" id="slides-matters-tab" role="tab" aria-controls="slides-matters" aria-selected="false" type="button">Why it matters</button>
+            <button class="nav-link" id="slides-try-tab" role="tab" aria-controls="slides-try" aria-selected="false" type="button">Try this</button>
+            <button class="nav-link" id="slides-sources-tab" role="tab" aria-controls="slides-sources" aria-selected="false" type="button">Sources</button>
+          </div>
+          <div id="slides-changed" role="tabpanel" aria-labelledby="slides-changed-tab"><p><strong>Access:</strong> rolling out to eligible Pro, Business, and Enterprise users with Space access on web and desktop. Web export supports PowerPoint, PDF, and Google Slides. Managed-workspace availability depends on admin settings.</p></div>
+          <div id="slides-matters" role="tabpanel" aria-labelledby="slides-matters-tab" hidden><p>Your numbered SEFA issues, TB/GL bridges, and manager emails can now feed one living deck instead of being reformatted separately for each review meeting.</p></div>
+          <div id="slides-try" role="tabpanel" aria-labelledby="slides-try-tab" hidden><div class="copy-block"><p>Create a concise manager-review deck from the attached SEFA issues workbook and supporting memo. Use: executive status; issue-by-issue bridge; amounts and evidence citations; decisions needed; and next actions. Keep observed facts separate from conclusions. Add speaker notes with the exact source file and cell or section for every amount. Export to PowerPoint only after I approve the outline.</p><button type="button" class="btn copy-action"><i data-lucide="copy" aria-hidden="true"></i><span>Copy prompt</span></button></div></div>
+          <div id="slides-sources" role="tabpanel" aria-labelledby="slides-sources-tab" hidden><ul><li><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener">OpenAI · ChatGPT release notes, October 16</a></li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <article id="story-3" class="card story-card" data-story="gemini" data-tags="google workflow">
+      <div class="story-inner">
+        <div class="story-meta"><span class="viz-badge">03 · Google</span><span class="viz-badge">Global staged rollout</span><time datetime="2026-10-20">Oct 20</time></div>
+        <h2>Gemini’s new business hub turns messy finance inputs into interactive models</h2>
+        <p class="story-summary">Google is adding a central small-business workspace in Gemini that connects Google Workspace plus services such as Dropbox, Shopify, Xero, Canva, Wix, and Zoho. Its finance workflow is designed to transform spreadsheets, receipts, and purchase records into graphics and interactive models in seconds.</p>
+        <a class="source-figure gemini-figure" href="https://blog.google/innovation-and-ai/products/gemini-app/new-tools-small-business-owners/" target="_blank" rel="noopener" aria-label="Open Google's official Gemini business hub announcement">
+          <div role="img" aria-label="Editorial illustration of receipts, spreadsheet rows, and purchase records flowing into a categorized interactive finance model">
+            <div class="messy-stack"><span><i data-lucide="receipt-text" aria-hidden="true"></i> receipts</span><span><i data-lucide="table-2" aria-hidden="true"></i> workbook</span><span><i data-lucide="shopping-bag" aria-hidden="true"></i> purchases</span></div>
+            <i data-lucide="wand-sparkles" aria-hidden="true"></i>
+            <div class="finance-model"><div class="model-head"><strong>Cash view</strong><span>interactive</span></div><div class="model-bars" aria-hidden="true"><i style="--bar:36%"></i><i style="--bar:66%"></i><i style="--bar:48%"></i><i style="--bar:82%"></i></div><div class="model-labels"><span>Ops</span><span>Payroll</span><span>Capex</span><span>Other</span></div></div>
+          </div>
+          <span class="text-small text-muted">Editorial visual · Source: Google’s Gemini business hub announcement</span>
+        </a>
+        <div class="story-tabs">
+          <div class="nav nav-pills" role="tablist" aria-label="Gemini business hub story sections">
+            <button class="nav-link active" id="gemini-changed-tab" role="tab" aria-controls="gemini-changed" aria-selected="true" type="button">What changed</button>
+            <button class="nav-link" id="gemini-matters-tab" role="tab" aria-controls="gemini-matters" aria-selected="false" type="button">Why it matters</button>
+            <button class="nav-link" id="gemini-try-tab" role="tab" aria-controls="gemini-try" aria-selected="false" type="button">Try this</button>
+            <button class="nav-link" id="gemini-sources-tab" role="tab" aria-controls="gemini-sources" aria-selected="false" type="button">Sources</button>
+          </div>
+          <div id="gemini-changed" role="tabpanel" aria-labelledby="gemini-changed-tab"><p><strong>Availability:</strong> Google says the tools are rolling out globally over the coming days; plan-by-plan access was not specified in the announcement. Connected-app availability can differ by account and region. Use only firm-approved client data.</p></div>
+          <div id="gemini-matters" role="tabpanel" aria-labelledby="gemini-matters-tab" hidden><p>The workflow matches your recurring need to turn TBs, GLs, receipts, and property-budget exports into an understandable decision view without hand-building every chart.</p></div>
+          <div id="gemini-try" role="tabpanel" aria-labelledby="gemini-try-tab" hidden><div class="copy-block"><p>Using this approved trial balance and account map, create an interactive financial model with fund, department, natural account, and period filters. Tie every visual to a reconciliation table. Show unmapped accounts, duplicate mappings, missing periods, and totals that do not agree. Do not change the source workbook or treat classifications as audited conclusions.</p><button type="button" class="btn copy-action"><i data-lucide="copy" aria-hidden="true"></i><span>Copy prompt</span></button></div></div>
+          <div id="gemini-sources" role="tabpanel" aria-labelledby="gemini-sources-tab" hidden><ul><li><a href="https://blog.google/innovation-and-ai/products/gemini-app/new-tools-small-business-owners/" target="_blank" rel="noopener">Google · New Gemini tools for small business owners</a></li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <article id="story-4" class="card story-card" data-story="grok" data-tags="xai workflow">
+      <div class="story-inner">
+        <div class="story-meta"><span class="viz-badge">04 · xAI</span><span class="viz-badge">Published use case</span><time datetime="2026-10-20">Oct 20</time></div>
+        <h2>Grok Bot shows a concrete event-monitoring pattern: detect, hold, approve, sweep</h2>
+        <p class="story-summary">xAI described two cloud teammates: one checks the preceding 15 minutes of support tickets every five minutes for spikes, while another prepares an approved batch once an incident is resolved. In one example, a human-reviewed sweep cleared 204 related tickets in about 10 minutes.</p>
+        <a class="source-figure grok-figure" href="https://x.ai/news/incident-sweep" target="_blank" rel="noopener" aria-label="Open xAI's official Grok Bot incident-monitoring case study">
+          <div role="img" aria-label="Editorial workflow diagram showing recurring event checks, pattern detection, a held batch, human approval, and a controlled sweep">
+            <div class="event-flow"><span><i data-lucide="timer" aria-hidden="true"></i><b>5 min</b> check</span><i data-lucide="chevron-right" aria-hidden="true"></i><span><i data-lucide="scan-search" aria-hidden="true"></i> cluster</span><i data-lucide="chevron-right" aria-hidden="true"></i><span><i data-lucide="pause" aria-hidden="true"></i> hold</span><i data-lucide="chevron-right" aria-hidden="true"></i><span class="approve-step"><i data-lucide="user-check" aria-hidden="true"></i> approve</span></div>
+            <div class="state-file"><i data-lucide="file-json" aria-hidden="true"></i><span><strong>state</strong><br>last_seen · fingerprint · status</span></div>
+          </div>
+          <span class="text-small text-muted">Editorial visual · Source: xAI’s Grok Bot incident case study</span>
+        </a>
+        <div class="story-tabs">
+          <div class="nav nav-pills" role="tablist" aria-label="Grok Bot use-case story sections">
+            <button class="nav-link active" id="grok-changed-tab" role="tab" aria-controls="grok-changed" aria-selected="true" type="button">What changed</button>
+            <button class="nav-link" id="grok-matters-tab" role="tab" aria-controls="grok-matters" aria-selected="false" type="button">Why it matters</button>
+            <button class="nav-link" id="grok-try-tab" role="tab" aria-controls="grok-try" aria-selected="false" type="button">Try this</button>
+            <button class="nav-link" id="grok-sources-tab" role="tab" aria-controls="grok-sources" aria-selected="false" type="button">Sources</button>
+          </div>
+          <div id="grok-changed" role="tabpanel" aria-labelledby="grok-changed-tab"><p>This is a newly published implementation pattern, not a new entitlement. Grok Bot access still depends on your subscription or enterprise setup. The useful design is the separation between detection, temporary holding, a human-reviewed batch, and final action.</p></div>
+          <div id="grok-matters" role="tabpanel" aria-labelledby="grok-matters-tab" hidden><p>The same pattern can protect your property-brief ingestion and PBC workflows from duplicate emails, clustered failures, or partial updates while keeping one approval gate.</p></div>
+          <div id="grok-try" role="tabpanel" aria-labelledby="grok-try-tab" hidden><div class="copy-block"><p>Design a cloud-only monitor for my property-brief pipeline. Every five minutes, review events since last_seen. Normalize each error into a fingerprint, group repeats in a rolling 15-minute window, and alert only when the same fingerprint appears three times or affects multiple listings. Hold matching updates, prepare one review batch, and require approval before publishing or emailing. Store last_seen, fingerprint, listing ID, source URL, and disposition in a Google Sheet state file.</p><button type="button" class="btn copy-action"><i data-lucide="copy" aria-hidden="true"></i><span>Copy prompt</span></button></div></div>
+          <div id="grok-sources" role="tabpanel" aria-labelledby="grok-sources-tab" hidden><ul><li><a href="https://x.ai/news/incident-sweep" target="_blank" rel="noopener">xAI · Using Grok Bot to detect and respond to incidents</a></li><li><a href="https://x.ai/news/x-subscription" target="_blank" rel="noopener">xAI · X Subscription and Grok Bot access</a></li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <article id="story-5" class="card story-card world-story" data-story="energy" data-tags="world workflow">
+      <div class="story-inner">
+        <div class="story-meta"><span class="viz-badge">05 · World</span><span class="viz-badge">Markets snapshot</span><time datetime="2026-10-23">Oct 23</time></div>
+        <h2>Oil above $114 puts energy, inflation, and rates back on one dashboard</h2>
+        <p class="story-summary">Brent crude moved above $114 a barrel as Middle East tensions intensified, while global markets shifted toward safer assets ahead of next week’s central-bank meetings. The practical signal is not a one-day market move: energy costs, inflation expectations, borrowing costs, and AI infrastructure spending are now interacting at the same time.</p>
+        <a class="source-figure energy-figure" href="https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-10-23/" target="_blank" rel="noopener" aria-label="Open Reuters' October 23 global markets briefing">
+          <div role="img" aria-label="Data illustration showing Brent crude above 114 dollars per barrel, defensive markets, and the Federal Reserve meeting approaching">
+            <div class="oil-gauge"><span>Brent crude</span><strong>&gt;$114</strong><small>per barrel</small><div class="gauge-track"><i></i></div></div>
+            <div class="macro-links"><span><i data-lucide="fuel" aria-hidden="true"></i> Energy</span><i data-lucide="arrow-right" aria-hidden="true"></i><span><i data-lucide="badge-dollar-sign" aria-hidden="true"></i> Inflation</span><i data-lucide="arrow-right" aria-hidden="true"></i><span><i data-lucide="landmark" aria-hidden="true"></i> Rates</span></div>
+          </div>
+          <span class="text-small text-muted">Data visual · Source: Reuters, October 23 global markets briefing</span>
+        </a>
+        <div class="story-tabs">
+          <div class="nav nav-pills" role="tablist" aria-label="Energy and rates story sections">
+            <button class="nav-link active" id="energy-changed-tab" role="tab" aria-controls="energy-changed" aria-selected="true" type="button">What changed</button>
+            <button class="nav-link" id="energy-matters-tab" role="tab" aria-controls="energy-matters" aria-selected="false" type="button">Why it matters</button>
+            <button class="nav-link" id="energy-try-tab" role="tab" aria-controls="energy-try" aria-selected="false" type="button">Try this</button>
+            <button class="nav-link" id="energy-sources-tab" role="tab" aria-controls="energy-sources" aria-selected="false" type="button">Sources</button>
+          </div>
+          <div id="energy-changed" role="tabpanel" aria-labelledby="energy-changed-tab"><p>Reuters reported Brent above $114 amid renewed attacks and escalating regional risk. Investors moved toward U.S. Treasuries while the Federal Reserve and several other central banks prepare decisions next week. Markets remain fluid, so treat the price as a dated snapshot.</p></div>
+          <div id="energy-matters" role="tabpanel" aria-labelledby="energy-matters-tab" hidden><p>For governmental and tribal audits, sustained fuel and borrowing-cost pressure can flow into budgets, grants, estimates, capital plans, liquidity, and subsequent-event discussions.</p></div>
+          <div id="energy-try" role="tabpanel" aria-labelledby="energy-try-tab" hidden><div class="copy-block"><p>Add a one-page macro sensitivity note to this planning file. Trace sustained oil above $110 and higher-for-longer rates to fuel, utilities, travel, construction, debt service, grant budgets, estimates, liquidity, and going concern. Identify the account or assertion affected, the evidence to request, and the threshold that would trigger an updated conclusion. Keep management assumptions separate from auditor analysis.</p><button type="button" class="btn copy-action"><i data-lucide="copy" aria-hidden="true"></i><span>Copy prompt</span></button></div></div>
+          <div id="energy-sources" role="tabpanel" aria-labelledby="energy-sources-tab" hidden><ul><li><a href="https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-10-23/" target="_blank" rel="noopener">Reuters · Global markets: Safety first, October 23</a></li><li><a href="https://www.reuters.com/business/take-five/global-markets-themes-graphic-2026-10-23/" target="_blank" rel="noopener">Reuters · Central banks, energy, and AI earnings week ahead</a></li></ul></div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <section class="watch-section" aria-labelledby="watch-title">
+    <div class="section-heading"><div><p class="text-small text-muted">Worth watching</p><h2 id="watch-title">Two useful signals below the headline threshold</h2></div><i data-lucide="radar" aria-hidden="true"></i></div>
+    <div class="watch-grid">
+      <a href="https://www.perplexity.ai/en-GB/hub/blog/ai-agent-evaluation" target="_blank" rel="noopener"><span class="viz-badge">Perplexity · Oct 22</span><div><strong>Regression-test agents from real failures</strong><p class="text-small text-muted">Save representative inputs, use exact checks where possible, calibrate model graders against human judgments, and rerun prior passing cases after every prompt or model change.</p></div><i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+      <a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener"><span class="viz-badge">OpenAI · Oct 16</span><div><strong>GPT-6 Pro can split a task across parallel agents</strong><p class="text-small text-muted">The rollout is limited to eligible Pro users and managed-workspace settings. Best use: independent extraction, tie-out, and presentation lanes that reconcile before delivery.</p></div><i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+    </div>
+  </section>
+
+  <footer class="briefing-footer"><p class="text-small text-muted">Exactly five stories, selected for usefulness to your cloud workflows. Rollouts, prices, access, and live market conditions can change; open the linked source before relying on availability.</p><a href="#weekly-briefing-oct23"><i data-lucide="arrow-up" aria-hidden="true"></i> Back to top</a></footer>
+</div>
+
+<style>
+  #weekly-briefing-oct23 { color: var(--foreground); font-family: var(--font-sans); padding: 1.5rem 1rem 3rem; max-width: 1120px; margin: 0 auto; }
+  #weekly-briefing-oct23 * { box-sizing: border-box; }
+  #weekly-briefing-oct23 .briefing-header { display: grid; grid-template-columns: minmax(0,1fr) 18rem; gap: 2rem; align-items: end; padding: 1.5rem 0 2rem; border-bottom: 1px solid var(--border); }
+  #weekly-briefing-oct23 .header-kicker, #weekly-briefing-oct23 .section-heading > div > p { display: flex; gap: .5rem; align-items: center; text-transform: uppercase; letter-spacing: .12em; margin: 0; }
+  #weekly-briefing-oct23 h1 { max-width: 52rem; margin: .75rem 0 1rem; }
+  #weekly-briefing-oct23 .header-dek { max-width: 50rem; color: var(--muted-foreground); margin: 0; }
+  #weekly-briefing-oct23 .header-signal { border-left: .35rem solid var(--viz-series-1); padding-left: 1rem; }
+  #weekly-briefing-oct23 .header-signal p { margin: .75rem 0 0; }
+  #weekly-briefing-oct23 .signal-mark { display: flex; align-items: center; gap: .5rem; color: var(--viz-series-1); }
+  #weekly-briefing-oct23 .signal-mark span { font-family: var(--font-mono); }
+  #weekly-briefing-oct23 .signal-mark svg { width: 1rem; }
+  #weekly-briefing-oct23 .glance-section { padding: 2rem 0 1.25rem; }
+  #weekly-briefing-oct23 .section-heading { display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+  #weekly-briefing-oct23 .section-heading h2 { margin: .25rem 0 0; }
+  #weekly-briefing-oct23 .section-heading > p { display: flex; align-items: center; gap: .4rem; }
+  #weekly-briefing-oct23 .section-heading svg { width: 1.1rem; }
+  #weekly-briefing-oct23 .glance-track { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); position: relative; margin-top: 1.75rem; }
+  #weekly-briefing-oct23 .glance-track::before { content:""; position: absolute; top: 2.25rem; left: 9%; right: 9%; height: 2px; background: var(--border); }
+  #weekly-briefing-oct23 .glance-node { border: 0; background: transparent; color: var(--foreground); display: flex; flex-direction: column; align-items: center; gap: .35rem; padding: 0 .4rem; text-align: center; }
+  #weekly-briefing-oct23 .node-date { color: var(--muted-foreground); }
+  #weekly-briefing-oct23 .node-dot { width: .9rem; height: .9rem; border-radius: 50%; background: var(--background); border: .2rem solid var(--viz-series-1); z-index: 1; transition: transform var(--duration-normal) var(--ease-standard); }
+  #weekly-briefing-oct23 .glance-node:first-child .node-dot { background: var(--viz-series-1); box-shadow: 0 0 0 .4rem color-mix(in srgb, var(--viz-series-1) 16%, transparent); }
+  #weekly-briefing-oct23 .world-node .node-dot { border-color: var(--viz-series-2); }
+  #weekly-briefing-oct23 .glance-node:hover .node-dot { transform: scale(1.3); }
+  #weekly-briefing-oct23 .glance-note { display: flex; align-items: flex-start; gap: .45rem; margin: 1.25rem 0 0; }
+  #weekly-briefing-oct23 .glance-note svg { width: 1rem; flex: 0 0 auto; }
+  #weekly-briefing-oct23 .controls-row { display: flex; justify-content: space-between; gap: 1rem; align-items: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: .75rem 0; margin-bottom: 1.5rem; }
+  #weekly-briefing-oct23 .view-controls { display: flex; gap: .5rem; }
+  #weekly-briefing-oct23 .story-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+  #weekly-briefing-oct23 .lead-story { grid-column: 1 / -1; }
+  #weekly-briefing-oct23 .story-inner { padding: 1.35rem; }
+  #weekly-briefing-oct23 .lead-story .story-inner { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(18rem,.95fr); gap: 0 1.5rem; }
+  #weekly-briefing-oct23 .lead-story .story-meta, #weekly-briefing-oct23 .lead-story h2, #weekly-briefing-oct23 .lead-story .story-summary { grid-column: 1; }
+  #weekly-briefing-oct23 .lead-story .source-figure { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; }
+  #weekly-briefing-oct23 .lead-story .story-tabs { grid-column: 1 / -1; }
+  #weekly-briefing-oct23 .story-card[hidden] { display: none; }
+  #weekly-briefing-oct23 .story-card.is-highlighted { animation: briefPulse .8s var(--ease-standard); }
+  @keyframes briefPulse { 50% { transform: translateY(-.25rem); } }
+  #weekly-briefing-oct23 .story-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+  #weekly-briefing-oct23 .story-meta time { margin-left: auto; color: var(--muted-foreground); }
+  #weekly-briefing-oct23 .story-card h2 { margin: 1rem 0 .75rem; }
+  #weekly-briefing-oct23 .story-summary { color: var(--muted-foreground); margin: 0; }
+  #weekly-briefing-oct23 .source-figure { display: flex; flex-direction: column; color: inherit; text-decoration: none; margin: 1.25rem 0 0; background: var(--muted); overflow: hidden; }
+  #weekly-briefing-oct23 .source-figure > div { min-height: 13.5rem; padding: 1.25rem; display: flex; align-items: center; justify-content: center; gap: 1rem; }
+  #weekly-briefing-oct23 .source-figure > span { background: var(--background); padding: .55rem .75rem; border-top: 1px solid var(--border); }
+  #weekly-briefing-oct23 .duet-inputs, #weekly-briefing-oct23 .messy-stack { display: grid; gap: .55rem; }
+  #weekly-briefing-oct23 .duet-inputs span, #weekly-briefing-oct23 .messy-stack span { background: var(--card); padding: .65rem; display: flex; gap: .5rem; align-items: center; }
+  #weekly-briefing-oct23 .duet-inputs svg, #weekly-briefing-oct23 .messy-stack svg { width: 1rem; color: var(--viz-series-1); }
+  #weekly-briefing-oct23 .duet-task { width: min(100%,20rem); background: var(--card); padding: 1rem; display: grid; gap: .45rem; }
+  #weekly-briefing-oct23 .duet-task > span { color: var(--muted-foreground); }
+  #weekly-briefing-oct23 .approval-line { margin-top: .4rem; padding-top: .55rem; border-top: 1px solid var(--border); display: flex; align-items: center; gap: .45rem; color: var(--viz-series-3); }
+  #weekly-briefing-oct23 .approval-line svg { width: 1rem; }
+  #weekly-briefing-oct23 .slides-source { background: var(--card); padding: 1rem; display: grid; justify-items: center; gap: .45rem; }
+  #weekly-briefing-oct23 .slides-source svg { color: var(--viz-series-1); width: 2rem; }
+  #weekly-briefing-oct23 .deck-stack { width: min(100%,19rem); display: grid; gap: .55rem; }
+  #weekly-briefing-oct23 .deck-stack > div { background: var(--card); padding: .7rem; display: grid; grid-template-columns: auto 1fr; gap: 0 .6rem; }
+  #weekly-briefing-oct23 .deck-stack small, #weekly-briefing-oct23 .deck-stack svg { grid-row: 1 / span 2; color: var(--viz-series-1); }
+  #weekly-briefing-oct23 .deck-stack span { color: var(--muted-foreground); }
+  #weekly-briefing-oct23 .finance-model { width: min(100%,19rem); background: var(--card); padding: .9rem; }
+  #weekly-briefing-oct23 .model-head { display: flex; justify-content: space-between; }
+  #weekly-briefing-oct23 .model-head span { color: var(--viz-series-1); }
+  #weekly-briefing-oct23 .model-bars { height: 6rem; display: flex; align-items: end; justify-content: space-around; gap: .5rem; margin-top: .65rem; border-bottom: 1px solid var(--border); }
+  #weekly-briefing-oct23 .model-bars i { width: 1.5rem; height: var(--bar); background: var(--viz-series-1); }
+  #weekly-briefing-oct23 .model-labels { display: flex; justify-content: space-around; color: var(--muted-foreground); padding-top: .35rem; }
+  #weekly-briefing-oct23 .grok-figure > div { flex-direction: column; }
+  #weekly-briefing-oct23 .event-flow { display: flex; align-items: center; gap: .55rem; flex-wrap: wrap; justify-content: center; }
+  #weekly-briefing-oct23 .event-flow span { background: var(--card); padding: .65rem; display: flex; align-items: center; gap: .45rem; }
+  #weekly-briefing-oct23 .event-flow svg { width: 1rem; }
+  #weekly-briefing-oct23 .event-flow .approve-step { color: var(--viz-series-3); }
+  #weekly-briefing-oct23 .state-file { display: flex; align-items: center; gap: .6rem; color: var(--muted-foreground); }
+  #weekly-briefing-oct23 .state-file svg { color: var(--viz-series-1); }
+  #weekly-briefing-oct23 .oil-gauge { min-width: 9rem; display: flex; flex-direction: column; align-items: center; background: var(--card); padding: 1rem; }
+  #weekly-briefing-oct23 .oil-gauge strong { color: var(--viz-series-2); font-family: var(--font-mono); }
+  #weekly-briefing-oct23 .oil-gauge small { color: var(--muted-foreground); }
+  #weekly-briefing-oct23 .gauge-track { width: 100%; height: .65rem; background: var(--muted); margin-top: .7rem; }
+  #weekly-briefing-oct23 .gauge-track i { display: block; width: 86%; height: 100%; background: var(--viz-series-2); }
+  #weekly-briefing-oct23 .macro-links { display: flex; align-items: center; gap: .55rem; flex-wrap: wrap; justify-content: center; }
+  #weekly-briefing-oct23 .macro-links span { background: var(--card); padding: .65rem; display: flex; gap: .4rem; align-items: center; }
+  #weekly-briefing-oct23 .macro-links svg { width: 1rem; }
+  #weekly-briefing-oct23 .story-tabs { margin-top: 1.25rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  #weekly-briefing-oct23 [role="tabpanel"] { padding-top: 1rem; min-height: 7.5rem; }
+  #weekly-briefing-oct23 [role="tabpanel"] p { margin: 0; }
+  #weekly-briefing-oct23 .copy-block { background: var(--muted); padding: 1rem; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 1rem; align-items: start; }
+  #weekly-briefing-oct23 .copy-block p { font-family: var(--font-mono); color: var(--muted-foreground); }
+  #weekly-briefing-oct23 .story-tabs ul { margin: 0; padding-left: 1.25rem; }
+  #weekly-briefing-oct23 .story-tabs li { margin: .35rem 0; }
+  #weekly-briefing-oct23 .compact-mode .story-inner { padding: 1rem; }
+  #weekly-briefing-oct23 .compact-mode .story-summary { display: none; }
+  #weekly-briefing-oct23 .compact-mode .source-figure > div { min-height: 9rem; }
+  #weekly-briefing-oct23 .compact-mode .lead-story .story-inner { display: block; }
+  #weekly-briefing-oct23 .compact-mode .lead-story .source-figure { margin-top: 1rem; }
+  #weekly-briefing-oct23 .compact-mode [role="tabpanel"] { min-height: 0; }
+  #weekly-briefing-oct23 .watch-section { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  #weekly-briefing-oct23 .watch-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin-top: 1rem; }
+  #weekly-briefing-oct23 .watch-grid a { color: inherit; text-decoration: none; display: grid; grid-template-columns: auto 1fr auto; gap: .75rem; align-items: start; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+  #weekly-briefing-oct23 .watch-grid p { margin: .3rem 0 0; }
+  #weekly-briefing-oct23 .watch-grid > a > svg { width: 1rem; }
+  #weekly-briefing-oct23 .briefing-footer { display: flex; justify-content: space-between; gap: 1rem; align-items: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+  #weekly-briefing-oct23 .briefing-footer p { margin: 0; }
+  #weekly-briefing-oct23 .briefing-footer a { display: flex; align-items: center; gap: .35rem; white-space: nowrap; }
+  #weekly-briefing-oct23 .briefing-footer svg { width: 1rem; }
+  @media (max-width: 820px) {
+    #weekly-briefing-oct23 .briefing-header { grid-template-columns: 1fr; }
+    #weekly-briefing-oct23 .header-signal { max-width: 30rem; }
+    #weekly-briefing-oct23 .story-grid { grid-template-columns: 1fr; }
+    #weekly-briefing-oct23 .lead-story { grid-column: auto; }
+    #weekly-briefing-oct23 .lead-story .story-inner { display: block; }
+    #weekly-briefing-oct23 .lead-story .source-figure { margin-top: 1.25rem; }
+    #weekly-briefing-oct23 .controls-row { align-items: flex-end; }
+  }
+  @media (max-width: 620px) {
+    #weekly-briefing-oct23 { padding: 1rem .5rem 2.5rem; }
+    #weekly-briefing-oct23 .glance-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .5rem; }
+    #weekly-briefing-oct23 .glance-track::before { left: 3rem; right: 3rem; }
+    #weekly-briefing-oct23 .glance-node { flex: 0 0 8.5rem; scroll-snap-align: center; }
+    #weekly-briefing-oct23 .controls-row { display: grid; }
+    #weekly-briefing-oct23 .view-controls { justify-content: flex-end; }
+    #weekly-briefing-oct23 .source-figure > div { flex-wrap: wrap; }
+    #weekly-briefing-oct23 .event-flow > svg { transform: rotate(90deg); }
+    #weekly-briefing-oct23 .copy-block { grid-template-columns: 1fr; }
+    #weekly-briefing-oct23 .copy-action { justify-self: start; }
+    #weekly-briefing-oct23 .watch-grid { grid-template-columns: 1fr; }
+    #weekly-briefing-oct23 .briefing-footer { align-items: flex-start; }
+  }
+  @media (prefers-reduced-motion: reduce) { #weekly-briefing-oct23 *, #weekly-briefing-oct23 *::before, #weekly-briefing-oct23 *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById('weekly-briefing-oct23');
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = 'true';
+  const stories = [...root.querySelectorAll('.story-card')];
+  const status = root.querySelector('#oct23-filter-status');
+  root.querySelectorAll('.brief-filter').forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      root.querySelectorAll('.brief-filter').forEach(item => {
+        const selected = item === button;
+        item.setAttribute('aria-pressed', selected ? 'true' : 'false');
+        item.classList.toggle('btn-primary', selected);
+      });
+      let shown = 0;
+      stories.forEach(story => { story.hidden = filter !== 'all' && !story.dataset.tags.includes(filter); if (!story.hidden) shown += 1; });
+      status.textContent = `Showing ${shown} ${shown === 1 ? 'story' : 'stories'} for ${filter === 'all' ? 'all topics' : filter}.`;
+    });
+  });
+  const density = root.querySelector('#oct23-density');
+  density.addEventListener('click', () => {
+    const active = root.classList.toggle('compact-mode');
+    density.setAttribute('aria-pressed', active ? 'true' : 'false');
+    density.querySelector('span').textContent = active ? 'Expanded' : 'Compact';
+  });
+  const theme = root.querySelector('#oct23-theme');
+  const modes = ['auto','light','dark'];
+  let themeIndex = 0;
+  theme.addEventListener('click', () => {
+    themeIndex = (themeIndex + 1) % modes.length;
+    const mode = modes[themeIndex];
+    root.style.colorScheme = mode === 'auto' ? 'light dark' : mode;
+    theme.querySelector('span').textContent = mode.charAt(0).toUpperCase() + mode.slice(1);
+    theme.setAttribute('aria-label', `Color theme: ${mode}. Activate to cycle.`);
+  });
+  root.querySelectorAll('.copy-action').forEach(button => {
+    button.addEventListener('click', async () => {
+      const copyText = button.closest('.copy-block').querySelector('p').innerText;
+      const label = button.querySelector('span');
+      const original = label.textContent;
+      try {
+        await navigator.clipboard.writeText(copyText);
+        label.textContent = 'Copied';
+      } catch (_) {
+        const area = document.createElement('textarea');
+        area.value = copyText; area.style.position = 'absolute'; area.style.left = '-9999px';
+        document.body.appendChild(area); area.select();
+        const ok = document.execCommand('copy'); area.remove();
+        label.textContent = ok ? 'Copied' : 'Select text';
+      }
+      setTimeout(() => label.textContent = original, 1600);
+    });
+  });
+  root.querySelectorAll('.glance-node').forEach(button => {
+    button.addEventListener('click', () => {
+      const all = root.querySelector('[data-filter="all"]');
+      if (all) all.click();
+      const story = root.querySelector(`[data-story="${button.dataset.jump}"]`);
+      if (!story) return;
+      story.scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center'});
+      story.classList.remove('is-highlighted');
+      void story.offsetWidth;
+      story.classList.add('is-highlighted');
+    });
+  });
+})();
+</script>
+
+<script src="https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js"></script>
+<script src="https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js"></script>
+<script>
+(() => {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set(["top", "right", "bottom", "left"]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+  let lastPointerWasTouch = false;
+  let pinnedByTouch = false;
+
+  const getTrigger = (event) => {
+    for (const target of event.composedPath()) {
+      if (target?.nodeType === Node.ELEMENT_NODE) {
+        const trigger = target.closest("[data-tooltip]");
+        if (trigger) return trigger;
+      }
+    }
+    return null;
+  };
+  const containsTarget = (trigger, target) =>
+    target?.nodeType != null && trigger.contains(target);
+  const getContent = (trigger) =>
+    trigger.getAttribute("data-tooltip")?.trim() ?? "";
+  const getPlacement = (trigger) => {
+    const placement = trigger.getAttribute("data-tooltip-placement");
+    return tooltipPlacements.has(placement) ? placement : "top";
+  };
+  const getTooltip = () => {
+    if (tooltip == null) {
+      tooltip = document.createElement("div");
+      tooltip.id = tooltipId;
+      tooltip.className = "tooltip";
+      tooltip.setAttribute("role", "tooltip");
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) => {
+    const ids = new Set(
+      (trigger.getAttribute("aria-describedby") ?? "")
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute("aria-describedby");
+    } else {
+      trigger.setAttribute("aria-describedby", [...ids].join(" "));
+    }
+  };
+  const clearOpenTimeout = () => {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) => {
+    clearOpenTimeout();
+    pinnedByTouch = false;
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) => {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              "--tooltip-available-width",
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              "--tooltip-available-height",
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: "fixed",
+    })
+      .then(({ x, y }) => {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = "visible";
+      })
+      .catch(() => {
+        if (activeTrigger === trigger && request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) => {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = "hidden";
+    floating.style.transform = "translate(0, 0)";
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () => {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) => {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() < skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() => {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) => {
+    if (event.pointerType === "touch") {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handlePointer = (event) => {
+    lastPointerWasTouch =
+      event.type === "pointerdown" && event.pointerType === "touch";
+  };
+  const handleTouchClick = (event) => {
+    const isTouch = event.pointerType === "touch" || lastPointerWasTouch;
+    lastPointerWasTouch = false;
+    if (!isTouch || event.detail === 0) {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (
+      trigger == null ||
+      !trigger.isConnected ||
+      getContent(trigger).length === 0 ||
+      (pinnedByTouch && activeTrigger === trigger)
+    ) {
+      if (pinnedByTouch) {
+        closeTooltip();
+      }
+      return;
+    }
+    openTooltip(trigger);
+    pinnedByTouch = activeTrigger === trigger;
+    window.setTimeout(() => {
+      if (activeTrigger === trigger && !trigger.isConnected) {
+        closeTooltip(false);
+      }
+    }, 0);
+  };
+  const handleLeave = (event) => {
+    if (pinnedByTouch) {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) => {
+    const trigger = getTrigger(event);
+    if (trigger?.matches(":focus-visible")) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) => {
+    lastPointerWasTouch = false;
+    const trigger = getTrigger(event);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handlers = {
+    pointerover: handlePointerOpen,
+    pointerdown: handlePointer,
+    pointercancel: handlePointer,
+    click: handleTouchClick,
+    pointerout: handleLeave,
+    focusin: handleFocusIn,
+    focusout: handleLeave,
+    keydown: handleKeyDown,
+    contextmenu: handleContextMenu,
+  };
+  const roots = new Map();
+  const handledEvents = new WeakSet();
+  const handleEvent = (event) => {
+    if (handledEvents.has(event)) return;
+    handledEvents.add(event);
+    handlers[event.type](event);
+  };
+  const discoverRoots = (node) => {
+    if (node.shadowRoot) listen(node.shadowRoot);
+    for (const element of node.querySelectorAll("*")) {
+      if (element.shadowRoot) listen(element.shadowRoot);
+    }
+  };
+  const listen = (root) => {
+    if (roots.has(root)) return;
+    for (const type of Object.keys(handlers)) root.addEventListener(type, handleEvent);
+    const observer = new window.MutationObserver((records) => {
+      for (const { addedNodes } of records) {
+        for (const node of addedNodes) {
+          if (node.nodeType === Node.ELEMENT_NODE) discoverRoots(node);
+        }
+      }
+      for (const [root, cleanup] of roots) {
+        if (root.host && !root.host.isConnected) {
+          cleanup();
+          roots.delete(root);
+        }
+      }
+      if (activeTrigger && !activeTrigger.isConnected) closeTooltip(false);
+    });
+    observer.observe(root, { childList: true, subtree: true });
+    roots.set(root, () => {
+      observer.disconnect();
+      for (const type of Object.keys(handlers)) root.removeEventListener(type, handleEvent);
+    });
+    discoverRoots(root);
+  };
+  const destroy = () => {
+    closeTooltip(false);
+    lastPointerWasTouch = false;
+    for (const cleanup of roots.values()) cleanup();
+    roots.clear();
+    tooltip = null;
+  };
+
+  // Events between children of one shadow root never reach the document.
+  listen(document);
+  window.addEventListener("pagehide", destroy, { once: true });
+})();
+</script>
+<script id="codex-visualization-tabs">
+(() => {
+  const selector = '.nav[role="tablist"] [role="tab"]';
+  const disabled = ':disabled,[aria-disabled="true"]';
+  const selectTab = (selected) => {
+    const panelId = selected.getAttribute("aria-controls");
+    for (const tab of selected.closest('[role="tablist"]').querySelectorAll('[role="tab"]')) {
+      const active = tab === selected;
+      tab.classList.toggle("active", active);
+      tab.setAttribute("aria-selected", String(active));
+      const id = tab.getAttribute("aria-controls");
+      const panel = id && document.getElementById(id);
+      if (panel != null) {
+        panel.hidden = id !== panelId;
+        if (!panel.hidden && selected.id) {
+          panel.setAttribute("aria-labelledby", selected.id);
+        }
+      }
+    }
+  };
+  const interact = (event) => {
+    const tab = event.target?.closest?.(selector);
+    if (event.defaultPrevented || tab == null || tab.matches(disabled)) {
+      return;
+    }
+    if (event.type === "click") {
+      selectTab(tab);
+      return;
+    }
+    const tabs = Array.from(
+      tab.closest('[role="tablist"]').querySelectorAll('[role="tab"]'),
+    ).filter((candidate) => !candidate.matches(disabled));
+    const current = tabs.indexOf(tab);
+    let next;
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      next = (current + 1) % tabs.length;
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      next = (current + tabs.length - 1) % tabs.length;
+    } else if (event.key === "Home") {
+      next = 0;
+    } else if (event.key === "End") {
+      next = tabs.length - 1;
+    } else {
+      return;
+    }
+    event.preventDefault();
+    tabs[next].focus();
+    selectTab(tabs[next]);
+  };
+
+  for (const list of document.querySelectorAll('.nav[role="tablist"]')) {
+    const selected =
+      list.querySelector('[role="tab"][aria-selected="true"]') ??
+      list.querySelector('[role="tab"].active') ??
+      list.querySelector('[role="tab"]');
+    if (selected != null) {
+      selectTab(selected);
+    }
+  }
+  document.addEventListener("click", interact);
+  document.addEventListener("keydown", interact);
+  window.addEventListener("pagehide", () => {
+    document.removeEventListener("click", interact);
+    document.removeEventListener("keydown", interact);
+  }, { once: true });
+})();
+</script>
+<script id="codex-visualization-carousel">
+  (() => {
+    for (const root of document.querySelectorAll(".viz-carousel")) {
+      const panels = Array.from(
+        root.querySelectorAll(":scope > [data-variant]"),
+      );
+      if (panels.length === 0) {
+        continue;
+      }
+      root.setAttribute("role", "group");
+      panels.forEach((panel, index) => {
+        panel.hidden = index !== 0;
+        panel.setAttribute("role", "group");
+        if (!panel.hasAttribute("aria-label")) {
+          panel.setAttribute("aria-label", panel.dataset.variant);
+        }
+      });
+      root.dataset.activeVariant = panels[0].dataset.variant;
+      if (panels.length === 1) {
+        continue;
+      }
+
+      const controls = document.createElement("div");
+      controls.className = "viz-carousel-controls";
+      // Portable copy of the settings dropdown's legacy glyph; no 14px icon-package preset matches it.
+      // https://github.com/openai/openai/blob/master/codex/codex-apps/webview/src/icons/chevron.svg
+      controls.innerHTML = `
+      <button type="button" class="viz-carousel-previous cursor-interaction"><i data-lucide="chevron-left" aria-hidden="true"></i></button>
+      <details class="viz-carousel-picker">
+        <summary class="cursor-interaction">
+          <span class="viz-carousel-count tabular-nums"></span>
+          <span class="viz-carousel-name"></span>
+          <svg class="viz-carousel-caret" width="14" height="14" viewBox="0 0 20 21" fill="none" aria-hidden="true" focusable="false">
+            <path d="M15.2793 7.71101C15.539 7.45131 15.961 7.45131 16.2207 7.71101C16.4804 7.97071 16.4804 8.39272 16.2207 8.65242L10.4707 14.4024C10.211 14.6621 9.78902 14.6621 9.52932 14.4024L3.77932 8.65242L3.69436 8.54792C3.52385 8.28979 3.55205 7.93828 3.77932 7.71101C4.00659 7.48374 4.3581 7.45554 4.61623 7.62605L4.72073 7.71101L10 12.9903L15.2793 7.71101Z" fill="currentColor" stroke="currentColor" stroke-width="0.6" />
+          </svg>
+        </summary>
+        <div class="viz-carousel-options"></div>
+      </details>
+      <button type="button" class="viz-carousel-next cursor-interaction"><i data-lucide="chevron-right" aria-hidden="true"></i></button>`;
+      const previous = controls.querySelector(".viz-carousel-previous");
+      const next = controls.querySelector(".viz-carousel-next");
+      const picker = controls.querySelector(".viz-carousel-picker");
+      const summary = picker.querySelector("summary");
+      const count = controls.querySelector(".viz-carousel-count");
+      const name = controls.querySelector(".viz-carousel-name");
+      const options = controls.querySelector(".viz-carousel-options");
+      const status = document.createElement("span");
+      status.className = "sr-only";
+      status.setAttribute("role", "status");
+      status.setAttribute("aria-live", "polite");
+      status.setAttribute("aria-atomic", "true");
+      previous.setAttribute(
+        "aria-label",
+        root.dataset.previousLabel ?? "Previous variant",
+      );
+      next.setAttribute("aria-label", root.dataset.nextLabel ?? "Next variant");
+
+      let active = 0;
+      let mousePointerId = null;
+      let summaryPointerHandled = false;
+      summary.addEventListener("pointerdown", (event) => {
+        summaryPointerHandled =
+          event.pointerType === "mouse" && event.button === 0 && !event.ctrlKey;
+        if (!summaryPointerHandled) {
+          return;
+        }
+        event.preventDefault();
+        summary.focus({ preventScroll: true });
+        picker.open = !picker.open;
+        mousePointerId = picker.open ? event.pointerId : null;
+      });
+      summary.addEventListener("click", (event) => {
+        if (summaryPointerHandled && event.detail > 0) {
+          event.preventDefault();
+        }
+      });
+      const choices = panels.map((panel, index) => {
+        const choice = document.createElement("button");
+        choice.type = "button";
+        choice.className = "cursor-interaction";
+        choice.textContent = panel.dataset.variant;
+        choice.addEventListener("click", () => {
+          select(index);
+          summary.focus();
+        });
+        choice.addEventListener("pointerup", (event) => {
+          if (
+            picker.open &&
+            event.pointerType === "mouse" &&
+            event.button === 0 &&
+            event.pointerId === mousePointerId
+          ) {
+            choice.click();
+          }
+        });
+        options.appendChild(choice);
+        return choice;
+      });
+      const select = (index) => {
+        const changed = active !== index;
+        active = index;
+        panels.forEach((panel, position) => {
+          panel.hidden = position !== active;
+          choices[position].setAttribute(
+            "aria-current",
+            String(position === active),
+          );
+        });
+        root.dataset.activeVariant = panels[active].dataset.variant;
+        count.textContent = `${active + 1} / ${panels.length}`;
+        name.textContent = panels[active].dataset.variant;
+        picker.open = false;
+        mousePointerId = null;
+        if (changed) {
+          status.textContent = `${count.textContent}: ${name.textContent}`;
+        }
+      };
+      previous.addEventListener("click", () =>
+        select((active + panels.length - 1) % panels.length),
+      );
+      next.addEventListener("click", () =>
+        select((active + 1) % panels.length),
+      );
+      picker.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && picker.open) {
+          event.preventDefault();
+          picker.open = false;
+          mousePointerId = null;
+          summary.focus();
+          return;
+        }
+        if (event.altKey || event.ctrlKey || event.metaKey) {
+          return;
+        }
+        const index = choices.indexOf(document.activeElement);
+        let nextIndex;
+        if (event.key === "ArrowDown") {
+          nextIndex = index < 0 ? active : (index + 1) % choices.length;
+        } else if (event.key === "ArrowUp") {
+          nextIndex = index < 0 ? active : (index + choices.length - 1) % choices.length;
+        } else if (picker.open && event.key === "Home") {
+          nextIndex = 0;
+        } else if (picker.open && event.key === "End") {
+          nextIndex = choices.length - 1;
+        } else {
+          return;
+        }
+        event.preventDefault();
+        picker.open = true;
+        choices[nextIndex].focus();
+      });
+      picker.addEventListener("focusout", (event) => {
+        if (!picker.contains(event.relatedTarget)) {
+          picker.open = false;
+          mousePointerId = null;
+        }
+      });
+      const dismiss = (event) => {
+        if (!summary.contains(event.target)) {
+          mousePointerId = null;
+        }
+        if (!picker.contains(event.target)) {
+          picker.open = false;
+        }
+      };
+      const endPointerSelection = () => {
+        mousePointerId = null;
+      };
+      const sizePicker = () => {
+        root.style.setProperty(
+          "--viz-carousel-picker-height",
+          `${picker.open ? options.offsetHeight : 0}px`,
+        );
+      };
+      picker.addEventListener("toggle", sizePicker);
+      window.addEventListener("resize", sizePicker);
+      document.addEventListener("pointerdown", dismiss);
+      document.addEventListener("pointerup", endPointerSelection);
+      document.addEventListener("pointercancel", endPointerSelection);
+      window.addEventListener("blur", endPointerSelection);
+      window.addEventListener(
+        "pagehide",
+        () => {
+          document.removeEventListener("pointerdown", dismiss);
+          document.removeEventListener("pointerup", endPointerSelection);
+          document.removeEventListener("pointercancel", endPointerSelection);
+          window.removeEventListener("blur", endPointerSelection);
+          window.removeEventListener("resize", sizePicker);
+        },
+        { once: true },
+      );
+      root.append(controls, status);
+      select(0);
+    }
+  })();
+</script>
+<script id="codex-visualization-lucide" async src="https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js"></script>
+<script>
+(() => {
+  const initialize = () => {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById("codex-visualization-lucide")
+    ?.addEventListener("load", initialize, { once: true });
+})();
+</script>
+
+</body>
+</html>

@@ -48,9 +48,11 @@ for the site.
 
 Each briefing is hand-authored HTML and the markup differs between editions, so
 `scripts/build.mjs` parses shapes that have held across every edition rather
-than one fixed class scheme: an `<article>` per story, an `<h3>` headline, a
-summary paragraph, disclosure sections labelled "What changed" / "Why this
-matters" / "Try this" / "Sources", the "at a glance" strip, and the
-"worth watching" footer. It also lifts each story's inline SVG illustration
+than one fixed class scheme: an `<article>` per story, an `<h2>`/`<h3>`
+headline, a summary paragraph, sections labelled "What changed" / "Why this
+matters" / "Try this" / "Sources" (written as `<details>` blocks in some
+editions and as ARIA tab panels in others), the "at a glance" strip, and the
+"worth watching" footer. Prompts are read from a `data-copy` attribute, a
+`<code>` block, or a copy box, whichever the edition uses. It also lifts each story's inline SVG illustration
 into the card. A briefing that parses to zero stories is reported as a warning
 at build time and still ships as a full-page link.

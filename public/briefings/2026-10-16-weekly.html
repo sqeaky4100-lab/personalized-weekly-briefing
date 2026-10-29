@@ -1,0 +1,2483 @@
+<!doctype html>
+<html lang="en" data-visualize-standalone>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Personalized Weekly Briefing — October 16, 2026</title>
+<style>:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 16px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans:
+    -apple-system-body, ui-sans-serif, -apple-system, system-ui, "Segoe UI",
+    Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  --font-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --icon-size: 16px;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --corner-shape: round;
+  --radius: var(--border-radius-lg, 8px);
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 2);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 17'%3E%3Cpath d='M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z'/%3E%3C/svg%3E");
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html > body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: var(--visualize-paint-gutter, 0px);
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  -webkit-font-smoothing: antialiased;
+  font-size: var(--font-size-base);
+  line-height: calc(var(--font-size-base) * 1.625);
+  font-weight: var(--font-weight-normal);
+}
+
+:root:not([data-app-block-surface], [data-visualize-standalone]) > body {
+  padding: 12px;
+}
+
+.cursor-interaction {
+  cursor: var(--cursor-interaction, pointer);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: var(--cursor-interaction, pointer);
+  text-decoration: none;
+  text-underline-offset: 2px;
+  font-weight: inherit;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+.table {
+  font-family: var(--font-sans);
+}
+
+h1 {
+  font-size: calc(var(--font-size-base) * 1.5);
+  line-height: 1.3333333333;
+}
+
+h2 {
+  font-size: calc(var(--font-size-base) * 1.25);
+  line-height: 1.4;
+}
+h3 {
+  font-size: calc(var(--font-size-base) * 1.125);
+  line-height: 1.5555555556;
+}
+h4 {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+h5,
+h6 {
+  font-size: var(--font-size-base);
+  line-height: calc(var(--font-size-base) * 1.625);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong,
+th {
+  font-weight: 600;
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+pre,
+pre code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: calc(var(--font-size-base) * 0.875);
+  line-height: calc(var(--font-size-base) * 1.625);
+  font-family: var(--font-sans);
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 5%, transparent);
+}
+.table :is(th, td):not(:last-child) {
+  padding-inline-end: calc(var(--font-size-base) * 1.5);
+}
+
+.table-responsive > .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead :is(th, td) {
+  border-bottom-color: var(--border-strong, var(--input));
+  padding-block: calc(var(--font-size-base) / 2);
+  line-height: var(--font-size-base);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+.table tbody :is(th, td) {
+  padding-block: calc(var(--font-size-base) * 0.625);
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 8px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align="right"]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align="center"]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: var(--corner-shape);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+.widget {
+  min-width: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  box-shadow: 0 0 0 0.5px var(--border-strong, var(--border));
+  color: var(--foreground);
+  background: var(--background);
+}
+
+#widget > :not(.card, .widget, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  border: 1px solid var(--border);
+  corner-shape: var(--corner-shape);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+  font-family: var(--font-sans);
+  padding: 5px 12px;
+  border-color: color-mix(
+    in oklab,
+    light-dark(var(--primary-foreground), var(--foreground)) 5%,
+    transparent
+  );
+  border-radius: var(--radius-2xl);
+  color: light-dark(var(--primary-foreground), var(--foreground));
+  background: light-dark(var(--foreground), var(--popover));
+  box-shadow: 0 8px 18px rgb(15 23 42 / 20%);
+  letter-spacing: -0.15px;
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+/* The shared runtime owns data-tooltip; suppress AppBlock's pseudo-tooltip. */
+main [data-tooltip]::after {
+  content: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin-block: 6px;
+  border: 0;
+  background: var(--border);
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress {
+  display: flex;
+  height: 8px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 8px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar:only-child {
+  border-radius: var(--radius-full);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  color: color-mix(in srgb, var(--foreground) 40%, var(--muted-foreground));
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  font-family: var(--font-sans);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 1;
+}
+
+small,
+.text-small {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls > .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls > .form-label > :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.nav-link,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+/* Match inline alignment without overriding a containing flex or grid layout. */
+.btn,
+.nav-link,
+.form-control,
+.form-select,
+.form-range,
+.form-check {
+  vertical-align: middle;
+}
+
+.btn,
+.nav-link {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  corner-shape: var(--corner-shape);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: inherit;
+  font-family: var(--font-sans);
+  height: fit-content;
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  padding-inline: var(--control-spacing, 12px);
+  border-color: transparent;
+  border-radius: var(--radius-full);
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+}
+
+.btn {
+  border-color: var(--border);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: var(--cursor-interaction, pointer);
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.nav-link:not(:disabled):not([aria-disabled="true"]):hover {
+  background: color-mix(in srgb, var(--foreground) 10%, transparent);
+}
+
+.btn-primary {
+  border-color: var(--border);
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: border-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: border-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--muted-foreground);
+  background: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.nav-pills .nav-link {
+  min-width: 0;
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.nav-justified .nav-link {
+  flex: 1 1 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.nav-pills .nav-link.active {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+/* Shared preview chrome; product styles stay inside each variant. */
+.viz-dotted-background {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--foreground) 14%, transparent) 0.8px,
+    transparent 0.8px
+  );
+  background-position: center;
+  background-size: 16px 16px;
+}
+
+.viz-carousel {
+  position: relative;
+  min-width: 0;
+}
+
+.viz-carousel:has(> .viz-carousel-controls) {
+  min-height: calc(60px + var(--viz-carousel-picker-height, 0px));
+  padding-bottom: 60px;
+}
+
+.viz-carousel > [data-variant][hidden] {
+  display: none !important;
+}
+
+.viz-carousel > [data-variant] {
+  isolation: isolate;
+}
+
+.viz-carousel-controls {
+  --viz-carousel-hover: light-dark(
+    color-mix(in srgb, var(--foreground) 5.4%, transparent),
+    color-mix(in srgb, var(--foreground) 7.8%, transparent)
+  );
+  position: absolute;
+  z-index: 2;
+  bottom: 8px;
+  left: 50%;
+  display: flex;
+  width: max-content;
+  /* Leave room for the host's design-controls launcher at the trailing edge. */
+  max-width: calc(100% - 96px);
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+  /* Match the settings dropdown chrome independently of the content font size. */
+  font-size: 13px;
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+  transform: translateX(-50%);
+  user-select: none;
+}
+
+/* Keep authored mockup button styles out of the shared carousel chrome. */
+.viz-carousel-controls button,
+.viz-carousel-picker > summary {
+  display: flex !important;
+  height: auto !important;
+  min-height: 30px;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px;
+  padding: 0 6px !important;
+  -webkit-app-region: no-drag;
+  border: 0 !important;
+  border-radius: 14px !important;
+  color: inherit !important;
+  background: transparent !important;
+  font: inherit !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.viz-carousel-controls > button,
+.viz-carousel-picker > summary {
+  position: relative;
+  isolation: isolate;
+}
+
+.viz-carousel-controls > button {
+  --icon-size: 16px;
+  width: 30px !important;
+  padding: 0 !important;
+}
+
+.viz-carousel-picker > summary {
+  padding-inline: 12px !important;
+}
+
+.viz-carousel-controls .viz-carousel-caret {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  margin: 0;
+  color: inherit;
+  transform: rotate(180deg);
+}
+
+.viz-carousel-controls > button > svg,
+.viz-carousel-controls .viz-carousel-caret,
+.viz-carousel-count {
+  opacity: 0.5;
+}
+
+.viz-carousel-controls > button::before,
+.viz-carousel-picker > summary::before {
+  position: absolute;
+  z-index: -1;
+  inset: 3px;
+  border-radius: 12px;
+  content: "";
+  pointer-events: none;
+}
+
+.viz-carousel-controls > button:hover::before,
+.viz-carousel-picker > summary:hover::before {
+  background: var(--viz-carousel-hover);
+}
+
+.viz-carousel-controls > button,
+.viz-carousel-controls [data-lucide],
+.viz-carousel-controls .lucide {
+  flex-shrink: 0;
+}
+
+.viz-carousel-picker {
+  min-width: 0;
+}
+
+.viz-carousel-picker > summary {
+  min-width: 0;
+  list-style: none;
+}
+
+.viz-carousel-picker > summary::-webkit-details-marker {
+  display: none;
+}
+
+.viz-carousel-count {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.viz-carousel-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.viz-carousel-options {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 4px);
+  left: 0;
+  display: flex;
+  max-height: 240px;
+  flex-direction: column;
+  gap: 2px;
+  overflow: auto;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--background);
+  box-shadow: 0 4px 12px light-dark(rgb(0 0 0 / 6%), rgb(0 0 0 / 25%));
+}
+
+.viz-carousel-options > button {
+  border-radius: max(0px, calc(var(--radius-lg) - 5px)) !important;
+  width: 100% !important;
+  min-height: 28px;
+  justify-content: flex-start !important;
+  padding: 4px 8px !important;
+  font-size: var(--font-size-small) !important;
+  text-align: start;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.viz-carousel-options > [aria-current="true"],
+.viz-carousel-options > button:hover {
+  background: var(--viz-carousel-hover) !important;
+}
+
+.btn:disabled,
+.nav-link:disabled,
+.nav-link[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  padding-inline: calc(4px + var(--control-spacing, 12px) / 2);
+  border-color: var(--input);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--popover) 96%, transparent);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.4285714286;
+}
+.form-control:is(
+  [type="file"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="week"],
+  [type="color"]
+) {
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  line-height: 18px;
+}
+.form-control:is(
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="week"]
+) {
+  padding-inline: var(--control-spacing, 12px);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type="file"] {
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+  padding: 0;
+}
+
+.form-control[type="file"]::file-selector-button {
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+  min-height: calc(10px + 2 * var(--control-spacing, 12px));
+  padding-inline: var(--control-spacing, 12px);
+  margin-inline-end: var(--control-spacing, 12px);
+}
+
+.form-control[type="file"]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type="color"] {
+  width: 40px;
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type="color"]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: var(--corner-shape);
+}
+
+textarea.form-control {
+  height: auto;
+  resize: vertical;
+  min-height: 96px;
+  padding: 8px 10px;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: none;
+}
+.form-control:disabled {
+  color: var(--muted-foreground);
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  opacity: 1;
+}
+.form-control[aria-invalid="true"] {
+  border-color: var(--red);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--red) 20%, transparent);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: fit-content;
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  margin: 0;
+  /* The secondary icon role is 14px at compact density and 16px at web density. */
+  --icon-size: calc(10px + var(--control-spacing, 12px) / 2);
+  /* Settings dropdowns retain a 12px inset and a 4px text-to-chevron gap. */
+  padding: 0 calc(16px + var(--icon-size)) 0 12px;
+  outline: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(
+      45deg,
+      transparent calc(50% - 0.6px),
+      var(--muted-foreground) calc(50% - 0.6px) calc(50% + 0.6px),
+      transparent calc(50% + 0.6px)
+    ),
+    linear-gradient(
+      135deg,
+      transparent calc(50% - 0.6px),
+      var(--muted-foreground) calc(50% - 0.6px) calc(50% + 0.6px),
+      transparent calc(50% + 0.6px)
+    );
+  background-position:
+    calc(100% - 12px - var(--icon-size) / 2) 50%,
+    calc(100% - 12px - var(--icon-size) * 0.18) 50%;
+  background-repeat: no-repeat;
+  background-size: calc(var(--icon-size) * 0.32) calc(var(--icon-size) * 0.32);
+  cursor: var(--cursor-interaction, default);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+}
+
+.form-select option {
+  color: var(--popover-foreground);
+  background-color: var(--popover);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.form-select:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+.form-select:disabled {
+  opacity: 0.4;
+}
+
+.form-check {
+  display: flex;
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type="checkbox"] {
+  corner-shape: round;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  width: calc(10px + var(--control-spacing, 12px) / 2);
+  height: calc(10px + var(--control-spacing, 12px) / 2);
+  border-color: var(--border-strong, var(--input));
+  border-radius: calc(var(--radius-sm) / 2);
+  background-color: transparent;
+  color: var(--foreground);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type="checkbox"]:is(:checked, :indeterminate) {
+  border-color: var(--border-strong, var(--input));
+  background-color: color-mix(in srgb, var(--popover) 96%, transparent);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type="checkbox"]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: "";
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+  background-color: var(--foreground);
+}
+.form-check:not(.form-switch)
+  .form-check-input[type="checkbox"]:indeterminate::before {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 65%;
+  height: 6.65%;
+  margin: auto;
+  border-radius: var(--radius-full);
+  background: var(--foreground);
+  mask: none;
+  content: "";
+}
+
+.form-check-input[type="radio"] {
+  border-radius: var(--radius-full);
+  width: 16px;
+  height: 16px;
+  border: 0;
+  box-shadow: inset 0 0 0 1px var(--input);
+}
+
+.form-check-input[type="radio"]:checked {
+  border: 0;
+  background: radial-gradient(
+    circle,
+    var(--primary-foreground) 0 3px,
+    var(--foreground) 3px
+  );
+  box-shadow: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+.form-check:not(.form-switch) .form-check-input[type="checkbox"]:focus-visible {
+  border-color: var(--ring);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+.form-check:not(.form-switch) .form-check-input[type="radio"]:disabled,
+.form-check:not(.form-switch)
+  .form-check-input[type="radio"]:disabled
+  + .form-check-label {
+  opacity: 0.5;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  content: "";
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+  border-color: #fff;
+  background: #fff;
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--blue);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+  outline: none;
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  accent-color: var(--primary);
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  outline: none;
+  border-radius: var(--radius-full);
+  color: var(--foreground);
+  background: transparent;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  background: var(--form-range-track, var(--border));
+  height: 2px;
+  border-radius: var(--radius-full);
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  margin-top: -9px;
+  border-color: transparent;
+  background: currentColor;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Outline the native track and thumb, preserving the larger input hit area. */
+.form-range:focus-visible::-webkit-slider-runnable-track {
+  outline: 2px auto Highlight;
+  outline-color: -webkit-focus-ring-color;
+}
+
+.form-range::-moz-range-track {
+  background: var(--form-range-track, var(--border));
+  height: 2px;
+  border-radius: var(--radius-full);
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  border-color: transparent;
+  background: currentColor;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  outline: 2px solid Highlight;
+  outline-offset: 2px;
+}
+
+.form-range:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed="true"],
+  [aria-selected="true"],
+  .is-selected
+) {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--blue);
+}
+
+.btn.viz-tile:is([aria-pressed="true"], [aria-selected="true"], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible {
+  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.viz-carousel-controls :is(button, summary):focus-visible {
+  outline: 2px solid var(--ring) !important;
+  outline-offset: 2px !important;
+}
+
+/* Web recipes are the default, including on renderers without inline style queries. */
+@supports (border-radius: if(style(--corner-shape: round): 1px; else: 2px)) {
+  /* Match the host's proportional text-sm scale at every text preference. */
+  .tooltip,
+  .viz-badge,
+  .btn,
+  .nav-link,
+  .form-control,
+  .form-select {
+    font-size: if(
+      style(--corner-shape: round): round(
+          nearest,
+          calc(var(--font-size-base) * 14 / 16),
+          1px
+        );
+        else: round(nearest, calc(var(--font-size-base) * 13 / 14), 1px)
+    );
+  }
+
+  .btn,
+  .nav-link,
+  .form-select {
+    border-radius: if(
+      style(--corner-shape: round): var(--radius-full); else: var(--radius-lg)
+    );
+  }
+
+  .form-check:not(.form-switch) .form-check-input[type="checkbox"] {
+    border-radius: if(
+      style(--corner-shape: round): calc(var(--radius-sm) / 2);
+        else: calc(var(--radius-lg) * 0.4)
+    );
+  }
+
+  .tooltip {
+    font-weight: if(
+      style(--corner-shape: round): 600; else: var(--font-weight-normal)
+    );
+  }
+}
+
+@media (pointer: coarse) {
+  .viz-carousel:has(> .viz-carousel-controls) {
+    min-height: calc(76px + var(--viz-carousel-picker-height, 0px));
+    padding-bottom: 76px;
+  }
+
+  .btn,
+  .nav-link,
+  .viz-carousel-controls button,
+  .viz-carousel-picker > summary,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Keep small-screen WebKit from zooming when a text field receives focus. */
+  .form-control,
+  .form-select {
+    font-size: max(16px, calc(var(--font-size-base) * 14 / 16));
+    font-size: max(
+      16px,
+      round(nearest, calc(var(--font-size-base) * 14 / 16), 1px)
+    );
+  }
+  .form-control:is(
+    [type="file"],
+    [type="date"],
+    [type="datetime-local"],
+    [type="month"],
+    [type="week"],
+    [type="time"],
+    [type="color"]
+  ) {
+    height: 44px;
+    min-height: 44px;
+    font-size: max(16px, calc(var(--font-size-base) * 14 / 16));
+    font-size: max(
+      16px,
+      round(nearest, calc(var(--font-size-base) * 14 / 16), 1px)
+    );
+  }
+
+  .form-control[type="file"]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type="color"] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type="date"],
+    [type="datetime-local"],
+    [type="month"],
+    [type="time"],
+    [type="week"]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: "";
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget > svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: var(--icon-size) !important;
+  height: var(--icon-size) !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html>body{padding:0}</style>
+</head>
+<body>
+
+<div id="weekly-briefing-oct16">
+  <header class="briefing-header">
+    <div>
+      <p class="text-small text-muted header-kicker"><i data-lucide="calendar-days" aria-hidden="true"></i> Friday briefing · October 16, 2026</p>
+      <h1>Build the dashboard. Keep the evidence visible.</h1>
+      <p class="header-dek">This week’s strongest workflow idea is Claude’s query-visible dashboard beta—an unusually good fit for your SEFA issue review and bank-reconciliation work. The other four stories cover a new reasoning model, an immediate ChatGPT model change, a bundled Grok plan, and a world-economy signal worth carrying into planning.</p>
+    </div>
+    <aside class="header-signal" aria-label="Editorial mix: four AI and workflow stories plus one world-news story">
+      <div class="signal-mark" aria-hidden="true"><span>4</span><i data-lucide="plus"></i><span>1</span></div>
+      <p class="text-small"><strong>Best first test</strong><br>Turn your manager-ready SEFA issues workbook into a read-only dashboard whose queries and refresh times remain inspectable.</p>
+    </aside>
+  </header>
+
+  <section class="glance-section" aria-labelledby="glance-title">
+    <div class="section-heading">
+      <div><p class="text-small text-muted">Today at a glance</p><h2 id="glance-title">Five developments, ordered for usefulness</h2></div>
+      <p class="text-small text-muted"><i data-lucide="clock-3" aria-hidden="true"></i> Oct 8–14</p>
+    </div>
+    <div class="glance-track" role="list" aria-label="Five stories by announcement date and practical relevance">
+      <button type="button" class="glance-node cursor-interaction" data-jump="dashboards" role="listitem" aria-label="October 8, Claude Dashboards, direct use for audit review">
+        <span class="node-date">Oct 8</span><span class="node-dot"></span><strong>Claude Dashboards</strong><span class="text-small text-muted">Direct audit use</span>
+      </button>
+      <button type="button" class="glance-node cursor-interaction" data-jump="argon" role="listitem" aria-label="October 13, Gemini 4 Argon, complex cross-checks">
+        <span class="node-date">Oct 13</span><span class="node-dot"></span><strong>Gemini 4 Argon</strong><span class="text-small text-muted">Complex cross-checks</span>
+      </button>
+      <button type="button" class="glance-node cursor-interaction" data-jump="retirement" role="listitem" aria-label="October 14, GPT-5.5 retired, regression-test workflows">
+        <span class="node-date">Oct 14</span><span class="node-dot"></span><strong>GPT-5.5 retired</strong><span class="text-small text-muted">Test workflows now</span>
+      </button>
+      <button type="button" class="glance-node cursor-interaction" data-jump="xplan" role="listitem" aria-label="October 12, X Subscription, consolidated Grok access">
+        <span class="node-date">Oct 12</span><span class="node-dot"></span><strong>X Subscription</strong><span class="text-small text-muted">Plan-cost decision</span>
+      </button>
+      <button type="button" class="glance-node cursor-interaction world-node" data-jump="outlook" role="listitem" aria-label="October 13, IMF world outlook, macro planning signal">
+        <span class="node-date">Oct 13</span><span class="node-dot"></span><strong>IMF outlook</strong><span class="text-small text-muted">Macro planning</span>
+      </button>
+    </div>
+    <p class="text-small text-muted glance-note"><i data-lucide="info" aria-hidden="true"></i> The timeline uses announcement dates; the editorial order reflects fit with your current SEFA, reconciliation, and interactive-report work—not an invented score.</p>
+  </section>
+
+  <div class="controls-row" aria-label="Briefing controls">
+    <div class="viz-controls" role="group" aria-label="Filter stories by company or topic">
+      <button type="button" class="btn btn-primary brief-filter" data-filter="all" aria-pressed="true">All 5</button>
+      <button type="button" class="btn brief-filter" data-filter="anthropic" aria-pressed="false">Anthropic</button>
+      <button type="button" class="btn brief-filter" data-filter="google" aria-pressed="false">Google</button>
+      <button type="button" class="btn brief-filter" data-filter="openai" aria-pressed="false">OpenAI</button>
+      <button type="button" class="btn brief-filter" data-filter="xai" aria-pressed="false">xAI</button>
+      <button type="button" class="btn brief-filter" data-filter="world" aria-pressed="false">World</button>
+    </div>
+    <div class="view-controls">
+      <button type="button" class="btn" id="oct16-theme" aria-label="Cycle color theme"><i data-lucide="circle-half" aria-hidden="true"></i><span>Auto</span></button>
+      <button type="button" class="btn" id="oct16-density" aria-pressed="false"><i data-lucide="rows-3" aria-hidden="true"></i><span>Compact</span></button>
+    </div>
+  </div>
+
+  <main class="story-grid" id="oct16-stories">
+    <article id="story-1" class="card story-card lead-story" data-story="dashboards" data-tags="anthropic workflow">
+      <div class="story-inner">
+        <div class="story-meta"><span class="viz-badge">01 · Anthropic</span><span class="viz-badge">Beta</span><time datetime="2026-10-08">Oct 8</time></div>
+        <h2>Claude Dashboards exposes the query behind every chart</h2>
+        <p class="story-summary">Claude can now turn a connected warehouse or app into a dashboard by writing the queries, building charts, and showing each query with its last-refresh time. Anthropic positions the beta for quick exploratory questions—not as a substitute for deeper analysis—so the visible logic is the feature that matters most.</p>
+        <a class="source-figure dashboard-figure" href="https://support.claude.com/en/articles/17454700-get-started-with-claude-dashboards" target="_blank" rel="noopener" aria-label="Open Anthropic's official Claude Dashboards guide">
+          <div role="img" aria-label="Editorial illustration of a SEFA issues workbook becoming a dashboard with issue status, amounts, and visible source queries">
+            <div class="sheet-stack"><span>SEFA</span><span>ALN</span><span>$</span></div>
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+            <div class="mini-dashboard">
+              <div class="mini-kpis"><span><b>12</b> issues</span><span><b>3</b> open</span><span><b>1</b> tie-out</span></div>
+              <div class="mini-bars" aria-hidden="true"><i style="--bar:82%"></i><i style="--bar:48%"></i><i style="--bar:28%"></i></div>
+              <div class="query-strip"><i data-lucide="braces" aria-hidden="true"></i> query visible · refreshed 08:40</div>
+            </div>
+          </div>
+          <span class="text-small text-muted">Editorial visual · Source: Anthropic’s Claude Dashboards guide</span>
+        </a>
+        <div class="story-tabs">
+          <div class="nav nav-pills" role="tablist" aria-label="Claude Dashboards story sections">
+            <button class="nav-link active" id="dashboards-changed-tab" role="tab" aria-controls="dashboards-changed" aria-selected="true" type="button">What changed</button>
+            <button class="nav-link" id="dashboards-matters-tab" role="tab" aria-controls="dashboards-matters" aria-selected="false" type="button">Why it matters</button>
+            <button class="nav-link" id="dashboards-try-tab" role="tab" aria-controls="dashboards-try" aria-selected="false" type="button">Try this</button>
+            <button class="nav-link" id="dashboards-sources-tab" role="tab" aria-controls="dashboards-sources" aria-selected="false" type="button">Sources</button>
+          </div>
+          <div id="dashboards-changed" role="tabpanel" aria-labelledby="dashboards-changed-tab"><p><strong>Access:</strong> beta on Pro, Max, Team, and Enterprise; Enterprise owners must enable it. The dashboard needs a connected data source or app. Each chart exposes what it counted and when the data last refreshed.</p></div>
+          <div id="dashboards-matters" role="tabpanel" aria-labelledby="dashboards-matters-tab" hidden><p>Your current SEFA-issues workbook and January–March bank-reconciliation package are natural candidates for a reviewer-friendly view that keeps the source logic inspectable.</p></div>
+          <div id="dashboards-try" role="tabpanel" aria-labelledby="dashboards-try-tab" hidden><div class="copy-block"><p>Build a read-only dashboard from this manager-ready SEFA issues workbook. Include: issue status; program and ALN; potential adjustment; evidence gap; owner; and next action. Show the exact source query and last-refreshed time for every view. Do not alter source data. Flag unmatched rows, duplicate keys, and totals that do not tie.</p><button type="button" class="btn copy-action"><i data-lucide="copy" aria-hidden="true"></i><span>Copy prompt</span></button></div></div>
+          <div id="dashboards-sources" role="tabpanel" aria-labelledby="dashboards-sources-tab" hidden><ul><li><a href="https://support.claude.com/en/articles/17454700-get-started-with-claude-dashboards" target="_blank" rel="noopener">Anthropic · Get started with Claude Dashboards</a></li><li><a href="https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them" target="_blank" rel="noopener">Anthropic · Artifacts availability and plan notes</a></li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <article id="story-2" class="card story-card" data-story="argon" data-tags="google workflow">
+      <div class="story-inner">
+        <div class="story-meta"><span class="viz-badge">02 · Google</span><span class="viz-badge">Released</span><time datetime="2026-10-13">Oct 13</time></div>
+        <h2>Gemini 4 Argon reaches the Gemini app for Pro and Ultra</h2>
+        <p class="story-summary">Google moved Gemini 4 Argon from preview into the Gemini app and AI Mode for Google AI Pro and Ultra subscribers, targeting difficult multi-step work in finance, legal, science, and engineering. Antigravity access remains Ultra-only; public API pricing is introductory through November 30.</p>
+        <a class="source-figure argon-figure" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/" target="_blank" rel="noopener" aria-label="Open Google's official Gemini 4 Argon announcement">
+          <div role="img" aria-label="Editorial illustration of two independent reviewers comparing SEFA evidence, amounts, and unresolved questions">
+            <div class="review-lane"><span>Manager memo</span><i data-lucide="file-check-2" aria-hidden="true"></i><small>facts · amounts · citations</small></div>
+            <div class="compare-mark"><i data-lucide="git-compare-arrows" aria-hidden="true"></i><span>cross-check</span></div>
+            <div class="review-lane accent-lane"><span>Argon review</span><i data-lucide="sparkles" aria-hidden="true"></i><small>conflicts · gaps · next steps</small></div>
+          </div>
+          <span class="text-small text-muted">Editorial visual · Source: Google’s Gemini 4 Argon announcement</span>
+        </a>
+        <div class="story-tabs">
+          <div class="nav nav-pills" role="tablist" aria-label="Gemini 4 Argon story sections">
+            <button class="nav-link active" id="argon-changed-tab" role="tab" aria-controls="argon-changed" aria-selected="true" type="button">What changed</button>
+            <button class="nav-link" id="argon-matters-tab" role="tab" aria-controls="argon-matters" aria-selected="false" type="button">Why it matters</button>
+            <button class="nav-link" id="argon-try-tab" role="tab" aria-controls="argon-try" aria-selected="false" type="button">Try this</button>
+            <button class="nav-link" id="argon-sources-tab" role="tab" aria-controls="argon-sources" aria-selected="false" type="button">Sources</button>
+          </div>
+          <div id="argon-changed" role="tabpanel" aria-labelledby="argon-changed-tab"><p><strong>Access:</strong> Gemini app and AI Mode on Google AI Pro and Ultra; Antigravity on Ultra only. Google lists introductory API pricing of $2 per million input tokens and $10 per million output tokens, rising to $4/$20 after November 30, 2026.</p></div>
+          <div id="argon-matters" role="tabpanel" aria-labelledby="argon-matters-tab" hidden><p>It gives you a fresh independent-review lane for complex, cross-file work such as reconciling a SEFA draft, issue log, and supporting evidence without changing the source package.</p></div>
+          <div id="argon-try" role="tabpanel" aria-labelledby="argon-try-tab" hidden><div class="copy-block"><p>Act as an independent reviewer of this approved SEFA package. Build a conflict matrix linking each issue to program/ALN, supporting file, amount, exact evidence citation, and proposed next step. Separate observed facts, inferences, and unresolved questions. Do not infer missing amounts or overwrite the manager-ready conclusion.</p><button type="button" class="btn copy-action"><i data-lucide="copy" aria-hidden="true"></i><span>Copy prompt</span></button></div></div>
+          <div id="argon-sources" role="tabpanel" aria-labelledby="argon-sources-tab" hidden><ul><li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/" target="_blank" rel="noopener">Google · Gemini 4 Argon announcement</a></li><li><a href="https://blog.google/intl/en-mena/product-updates/explore-get-answers/gemini-4-argon-built-to-solve-your-hardest-problems/" target="_blank" rel="noopener">Google · availability and pricing notes</a></li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <article id="story-3" class="card story-card" data-story="retirement" data-tags="openai workflow">
+      <div class="story-inner">
+        <div class="story-meta"><span class="viz-badge">03 · OpenAI</span><span class="viz-badge">Immediate</span><time datetime="2026-10-14">Oct 14</time></div>
+        <h2>GPT-5.5 is retired from ChatGPT, Work, and Codex</h2>
+        <p class="story-summary">OpenAI removed GPT-5.5 from ChatGPT, ChatGPT Work, and Codex on October 14. API access is unaffected, but any saved cloud workflow that depended on the model’s particular formatting or judgment should be re-baselined instead of assumed equivalent.</p>
+        <a class="source-figure retirement-figure" href="https://help.openai.com/en/articles/9624314-model-release-notes" target="_blank" rel="noopener" aria-label="Open OpenAI's official model release notes">
+          <div role="img" aria-label="Editorial regression-test panel comparing a known bank-reconciliation result against a current model">
+            <div class="baseline"><span>Known output</span><b>42 rows</b><small>3 exceptions · tied</small></div>
+            <div class="diff-arrow"><i data-lucide="arrow-right-left" aria-hidden="true"></i><span>compare</span></div>
+            <div class="baseline current"><span>Current model</span><b>42 rows</b><small>verify totals · citations</small></div>
+          </div>
+          <span class="text-small text-muted">Editorial visual · Source: OpenAI model release notes</span>
+        </a>
+        <div class="story-tabs">
+          <div class="nav nav-pills" role="tablist" aria-label="GPT-5.5 retirement story sections">
+            <button class="nav-link active" id="retirement-changed-tab" role="tab" aria-controls="retirement-changed" aria-selected="true" type="button">What changed</button>
+            <button class="nav-link" id="retirement-matters-tab" role="tab" aria-controls="retirement-matters" aria-selected="false" type="button">Why it matters</button>
+            <button class="nav-link" id="retirement-try-tab" role="tab" aria-controls="retirement-try" aria-selected="false" type="button">Try this</button>
+            <button class="nav-link" id="retirement-sources-tab" role="tab" aria-controls="retirement-sources" aria-selected="false" type="button">Sources</button>
+          </div>
+          <div id="retirement-changed" role="tabpanel" aria-labelledby="retirement-changed-tab"><p>The retirement applies to the ChatGPT model picker, ChatGPT Work, and Codex. OpenAI says API access is unchanged. The note does not promise that a specific replacement will reproduce prior outputs, so treat migration as a testing event.</p></div>
+          <div id="retirement-matters" role="tabpanel" aria-labelledby="retirement-matters-tab" hidden><p>Your repeatable reconciliation, indexing, and manager-email workflows are exactly where silent changes in row counts, exception logic, or citations are most expensive.</p></div>
+          <div id="retirement-try" role="tabpanel" aria-labelledby="retirement-try-tab" hidden><div class="copy-block"><p>Regression-test this established bank-reconciliation workflow using the same sanitized input and known-good output. Compare row counts, totals, unmatched items, exception classifications, source citations, and final formatting. Report only differences, their likely cause, and the review risk. Do not revise the source files.</p><button type="button" class="btn copy-action"><i data-lucide="copy" aria-hidden="true"></i><span>Copy prompt</span></button></div></div>
+          <div id="retirement-sources" role="tabpanel" aria-labelledby="retirement-sources-tab" hidden><ul><li><a href="https://help.openai.com/en/articles/9624314-model-release-notes" target="_blank" rel="noopener">OpenAI · Model release notes</a></li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <article id="story-4" class="card story-card" data-story="xplan" data-tags="xai workflow">
+      <div class="story-inner">
+        <div class="story-meta"><span class="viz-badge">04 · xAI</span><span class="viz-badge">New customers now</span><time datetime="2026-10-12">Oct 12</time></div>
+        <h2>xAI bundles Grok Bot and shared usage into one X Subscription</h2>
+        <p class="story-summary">The new X Subscription combines Grok chat, voice, image/video tools, Grok Bot, X, and Cursor under shared model usage. New customers can buy it now; the option to switch is rolling out to existing SuperGrok, Cursor, and X Premium subscribers, who can also keep their current plans.</p>
+        <a class="source-figure xplan-figure" href="https://x.ai/news/x-subscription" target="_blank" rel="noopener" aria-label="Open xAI's official X Subscription announcement">
+          <div role="img" aria-label="Editorial plan comparison showing cloud Grok, Grok Bot, and X access consolidated into Premium">
+            <div class="bundle-orbit"><span>Grok</span><span>Bot</span><span>X</span></div>
+            <div class="price-card"><small>Premium</small><b>$30</b><span>per month</span><em>shared usage</em></div>
+            <div class="decision-note"><i data-lucide="scale" aria-hidden="true"></i><span>Switch only if the bundle replaces tools you already pay for.</span></div>
+          </div>
+          <span class="text-small text-muted">Editorial visual · Source: xAI’s X Subscription announcement</span>
+        </a>
+        <div class="story-tabs">
+          <div class="nav nav-pills" role="tablist" aria-label="X Subscription story sections">
+            <button class="nav-link active" id="xplan-changed-tab" role="tab" aria-controls="xplan-changed" aria-selected="true" type="button">What changed</button>
+            <button class="nav-link" id="xplan-matters-tab" role="tab" aria-controls="xplan-matters" aria-selected="false" type="button">Why it matters</button>
+            <button class="nav-link" id="xplan-try-tab" role="tab" aria-controls="xplan-try" aria-selected="false" type="button">Try this</button>
+            <button class="nav-link" id="xplan-sources-tab" role="tab" aria-controls="xplan-sources" aria-selected="false" type="button">Sources</button>
+          </div>
+          <div id="xplan-changed" role="tabpanel" aria-labelledby="xplan-changed-tab"><p><strong>Plans:</strong> Free $0, Plus $8, Premium $30, Super $100, Ultra $200 per month; xAI says regional pricing may vary. Premium includes SuperGrok, Cursor Pro, and X Premium+. Existing subscribers may not see the switch option yet because rollout is staged.</p></div>
+          <div id="xplan-matters" role="tabpanel" aria-labelledby="xplan-matters-tab" hidden><p>This is the first practical route to Grok Bot plus broader Grok access in one subscription—but only saves money if you actually use the bundled services.</p></div>
+          <div id="xplan-try" role="tabpanel" aria-labelledby="xplan-try-tab" hidden><div class="copy-block"><p>Before I switch plans, build a one-page comparison of my current monthly spend and actual usage across SuperGrok, X Premium, and Cursor versus X Subscription Premium. Separate web/iOS features from desktop-only benefits. Flag staged availability, overlapping entitlements, and anything I would lose. Recommend “keep” or “switch” only if the savings and access are verified.</p><button type="button" class="btn copy-action"><i data-lucide="copy" aria-hidden="true"></i><span>Copy prompt</span></button></div></div>
+          <div id="xplan-sources" role="tabpanel" aria-labelledby="xplan-sources-tab" hidden><ul><li><a href="https://x.ai/news/x-subscription" target="_blank" rel="noopener">xAI · Introducing X Subscription</a></li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <article id="story-5" class="card story-card world-story" data-story="outlook" data-tags="world workflow">
+      <div class="story-inner">
+        <div class="story-meta"><span class="viz-badge">05 · World</span><span class="viz-badge">IMF outlook</span><time datetime="2026-10-13">Oct 13</time></div>
+        <h2>AI investment props up growth while energy and debt raise the floor on risk</h2>
+        <p class="story-summary">The IMF’s October outlook projects 3.1% global growth in 2026 and 3.4% in 2027, with AI investment and trade supporting activity. It simultaneously warns that higher energy and food prices, conflict, debt, and an uneven distribution of gains leave the outlook tilted to the downside.</p>
+        <a class="source-figure outlook-figure" href="https://mediacenter.imf.org/news/imf---world-economic-outlook-annual-meetings--2026/s/22f94667-d194-473b-87b2-34c692b5a5a3" target="_blank" rel="noopener" aria-label="Open the IMF's October 2026 World Economic Outlook summary">
+          <div role="img" aria-label="Data illustration comparing IMF world growth forecasts of 3.1 percent in 2026 and 3.4 percent in 2027, with AI as a tailwind and energy, food, war, and debt as downside risks">
+            <div class="growth-bars"><div><span>2026</span><i style="--growth:77%"></i><b>3.1%</b></div><div><span>2027</span><i style="--growth:85%"></i><b>3.4%</b></div></div>
+            <div class="macro-drivers"><span class="tailwind"><i data-lucide="trending-up" aria-hidden="true"></i> AI investment</span><span class="headwind"><i data-lucide="wind" aria-hidden="true"></i> energy · food · debt</span></div>
+          </div>
+          <span class="text-small text-muted">Data visual · Source: IMF October 2026 World Economic Outlook</span>
+        </a>
+        <div class="story-tabs">
+          <div class="nav nav-pills" role="tablist" aria-label="IMF world outlook story sections">
+            <button class="nav-link active" id="outlook-changed-tab" role="tab" aria-controls="outlook-changed" aria-selected="true" type="button">What changed</button>
+            <button class="nav-link" id="outlook-matters-tab" role="tab" aria-controls="outlook-matters" aria-selected="false" type="button">Why it matters</button>
+            <button class="nav-link" id="outlook-try-tab" role="tab" aria-controls="outlook-try" aria-selected="false" type="button">Try this</button>
+            <button class="nav-link" id="outlook-sources-tab" role="tab" aria-controls="outlook-sources" aria-selected="false" type="button">Sources</button>
+          </div>
+          <div id="outlook-changed" role="tabpanel" aria-labelledby="outlook-changed-tab"><p>The IMF says global resilience is increasingly uneven: countries tied to the AI-investment boom are benefiting while energy importers and lower-income economies face greater pressure. Its near-term inflation forecast reaches 4.7% globally, largely from energy and food.</p></div>
+          <div id="outlook-matters" role="tabpanel" aria-labelledby="outlook-matters-tab" hidden><p>For planning and review, the combination of higher-for-longer rates, energy volatility, and uneven demand is more useful than the headline growth number alone.</p></div>
+          <div id="outlook-try" role="tabpanel" aria-labelledby="outlook-try-tab" hidden><div class="copy-block"><p>Add a concise macro-watch section to this planning memo. Map higher energy costs, higher-for-longer rates, and uneven demand to the client’s debt service, liquidity, estimates, impairment, and going-concern assumptions. Define the evidence or threshold that would trigger an update. Keep this separate from management’s assertions.</p><button type="button" class="btn copy-action"><i data-lucide="copy" aria-hidden="true"></i><span>Copy prompt</span></button></div></div>
+          <div id="outlook-sources" role="tabpanel" aria-labelledby="outlook-sources-tab" hidden><ul><li><a href="https://mediacenter.imf.org/news/imf---world-economic-outlook-annual-meetings--2026/s/22f94667-d194-473b-87b2-34c692b5a5a3" target="_blank" rel="noopener">IMF · October 2026 World Economic Outlook summary</a></li><li><a href="https://www.reuters.com/world/china/imf-says-ai-investment-propping-up-global-growth-war-debt-threaten-outlook-2026-10-13/" target="_blank" rel="noopener">Reuters · AI investment, war, and debt risks</a></li></ul></div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <section class="watch-section" aria-labelledby="watch-title">
+    <div class="section-heading"><div><p class="text-small text-muted">Worth watching</p><h2 id="watch-title">Two smaller signals</h2></div><i data-lucide="radar" aria-hidden="true"></i></div>
+    <div class="watch-grid">
+      <a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener"><span class="viz-badge">OpenAI · Oct 15</span><div><strong>ChatGPT Sites removes its fixed creation cap</strong><p class="text-small text-muted">Plus and Pro no longer have a fixed number-of-Sites limit, though storage and usage limits still apply—useful for separating experimental property pages from production versions.</p></div><i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+      <a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener"><span class="viz-badge">Voice · Oct 15</span><div><strong>GPT-Live-1.1 improves accents and search phrasing</strong><p class="text-small text-muted">ChatGPT Voice added region-dependent voices and more natural phrasing. Useful, but less consequential for your evidence-heavy workflows than the five main items.</p></div><i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+    </div>
+  </section>
+
+  <footer class="briefing-footer"><p class="text-small text-muted">Exactly five stories, selected for current usefulness. Product access, prices, and staged rollouts can change; open the linked source before relying on availability.</p><a href="#weekly-briefing-oct16"><i data-lucide="arrow-up" aria-hidden="true"></i> Back to top</a></footer>
+</div>
+
+<style>
+  #weekly-briefing-oct16 { color: var(--foreground); font-family: var(--font-sans); padding: 1.5rem 1rem 3rem; max-width: 1120px; margin: 0 auto; }
+  #weekly-briefing-oct16 * { box-sizing: border-box; }
+  #weekly-briefing-oct16 .briefing-header { display: grid; grid-template-columns: minmax(0,1fr) 18rem; gap: 2rem; align-items: end; padding: 1.5rem 0 2rem; border-bottom: 1px solid var(--border); }
+  #weekly-briefing-oct16 .header-kicker, #weekly-briefing-oct16 .section-heading > div > p { display: flex; gap: .5rem; align-items: center; text-transform: uppercase; letter-spacing: .12em; margin: 0; }
+  #weekly-briefing-oct16 h1 { max-width: 52rem; margin: .75rem 0 1rem; }
+  #weekly-briefing-oct16 .header-dek { max-width: 49rem; color: var(--muted-foreground); margin: 0; }
+  #weekly-briefing-oct16 .header-signal { border-left: .35rem solid var(--viz-series-1); padding-left: 1rem; }
+  #weekly-briefing-oct16 .header-signal p { margin: .75rem 0 0; }
+  #weekly-briefing-oct16 .signal-mark { display: flex; align-items: center; gap: .5rem; color: var(--viz-series-1); }
+  #weekly-briefing-oct16 .signal-mark span { font-family: var(--font-mono); }
+  #weekly-briefing-oct16 .signal-mark svg { width: 1rem; }
+  #weekly-briefing-oct16 .glance-section { padding: 2rem 0 1.25rem; }
+  #weekly-briefing-oct16 .section-heading { display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+  #weekly-briefing-oct16 .section-heading h2 { margin: .25rem 0 0; }
+  #weekly-briefing-oct16 .section-heading > p { display: flex; align-items: center; gap: .4rem; }
+  #weekly-briefing-oct16 .section-heading svg { width: 1.1rem; }
+  #weekly-briefing-oct16 .glance-track { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); position: relative; margin-top: 1.75rem; }
+  #weekly-briefing-oct16 .glance-track::before { content:""; position: absolute; top: 2.25rem; left: 9%; right: 9%; height: 2px; background: var(--border); }
+  #weekly-briefing-oct16 .glance-node { border: 0; background: transparent; color: var(--foreground); display: flex; flex-direction: column; align-items: center; gap: .35rem; padding: 0 .4rem; text-align: center; }
+  #weekly-briefing-oct16 .node-date { color: var(--muted-foreground); }
+  #weekly-briefing-oct16 .node-dot { width: .9rem; height: .9rem; border-radius: 50%; background: var(--background); border: .2rem solid var(--viz-series-1); z-index: 1; transition: transform var(--duration-normal) var(--ease-standard); }
+  #weekly-briefing-oct16 .glance-node:first-child .node-dot { background: var(--viz-series-1); box-shadow: 0 0 0 .4rem color-mix(in srgb, var(--viz-series-1) 16%, transparent); }
+  #weekly-briefing-oct16 .world-node .node-dot { border-color: var(--viz-series-2); }
+  #weekly-briefing-oct16 .glance-node:hover .node-dot { transform: scale(1.3); }
+  #weekly-briefing-oct16 .glance-note { display: flex; align-items: flex-start; gap: .45rem; margin: 1.25rem 0 0; }
+  #weekly-briefing-oct16 .glance-note svg { width: 1rem; flex: 0 0 auto; }
+  #weekly-briefing-oct16 .controls-row { display: flex; justify-content: space-between; gap: 1rem; align-items: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: .75rem 0; margin-bottom: 1.5rem; }
+  #weekly-briefing-oct16 .view-controls { display: flex; gap: .5rem; }
+  #weekly-briefing-oct16 .story-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+  #weekly-briefing-oct16 .lead-story { grid-column: 1 / -1; }
+  #weekly-briefing-oct16 .story-inner { padding: 1.35rem; }
+  #weekly-briefing-oct16 .lead-story .story-inner { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(18rem,.95fr); gap: 0 1.5rem; }
+  #weekly-briefing-oct16 .lead-story .story-meta, #weekly-briefing-oct16 .lead-story h2, #weekly-briefing-oct16 .lead-story .story-summary { grid-column: 1; }
+  #weekly-briefing-oct16 .lead-story .source-figure { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; }
+  #weekly-briefing-oct16 .lead-story .story-tabs { grid-column: 1 / -1; }
+  #weekly-briefing-oct16 .story-card[hidden] { display: none; }
+  #weekly-briefing-oct16 .story-card.is-highlighted { animation: briefPulse .8s var(--ease-standard); }
+  @keyframes briefPulse { 50% { transform: translateY(-.25rem); } }
+  #weekly-briefing-oct16 .story-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+  #weekly-briefing-oct16 .story-meta time { margin-left: auto; color: var(--muted-foreground); }
+  #weekly-briefing-oct16 .story-card h2 { margin: 1rem 0 .75rem; }
+  #weekly-briefing-oct16 .story-summary { color: var(--muted-foreground); margin: 0; }
+  #weekly-briefing-oct16 .source-figure { display: flex; flex-direction: column; color: inherit; text-decoration: none; margin: 1.25rem 0 0; background: var(--muted); overflow: hidden; }
+  #weekly-briefing-oct16 .source-figure > div { min-height: 13.5rem; padding: 1.25rem; display: flex; align-items: center; justify-content: center; gap: 1rem; }
+  #weekly-briefing-oct16 .source-figure > span { background: var(--background); padding: .55rem .75rem; border-top: 1px solid var(--border); }
+  #weekly-briefing-oct16 .sheet-stack { width: 7rem; height: 7.5rem; position: relative; }
+  #weekly-briefing-oct16 .sheet-stack span { position: absolute; display: grid; place-items: center; width: 4.6rem; height: 5.8rem; background: var(--card); border: 1px solid var(--border); font-family: var(--font-mono); }
+  #weekly-briefing-oct16 .sheet-stack span:nth-child(2) { transform: translate(.75rem,.55rem); } #weekly-briefing-oct16 .sheet-stack span:nth-child(3) { transform: translate(1.5rem,1.1rem); color: var(--viz-series-1); }
+  #weekly-briefing-oct16 .mini-dashboard { width: min(100%,25rem); background: var(--card); padding: .9rem; border: 1px solid var(--border); }
+  #weekly-briefing-oct16 .mini-kpis { display: grid; grid-template-columns: repeat(3,1fr); gap: .45rem; }
+  #weekly-briefing-oct16 .mini-kpis span { background: var(--muted); padding: .55rem; display: flex; flex-direction: column; }
+  #weekly-briefing-oct16 .mini-bars { display: flex; gap: .6rem; align-items: end; height: 4.3rem; padding: .5rem .4rem 0; }
+  #weekly-briefing-oct16 .mini-bars i { width: 1.3rem; height: var(--bar); background: var(--viz-series-1); }
+  #weekly-briefing-oct16 .query-strip { border-top: 1px solid var(--border); padding-top: .45rem; color: var(--muted-foreground); display: flex; align-items: center; gap: .4rem; font-family: var(--font-mono); }
+  #weekly-briefing-oct16 .query-strip svg { width: 1rem; }
+  #weekly-briefing-oct16 .review-lane { width: 8rem; min-height: 8rem; background: var(--card); border: 1px solid var(--border); padding: .75rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: .45rem; }
+  #weekly-briefing-oct16 .review-lane svg { color: var(--viz-series-1); width: 2rem; }
+  #weekly-briefing-oct16 .review-lane small { color: var(--muted-foreground); }
+  #weekly-briefing-oct16 .compare-mark { color: var(--muted-foreground); display: flex; flex-direction: column; align-items: center; }
+  #weekly-briefing-oct16 .accent-lane { border-color: var(--viz-series-1); }
+  #weekly-briefing-oct16 .baseline { width: 9.5rem; min-height: 8rem; background: var(--card); border: 1px solid var(--border); padding: .8rem; display: flex; flex-direction: column; justify-content: center; text-align: center; gap: .35rem; }
+  #weekly-briefing-oct16 .baseline b { color: var(--viz-series-1); }
+  #weekly-briefing-oct16 .baseline small { color: var(--muted-foreground); }
+  #weekly-briefing-oct16 .current { border-color: var(--viz-series-3); }
+  #weekly-briefing-oct16 .diff-arrow { display: flex; flex-direction: column; align-items: center; color: var(--muted-foreground); }
+  #weekly-briefing-oct16 .bundle-orbit { width: 8rem; height: 8rem; border: 1px dashed var(--viz-series-1); border-radius: 50%; position: relative; }
+  #weekly-briefing-oct16 .bundle-orbit span { position: absolute; background: var(--card); border: 1px solid var(--border); padding: .35rem .55rem; }
+  #weekly-briefing-oct16 .bundle-orbit span:nth-child(1) { top: -.5rem; left: 2.25rem; } #weekly-briefing-oct16 .bundle-orbit span:nth-child(2) { bottom: .6rem; left: -.35rem; } #weekly-briefing-oct16 .bundle-orbit span:nth-child(3) { bottom: .6rem; right: -.2rem; }
+  #weekly-briefing-oct16 .price-card { background: var(--primary); color: var(--primary-foreground); padding: 1rem; min-width: 7.5rem; display: flex; flex-direction: column; align-items: center; }
+  #weekly-briefing-oct16 .price-card b { font-family: var(--font-mono); }
+  #weekly-briefing-oct16 .price-card em { margin-top: .45rem; font-style: normal; }
+  #weekly-briefing-oct16 .decision-note { max-width: 10rem; display: flex; gap: .5rem; align-items: flex-start; color: var(--muted-foreground); }
+  #weekly-briefing-oct16 .decision-note svg { width: 1rem; flex: 0 0 auto; }
+  #weekly-briefing-oct16 .growth-bars { width: min(100%,22rem); display: grid; gap: .8rem; }
+  #weekly-briefing-oct16 .growth-bars > div { display: grid; grid-template-columns: 3rem 1fr 3rem; gap: .65rem; align-items: center; }
+  #weekly-briefing-oct16 .growth-bars i { height: 1.1rem; width: var(--growth); background: var(--viz-series-2); }
+  #weekly-briefing-oct16 .macro-drivers { display: grid; gap: .55rem; }
+  #weekly-briefing-oct16 .macro-drivers span { background: var(--card); padding: .65rem; display: flex; align-items: center; gap: .45rem; }
+  #weekly-briefing-oct16 .macro-drivers svg { width: 1rem; }
+  #weekly-briefing-oct16 .tailwind svg { color: var(--viz-series-3); } #weekly-briefing-oct16 .headwind svg { color: var(--viz-series-2); }
+  #weekly-briefing-oct16 .story-tabs { margin-top: 1.25rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  #weekly-briefing-oct16 [role="tabpanel"] { padding-top: 1rem; min-height: 7.5rem; }
+  #weekly-briefing-oct16 [role="tabpanel"] p { margin: 0; }
+  #weekly-briefing-oct16 .copy-block { background: var(--muted); padding: 1rem; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 1rem; align-items: start; }
+  #weekly-briefing-oct16 .copy-block p { font-family: var(--font-mono); color: var(--muted-foreground); }
+  #weekly-briefing-oct16 .story-tabs ul { margin: 0; padding-left: 1.25rem; }
+  #weekly-briefing-oct16 .story-tabs li { margin: .35rem 0; }
+  #weekly-briefing-oct16 .compact-mode .story-inner { padding: 1rem; }
+  #weekly-briefing-oct16 .compact-mode .story-summary { display: none; }
+  #weekly-briefing-oct16 .compact-mode .source-figure > div { min-height: 9rem; }
+  #weekly-briefing-oct16 .compact-mode .lead-story .story-inner { display: block; }
+  #weekly-briefing-oct16 .compact-mode .lead-story .source-figure { margin-top: 1rem; }
+  #weekly-briefing-oct16 .compact-mode [role="tabpanel"] { min-height: 0; }
+  #weekly-briefing-oct16 .watch-section { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  #weekly-briefing-oct16 .watch-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin-top: 1rem; }
+  #weekly-briefing-oct16 .watch-grid a { color: inherit; text-decoration: none; display: grid; grid-template-columns: auto 1fr auto; gap: .75rem; align-items: start; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+  #weekly-briefing-oct16 .watch-grid p { margin: .3rem 0 0; }
+  #weekly-briefing-oct16 .watch-grid > a > svg { width: 1rem; }
+  #weekly-briefing-oct16 .briefing-footer { display: flex; justify-content: space-between; gap: 1rem; align-items: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+  #weekly-briefing-oct16 .briefing-footer p { margin: 0; }
+  #weekly-briefing-oct16 .briefing-footer a { display: flex; align-items: center; gap: .35rem; white-space: nowrap; }
+  #weekly-briefing-oct16 .briefing-footer svg { width: 1rem; }
+  @media (max-width: 820px) {
+    #weekly-briefing-oct16 .briefing-header { grid-template-columns: 1fr; }
+    #weekly-briefing-oct16 .header-signal { max-width: 30rem; }
+    #weekly-briefing-oct16 .story-grid { grid-template-columns: 1fr; }
+    #weekly-briefing-oct16 .lead-story { grid-column: auto; }
+    #weekly-briefing-oct16 .lead-story .story-inner { display: block; }
+    #weekly-briefing-oct16 .lead-story .source-figure { margin-top: 1.25rem; }
+    #weekly-briefing-oct16 .controls-row { align-items: flex-end; }
+  }
+  @media (max-width: 620px) {
+    #weekly-briefing-oct16 { padding: 1rem .5rem 2.5rem; }
+    #weekly-briefing-oct16 .glance-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .5rem; }
+    #weekly-briefing-oct16 .glance-track::before { left: 3rem; right: 3rem; }
+    #weekly-briefing-oct16 .glance-node { flex: 0 0 8.5rem; scroll-snap-align: center; }
+    #weekly-briefing-oct16 .controls-row { display: grid; }
+    #weekly-briefing-oct16 .view-controls { justify-content: flex-end; }
+    #weekly-briefing-oct16 .source-figure > div { flex-wrap: wrap; }
+    #weekly-briefing-oct16 .mini-kpis { grid-template-columns: 1fr; }
+    #weekly-briefing-oct16 .decision-note { max-width: none; }
+    #weekly-briefing-oct16 .copy-block { grid-template-columns: 1fr; }
+    #weekly-briefing-oct16 .copy-action { justify-self: start; }
+    #weekly-briefing-oct16 .watch-grid { grid-template-columns: 1fr; }
+    #weekly-briefing-oct16 .briefing-footer { align-items: flex-start; }
+  }
+  @media (prefers-reduced-motion: reduce) { #weekly-briefing-oct16 *, #weekly-briefing-oct16 *::before, #weekly-briefing-oct16 *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById('weekly-briefing-oct16');
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = 'true';
+  const stories = [...root.querySelectorAll('.story-card')];
+  root.querySelectorAll('.brief-filter').forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      root.querySelectorAll('.brief-filter').forEach(item => {
+        const selected = item === button;
+        item.setAttribute('aria-pressed', selected ? 'true' : 'false');
+        item.classList.toggle('btn-primary', selected);
+      });
+      stories.forEach(story => story.hidden = filter !== 'all' && !story.dataset.tags.includes(filter));
+    });
+  });
+  const density = root.querySelector('#oct16-density');
+  density.addEventListener('click', () => {
+    const active = root.classList.toggle('compact-mode');
+    density.setAttribute('aria-pressed', active ? 'true' : 'false');
+    density.querySelector('span').textContent = active ? 'Expanded' : 'Compact';
+  });
+  const theme = root.querySelector('#oct16-theme');
+  const modes = ['auto','light','dark'];
+  let themeIndex = 0;
+  theme.addEventListener('click', () => {
+    themeIndex = (themeIndex + 1) % modes.length;
+    const mode = modes[themeIndex];
+    root.style.colorScheme = mode === 'auto' ? 'light dark' : mode;
+    theme.querySelector('span').textContent = mode.charAt(0).toUpperCase() + mode.slice(1);
+    theme.setAttribute('aria-label', `Color theme: ${mode}. Activate to cycle.`);
+  });
+  root.querySelectorAll('.copy-action').forEach(button => {
+    button.addEventListener('click', async () => {
+      const copyText = button.closest('.copy-block').querySelector('p').innerText;
+      const label = button.querySelector('span');
+      const original = label.textContent;
+      try { await navigator.clipboard.writeText(copyText); label.textContent = 'Copied'; }
+      catch (_) { label.textContent = 'Select text'; }
+      setTimeout(() => label.textContent = original, 1600);
+    });
+  });
+  root.querySelectorAll('.glance-node').forEach(button => {
+    button.addEventListener('click', () => {
+      const all = root.querySelector('[data-filter="all"]');
+      if (all) all.click();
+      const story = root.querySelector(`[data-story="${button.dataset.jump}"]`);
+      if (!story) return;
+      story.scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center'});
+      story.classList.remove('is-highlighted');
+      void story.offsetWidth;
+      story.classList.add('is-highlighted');
+    });
+  });
+})();
+</script>
+
+<script src="https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js"></script>
+<script src="https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js"></script>
+<script>
+(() => {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set(["top", "right", "bottom", "left"]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+  let lastPointerWasTouch = false;
+  let pinnedByTouch = false;
+
+  const getTrigger = (event) => {
+    for (const target of event.composedPath()) {
+      if (target?.nodeType === Node.ELEMENT_NODE) {
+        const trigger = target.closest("[data-tooltip]");
+        if (trigger) return trigger;
+      }
+    }
+    return null;
+  };
+  const containsTarget = (trigger, target) =>
+    target?.nodeType != null && trigger.contains(target);
+  const getContent = (trigger) =>
+    trigger.getAttribute("data-tooltip")?.trim() ?? "";
+  const getPlacement = (trigger) => {
+    const placement = trigger.getAttribute("data-tooltip-placement");
+    return tooltipPlacements.has(placement) ? placement : "top";
+  };
+  const getTooltip = () => {
+    if (tooltip == null) {
+      tooltip = document.createElement("div");
+      tooltip.id = tooltipId;
+      tooltip.className = "tooltip";
+      tooltip.setAttribute("role", "tooltip");
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) => {
+    const ids = new Set(
+      (trigger.getAttribute("aria-describedby") ?? "")
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute("aria-describedby");
+    } else {
+      trigger.setAttribute("aria-describedby", [...ids].join(" "));
+    }
+  };
+  const clearOpenTimeout = () => {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) => {
+    clearOpenTimeout();
+    pinnedByTouch = false;
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) => {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              "--tooltip-available-width",
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              "--tooltip-available-height",
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: "fixed",
+    })
+      .then(({ x, y }) => {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = "visible";
+      })
+      .catch(() => {
+        if (activeTrigger === trigger && request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) => {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = "hidden";
+    floating.style.transform = "translate(0, 0)";
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () => {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) => {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() < skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() => {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) => {
+    if (event.pointerType === "touch") {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handlePointer = (event) => {
+    lastPointerWasTouch =
+      event.type === "pointerdown" && event.pointerType === "touch";
+  };
+  const handleTouchClick = (event) => {
+    const isTouch = event.pointerType === "touch" || lastPointerWasTouch;
+    lastPointerWasTouch = false;
+    if (!isTouch || event.detail === 0) {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (
+      trigger == null ||
+      !trigger.isConnected ||
+      getContent(trigger).length === 0 ||
+      (pinnedByTouch && activeTrigger === trigger)
+    ) {
+      if (pinnedByTouch) {
+        closeTooltip();
+      }
+      return;
+    }
+    openTooltip(trigger);
+    pinnedByTouch = activeTrigger === trigger;
+    window.setTimeout(() => {
+      if (activeTrigger === trigger && !trigger.isConnected) {
+        closeTooltip(false);
+      }
+    }, 0);
+  };
+  const handleLeave = (event) => {
+    if (pinnedByTouch) {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) => {
+    const trigger = getTrigger(event);
+    if (trigger?.matches(":focus-visible")) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) => {
+    lastPointerWasTouch = false;
+    const trigger = getTrigger(event);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handlers = {
+    pointerover: handlePointerOpen,
+    pointerdown: handlePointer,
+    pointercancel: handlePointer,
+    click: handleTouchClick,
+    pointerout: handleLeave,
+    focusin: handleFocusIn,
+    focusout: handleLeave,
+    keydown: handleKeyDown,
+    contextmenu: handleContextMenu,
+  };
+  const roots = new Map();
+  const handledEvents = new WeakSet();
+  const handleEvent = (event) => {
+    if (handledEvents.has(event)) return;
+    handledEvents.add(event);
+    handlers[event.type](event);
+  };
+  const discoverRoots = (node) => {
+    if (node.shadowRoot) listen(node.shadowRoot);
+    for (const element of node.querySelectorAll("*")) {
+      if (element.shadowRoot) listen(element.shadowRoot);
+    }
+  };
+  const listen = (root) => {
+    if (roots.has(root)) return;
+    for (const type of Object.keys(handlers)) root.addEventListener(type, handleEvent);
+    const observer = new window.MutationObserver((records) => {
+      for (const { addedNodes } of records) {
+        for (const node of addedNodes) {
+          if (node.nodeType === Node.ELEMENT_NODE) discoverRoots(node);
+        }
+      }
+      for (const [root, cleanup] of roots) {
+        if (root.host && !root.host.isConnected) {
+          cleanup();
+          roots.delete(root);
+        }
+      }
+      if (activeTrigger && !activeTrigger.isConnected) closeTooltip(false);
+    });
+    observer.observe(root, { childList: true, subtree: true });
+    roots.set(root, () => {
+      observer.disconnect();
+      for (const type of Object.keys(handlers)) root.removeEventListener(type, handleEvent);
+    });
+    discoverRoots(root);
+  };
+  const destroy = () => {
+    closeTooltip(false);
+    lastPointerWasTouch = false;
+    for (const cleanup of roots.values()) cleanup();
+    roots.clear();
+    tooltip = null;
+  };
+
+  // Events between children of one shadow root never reach the document.
+  listen(document);
+  window.addEventListener("pagehide", destroy, { once: true });
+})();
+</script>
+<script id="codex-visualization-tabs">
+(() => {
+  const selector = '.nav[role="tablist"] [role="tab"]';
+  const disabled = ':disabled,[aria-disabled="true"]';
+  const selectTab = (selected) => {
+    const panelId = selected.getAttribute("aria-controls");
+    for (const tab of selected.closest('[role="tablist"]').querySelectorAll('[role="tab"]')) {
+      const active = tab === selected;
+      tab.classList.toggle("active", active);
+      tab.setAttribute("aria-selected", String(active));
+      const id = tab.getAttribute("aria-controls");
+      const panel = id && document.getElementById(id);
+      if (panel != null) {
+        panel.hidden = id !== panelId;
+        if (!panel.hidden && selected.id) {
+          panel.setAttribute("aria-labelledby", selected.id);
+        }
+      }
+    }
+  };
+  const interact = (event) => {
+    const tab = event.target?.closest?.(selector);
+    if (event.defaultPrevented || tab == null || tab.matches(disabled)) {
+      return;
+    }
+    if (event.type === "click") {
+      selectTab(tab);
+      return;
+    }
+    const tabs = Array.from(
+      tab.closest('[role="tablist"]').querySelectorAll('[role="tab"]'),
+    ).filter((candidate) => !candidate.matches(disabled));
+    const current = tabs.indexOf(tab);
+    let next;
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      next = (current + 1) % tabs.length;
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      next = (current + tabs.length - 1) % tabs.length;
+    } else if (event.key === "Home") {
+      next = 0;
+    } else if (event.key === "End") {
+      next = tabs.length - 1;
+    } else {
+      return;
+    }
+    event.preventDefault();
+    tabs[next].focus();
+    selectTab(tabs[next]);
+  };
+
+  for (const list of document.querySelectorAll('.nav[role="tablist"]')) {
+    const selected =
+      list.querySelector('[role="tab"][aria-selected="true"]') ??
+      list.querySelector('[role="tab"].active') ??
+      list.querySelector('[role="tab"]');
+    if (selected != null) {
+      selectTab(selected);
+    }
+  }
+  document.addEventListener("click", interact);
+  document.addEventListener("keydown", interact);
+  window.addEventListener("pagehide", () => {
+    document.removeEventListener("click", interact);
+    document.removeEventListener("keydown", interact);
+  }, { once: true });
+})();
+</script>
+<script id="codex-visualization-carousel">
+  (() => {
+    for (const root of document.querySelectorAll(".viz-carousel")) {
+      const panels = Array.from(
+        root.querySelectorAll(":scope > [data-variant]"),
+      );
+      if (panels.length === 0) {
+        continue;
+      }
+      root.setAttribute("role", "group");
+      panels.forEach((panel, index) => {
+        panel.hidden = index !== 0;
+        panel.setAttribute("role", "group");
+        if (!panel.hasAttribute("aria-label")) {
+          panel.setAttribute("aria-label", panel.dataset.variant);
+        }
+      });
+      root.dataset.activeVariant = panels[0].dataset.variant;
+      if (panels.length === 1) {
+        continue;
+      }
+
+      const controls = document.createElement("div");
+      controls.className = "viz-carousel-controls";
+      // Portable copy of the settings dropdown's legacy glyph; no 14px icon-package preset matches it.
+      // https://github.com/openai/openai/blob/master/codex/codex-apps/webview/src/icons/chevron.svg
+      controls.innerHTML = `
+      <button type="button" class="viz-carousel-previous cursor-interaction"><i data-lucide="chevron-left" aria-hidden="true"></i></button>
+      <details class="viz-carousel-picker">
+        <summary class="cursor-interaction">
+          <span class="viz-carousel-count tabular-nums"></span>
+          <span class="viz-carousel-name"></span>
+          <svg class="viz-carousel-caret" width="14" height="14" viewBox="0 0 20 21" fill="none" aria-hidden="true" focusable="false">
+            <path d="M15.2793 7.71101C15.539 7.45131 15.961 7.45131 16.2207 7.71101C16.4804 7.97071 16.4804 8.39272 16.2207 8.65242L10.4707 14.4024C10.211 14.6621 9.78902 14.6621 9.52932 14.4024L3.77932 8.65242L3.69436 8.54792C3.52385 8.28979 3.55205 7.93828 3.77932 7.71101C4.00659 7.48374 4.3581 7.45554 4.61623 7.62605L4.72073 7.71101L10 12.9903L15.2793 7.71101Z" fill="currentColor" stroke="currentColor" stroke-width="0.6" />
+          </svg>
+        </summary>
+        <div class="viz-carousel-options"></div>
+      </details>
+      <button type="button" class="viz-carousel-next cursor-interaction"><i data-lucide="chevron-right" aria-hidden="true"></i></button>`;
+      const previous = controls.querySelector(".viz-carousel-previous");
+      const next = controls.querySelector(".viz-carousel-next");
+      const picker = controls.querySelector(".viz-carousel-picker");
+      const summary = picker.querySelector("summary");
+      const count = controls.querySelector(".viz-carousel-count");
+      const name = controls.querySelector(".viz-carousel-name");
+      const options = controls.querySelector(".viz-carousel-options");
+      const status = document.createElement("span");
+      status.className = "sr-only";
+      status.setAttribute("role", "status");
+      status.setAttribute("aria-live", "polite");
+      status.setAttribute("aria-atomic", "true");
+      previous.setAttribute(
+        "aria-label",
+        root.dataset.previousLabel ?? "Previous variant",
+      );
+      next.setAttribute("aria-label", root.dataset.nextLabel ?? "Next variant");
+
+      let active = 0;
+      let mousePointerId = null;
+      let summaryPointerHandled = false;
+      summary.addEventListener("pointerdown", (event) => {
+        summaryPointerHandled =
+          event.pointerType === "mouse" && event.button === 0 && !event.ctrlKey;
+        if (!summaryPointerHandled) {
+          return;
+        }
+        event.preventDefault();
+        summary.focus({ preventScroll: true });
+        picker.open = !picker.open;
+        mousePointerId = picker.open ? event.pointerId : null;
+      });
+      summary.addEventListener("click", (event) => {
+        if (summaryPointerHandled && event.detail > 0) {
+          event.preventDefault();
+        }
+      });
+      const choices = panels.map((panel, index) => {
+        const choice = document.createElement("button");
+        choice.type = "button";
+        choice.className = "cursor-interaction";
+        choice.textContent = panel.dataset.variant;
+        choice.addEventListener("click", () => {
+          select(index);
+          summary.focus();
+        });
+        choice.addEventListener("pointerup", (event) => {
+          if (
+            picker.open &&
+            event.pointerType === "mouse" &&
+            event.button === 0 &&
+            event.pointerId === mousePointerId
+          ) {
+            choice.click();
+          }
+        });
+        options.appendChild(choice);
+        return choice;
+      });
+      const select = (index) => {
+        const changed = active !== index;
+        active = index;
+        panels.forEach((panel, position) => {
+          panel.hidden = position !== active;
+          choices[position].setAttribute(
+            "aria-current",
+            String(position === active),
+          );
+        });
+        root.dataset.activeVariant = panels[active].dataset.variant;
+        count.textContent = `${active + 1} / ${panels.length}`;
+        name.textContent = panels[active].dataset.variant;
+        picker.open = false;
+        mousePointerId = null;
+        if (changed) {
+          status.textContent = `${count.textContent}: ${name.textContent}`;
+        }
+      };
+      previous.addEventListener("click", () =>
+        select((active + panels.length - 1) % panels.length),
+      );
+      next.addEventListener("click", () =>
+        select((active + 1) % panels.length),
+      );
+      picker.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && picker.open) {
+          event.preventDefault();
+          picker.open = false;
+          mousePointerId = null;
+          summary.focus();
+          return;
+        }
+        if (event.altKey || event.ctrlKey || event.metaKey) {
+          return;
+        }
+        const index = choices.indexOf(document.activeElement);
+        let nextIndex;
+        if (event.key === "ArrowDown") {
+          nextIndex = index < 0 ? active : (index + 1) % choices.length;
+        } else if (event.key === "ArrowUp") {
+          nextIndex = index < 0 ? active : (index + choices.length - 1) % choices.length;
+        } else if (picker.open && event.key === "Home") {
+          nextIndex = 0;
+        } else if (picker.open && event.key === "End") {
+          nextIndex = choices.length - 1;
+        } else {
+          return;
+        }
+        event.preventDefault();
+        picker.open = true;
+        choices[nextIndex].focus();
+      });
+      picker.addEventListener("focusout", (event) => {
+        if (!picker.contains(event.relatedTarget)) {
+          picker.open = false;
+          mousePointerId = null;
+        }
+      });
+      const dismiss = (event) => {
+        if (!summary.contains(event.target)) {
+          mousePointerId = null;
+        }
+        if (!picker.contains(event.target)) {
+          picker.open = false;
+        }
+      };
+      const endPointerSelection = () => {
+        mousePointerId = null;
+      };
+      const sizePicker = () => {
+        root.style.setProperty(
+          "--viz-carousel-picker-height",
+          `${picker.open ? options.offsetHeight : 0}px`,
+        );
+      };
+      picker.addEventListener("toggle", sizePicker);
+      window.addEventListener("resize", sizePicker);
+      document.addEventListener("pointerdown", dismiss);
+      document.addEventListener("pointerup", endPointerSelection);
+      document.addEventListener("pointercancel", endPointerSelection);
+      window.addEventListener("blur", endPointerSelection);
+      window.addEventListener(
+        "pagehide",
+        () => {
+          document.removeEventListener("pointerdown", dismiss);
+          document.removeEventListener("pointerup", endPointerSelection);
+          document.removeEventListener("pointercancel", endPointerSelection);
+          window.removeEventListener("blur", endPointerSelection);
+          window.removeEventListener("resize", sizePicker);
+        },
+        { once: true },
+      );
+      root.append(controls, status);
+      select(0);
+    }
+  })();
+</script>
+<script id="codex-visualization-lucide" async src="https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js"></script>
+<script>
+(() => {
+  const initialize = () => {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById("codex-visualization-lucide")
+    ?.addEventListener("load", initialize, { once: true });
+})();
+</script>
+
+</body>
+</html>

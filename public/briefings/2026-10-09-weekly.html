@@ -1,0 +1,2475 @@
+<!doctype html>
+<html lang="en" data-visualize-standalone>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Personalized Weekly Briefing — October 9, 2026</title>
+<style>:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 16px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans:
+    -apple-system-body, ui-sans-serif, -apple-system, system-ui, "Segoe UI",
+    Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  --font-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --icon-size: 16px;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --corner-shape: round;
+  --radius: var(--border-radius-lg, 8px);
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 2);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 17'%3E%3Cpath d='M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z'/%3E%3C/svg%3E");
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html > body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: var(--visualize-paint-gutter, 0px);
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  -webkit-font-smoothing: antialiased;
+  font-size: var(--font-size-base);
+  line-height: calc(var(--font-size-base) * 1.625);
+  font-weight: var(--font-weight-normal);
+}
+
+:root:not([data-app-block-surface], [data-visualize-standalone]) > body {
+  padding: 12px;
+}
+
+.cursor-interaction {
+  cursor: var(--cursor-interaction, pointer);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: var(--cursor-interaction, pointer);
+  text-decoration: none;
+  text-underline-offset: 2px;
+  font-weight: inherit;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+.table {
+  font-family: var(--font-sans);
+}
+
+h1 {
+  font-size: calc(var(--font-size-base) * 1.5);
+  line-height: 1.3333333333;
+}
+
+h2 {
+  font-size: calc(var(--font-size-base) * 1.25);
+  line-height: 1.4;
+}
+h3 {
+  font-size: calc(var(--font-size-base) * 1.125);
+  line-height: 1.5555555556;
+}
+h4 {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+h5,
+h6 {
+  font-size: var(--font-size-base);
+  line-height: calc(var(--font-size-base) * 1.625);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong,
+th {
+  font-weight: 600;
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+pre,
+pre code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: calc(var(--font-size-base) * 0.875);
+  line-height: calc(var(--font-size-base) * 1.625);
+  font-family: var(--font-sans);
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 5%, transparent);
+}
+.table :is(th, td):not(:last-child) {
+  padding-inline-end: calc(var(--font-size-base) * 1.5);
+}
+
+.table-responsive > .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead :is(th, td) {
+  border-bottom-color: var(--border-strong, var(--input));
+  padding-block: calc(var(--font-size-base) / 2);
+  line-height: var(--font-size-base);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+.table tbody :is(th, td) {
+  padding-block: calc(var(--font-size-base) * 0.625);
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 8px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align="right"]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align="center"]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: var(--corner-shape);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+.widget {
+  min-width: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  box-shadow: 0 0 0 0.5px var(--border-strong, var(--border));
+  color: var(--foreground);
+  background: var(--background);
+}
+
+#widget > :not(.card, .widget, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  border: 1px solid var(--border);
+  corner-shape: var(--corner-shape);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+  font-family: var(--font-sans);
+  padding: 5px 12px;
+  border-color: color-mix(
+    in oklab,
+    light-dark(var(--primary-foreground), var(--foreground)) 5%,
+    transparent
+  );
+  border-radius: var(--radius-2xl);
+  color: light-dark(var(--primary-foreground), var(--foreground));
+  background: light-dark(var(--foreground), var(--popover));
+  box-shadow: 0 8px 18px rgb(15 23 42 / 20%);
+  letter-spacing: -0.15px;
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+/* The shared runtime owns data-tooltip; suppress AppBlock's pseudo-tooltip. */
+main [data-tooltip]::after {
+  content: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin-block: 6px;
+  border: 0;
+  background: var(--border);
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress {
+  display: flex;
+  height: 8px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 8px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar:only-child {
+  border-radius: var(--radius-full);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  color: color-mix(in srgb, var(--foreground) 40%, var(--muted-foreground));
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  font-family: var(--font-sans);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 1;
+}
+
+small,
+.text-small {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls > .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls > .form-label > :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.nav-link,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+/* Match inline alignment without overriding a containing flex or grid layout. */
+.btn,
+.nav-link,
+.form-control,
+.form-select,
+.form-range,
+.form-check {
+  vertical-align: middle;
+}
+
+.btn,
+.nav-link {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  corner-shape: var(--corner-shape);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: inherit;
+  font-family: var(--font-sans);
+  height: fit-content;
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  padding-inline: var(--control-spacing, 12px);
+  border-color: transparent;
+  border-radius: var(--radius-full);
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+}
+
+.btn {
+  border-color: var(--border);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: var(--cursor-interaction, pointer);
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.nav-link:not(:disabled):not([aria-disabled="true"]):hover {
+  background: color-mix(in srgb, var(--foreground) 10%, transparent);
+}
+
+.btn-primary {
+  border-color: var(--border);
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: border-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: border-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--muted-foreground);
+  background: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.nav-pills .nav-link {
+  min-width: 0;
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.nav-justified .nav-link {
+  flex: 1 1 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.nav-pills .nav-link.active {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+/* Shared preview chrome; product styles stay inside each variant. */
+.viz-dotted-background {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--foreground) 14%, transparent) 0.8px,
+    transparent 0.8px
+  );
+  background-position: center;
+  background-size: 16px 16px;
+}
+
+.viz-carousel {
+  position: relative;
+  min-width: 0;
+}
+
+.viz-carousel:has(> .viz-carousel-controls) {
+  min-height: calc(60px + var(--viz-carousel-picker-height, 0px));
+  padding-bottom: 60px;
+}
+
+.viz-carousel > [data-variant][hidden] {
+  display: none !important;
+}
+
+.viz-carousel > [data-variant] {
+  isolation: isolate;
+}
+
+.viz-carousel-controls {
+  --viz-carousel-hover: light-dark(
+    color-mix(in srgb, var(--foreground) 5.4%, transparent),
+    color-mix(in srgb, var(--foreground) 7.8%, transparent)
+  );
+  position: absolute;
+  z-index: 2;
+  bottom: 8px;
+  left: 50%;
+  display: flex;
+  width: max-content;
+  /* Leave room for the host's design-controls launcher at the trailing edge. */
+  max-width: calc(100% - 96px);
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+  /* Match the settings dropdown chrome independently of the content font size. */
+  font-size: 13px;
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+  transform: translateX(-50%);
+  user-select: none;
+}
+
+/* Keep authored mockup button styles out of the shared carousel chrome. */
+.viz-carousel-controls button,
+.viz-carousel-picker > summary {
+  display: flex !important;
+  height: auto !important;
+  min-height: 30px;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px;
+  padding: 0 6px !important;
+  -webkit-app-region: no-drag;
+  border: 0 !important;
+  border-radius: 14px !important;
+  color: inherit !important;
+  background: transparent !important;
+  font: inherit !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.viz-carousel-controls > button,
+.viz-carousel-picker > summary {
+  position: relative;
+  isolation: isolate;
+}
+
+.viz-carousel-controls > button {
+  --icon-size: 16px;
+  width: 30px !important;
+  padding: 0 !important;
+}
+
+.viz-carousel-picker > summary {
+  padding-inline: 12px !important;
+}
+
+.viz-carousel-controls .viz-carousel-caret {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  margin: 0;
+  color: inherit;
+  transform: rotate(180deg);
+}
+
+.viz-carousel-controls > button > svg,
+.viz-carousel-controls .viz-carousel-caret,
+.viz-carousel-count {
+  opacity: 0.5;
+}
+
+.viz-carousel-controls > button::before,
+.viz-carousel-picker > summary::before {
+  position: absolute;
+  z-index: -1;
+  inset: 3px;
+  border-radius: 12px;
+  content: "";
+  pointer-events: none;
+}
+
+.viz-carousel-controls > button:hover::before,
+.viz-carousel-picker > summary:hover::before {
+  background: var(--viz-carousel-hover);
+}
+
+.viz-carousel-controls > button,
+.viz-carousel-controls [data-lucide],
+.viz-carousel-controls .lucide {
+  flex-shrink: 0;
+}
+
+.viz-carousel-picker {
+  min-width: 0;
+}
+
+.viz-carousel-picker > summary {
+  min-width: 0;
+  list-style: none;
+}
+
+.viz-carousel-picker > summary::-webkit-details-marker {
+  display: none;
+}
+
+.viz-carousel-count {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.viz-carousel-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.viz-carousel-options {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 4px);
+  left: 0;
+  display: flex;
+  max-height: 240px;
+  flex-direction: column;
+  gap: 2px;
+  overflow: auto;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--background);
+  box-shadow: 0 4px 12px light-dark(rgb(0 0 0 / 6%), rgb(0 0 0 / 25%));
+}
+
+.viz-carousel-options > button {
+  border-radius: max(0px, calc(var(--radius-lg) - 5px)) !important;
+  width: 100% !important;
+  min-height: 28px;
+  justify-content: flex-start !important;
+  padding: 4px 8px !important;
+  font-size: var(--font-size-small) !important;
+  text-align: start;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.viz-carousel-options > [aria-current="true"],
+.viz-carousel-options > button:hover {
+  background: var(--viz-carousel-hover) !important;
+}
+
+.btn:disabled,
+.nav-link:disabled,
+.nav-link[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  padding-inline: calc(4px + var(--control-spacing, 12px) / 2);
+  border-color: var(--input);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--popover) 96%, transparent);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.4285714286;
+}
+.form-control:is(
+  [type="file"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="week"],
+  [type="color"]
+) {
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  line-height: 18px;
+}
+.form-control:is(
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="week"]
+) {
+  padding-inline: var(--control-spacing, 12px);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type="file"] {
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+  padding: 0;
+}
+
+.form-control[type="file"]::file-selector-button {
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+  min-height: calc(10px + 2 * var(--control-spacing, 12px));
+  padding-inline: var(--control-spacing, 12px);
+  margin-inline-end: var(--control-spacing, 12px);
+}
+
+.form-control[type="file"]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type="color"] {
+  width: 40px;
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type="color"]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: var(--corner-shape);
+}
+
+textarea.form-control {
+  height: auto;
+  resize: vertical;
+  min-height: 96px;
+  padding: 8px 10px;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: none;
+}
+.form-control:disabled {
+  color: var(--muted-foreground);
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  opacity: 1;
+}
+.form-control[aria-invalid="true"] {
+  border-color: var(--red);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--red) 20%, transparent);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: fit-content;
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  margin: 0;
+  /* The secondary icon role is 14px at compact density and 16px at web density. */
+  --icon-size: calc(10px + var(--control-spacing, 12px) / 2);
+  /* Settings dropdowns retain a 12px inset and a 4px text-to-chevron gap. */
+  padding: 0 calc(16px + var(--icon-size)) 0 12px;
+  outline: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(
+      45deg,
+      transparent calc(50% - 0.6px),
+      var(--muted-foreground) calc(50% - 0.6px) calc(50% + 0.6px),
+      transparent calc(50% + 0.6px)
+    ),
+    linear-gradient(
+      135deg,
+      transparent calc(50% - 0.6px),
+      var(--muted-foreground) calc(50% - 0.6px) calc(50% + 0.6px),
+      transparent calc(50% + 0.6px)
+    );
+  background-position:
+    calc(100% - 12px - var(--icon-size) / 2) 50%,
+    calc(100% - 12px - var(--icon-size) * 0.18) 50%;
+  background-repeat: no-repeat;
+  background-size: calc(var(--icon-size) * 0.32) calc(var(--icon-size) * 0.32);
+  cursor: var(--cursor-interaction, default);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+}
+
+.form-select option {
+  color: var(--popover-foreground);
+  background-color: var(--popover);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.form-select:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+.form-select:disabled {
+  opacity: 0.4;
+}
+
+.form-check {
+  display: flex;
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type="checkbox"] {
+  corner-shape: round;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  width: calc(10px + var(--control-spacing, 12px) / 2);
+  height: calc(10px + var(--control-spacing, 12px) / 2);
+  border-color: var(--border-strong, var(--input));
+  border-radius: calc(var(--radius-sm) / 2);
+  background-color: transparent;
+  color: var(--foreground);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type="checkbox"]:is(:checked, :indeterminate) {
+  border-color: var(--border-strong, var(--input));
+  background-color: color-mix(in srgb, var(--popover) 96%, transparent);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type="checkbox"]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: "";
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+  background-color: var(--foreground);
+}
+.form-check:not(.form-switch)
+  .form-check-input[type="checkbox"]:indeterminate::before {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 65%;
+  height: 6.65%;
+  margin: auto;
+  border-radius: var(--radius-full);
+  background: var(--foreground);
+  mask: none;
+  content: "";
+}
+
+.form-check-input[type="radio"] {
+  border-radius: var(--radius-full);
+  width: 16px;
+  height: 16px;
+  border: 0;
+  box-shadow: inset 0 0 0 1px var(--input);
+}
+
+.form-check-input[type="radio"]:checked {
+  border: 0;
+  background: radial-gradient(
+    circle,
+    var(--primary-foreground) 0 3px,
+    var(--foreground) 3px
+  );
+  box-shadow: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+.form-check:not(.form-switch) .form-check-input[type="checkbox"]:focus-visible {
+  border-color: var(--ring);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+.form-check:not(.form-switch) .form-check-input[type="radio"]:disabled,
+.form-check:not(.form-switch)
+  .form-check-input[type="radio"]:disabled
+  + .form-check-label {
+  opacity: 0.5;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  content: "";
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+  border-color: #fff;
+  background: #fff;
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--blue);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+  outline: none;
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  accent-color: var(--primary);
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  outline: none;
+  border-radius: var(--radius-full);
+  color: var(--foreground);
+  background: transparent;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  background: var(--form-range-track, var(--border));
+  height: 2px;
+  border-radius: var(--radius-full);
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  margin-top: -9px;
+  border-color: transparent;
+  background: currentColor;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Outline the native track and thumb, preserving the larger input hit area. */
+.form-range:focus-visible::-webkit-slider-runnable-track {
+  outline: 2px auto Highlight;
+  outline-color: -webkit-focus-ring-color;
+}
+
+.form-range::-moz-range-track {
+  background: var(--form-range-track, var(--border));
+  height: 2px;
+  border-radius: var(--radius-full);
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  border-color: transparent;
+  background: currentColor;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  outline: 2px solid Highlight;
+  outline-offset: 2px;
+}
+
+.form-range:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed="true"],
+  [aria-selected="true"],
+  .is-selected
+) {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--blue);
+}
+
+.btn.viz-tile:is([aria-pressed="true"], [aria-selected="true"], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible {
+  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.viz-carousel-controls :is(button, summary):focus-visible {
+  outline: 2px solid var(--ring) !important;
+  outline-offset: 2px !important;
+}
+
+/* Web recipes are the default, including on renderers without inline style queries. */
+@supports (border-radius: if(style(--corner-shape: round): 1px; else: 2px)) {
+  /* Match the host's proportional text-sm scale at every text preference. */
+  .tooltip,
+  .viz-badge,
+  .btn,
+  .nav-link,
+  .form-control,
+  .form-select {
+    font-size: if(
+      style(--corner-shape: round): round(
+          nearest,
+          calc(var(--font-size-base) * 14 / 16),
+          1px
+        );
+        else: round(nearest, calc(var(--font-size-base) * 13 / 14), 1px)
+    );
+  }
+
+  .btn,
+  .nav-link,
+  .form-select {
+    border-radius: if(
+      style(--corner-shape: round): var(--radius-full); else: var(--radius-lg)
+    );
+  }
+
+  .form-check:not(.form-switch) .form-check-input[type="checkbox"] {
+    border-radius: if(
+      style(--corner-shape: round): calc(var(--radius-sm) / 2);
+        else: calc(var(--radius-lg) * 0.4)
+    );
+  }
+
+  .tooltip {
+    font-weight: if(
+      style(--corner-shape: round): 600; else: var(--font-weight-normal)
+    );
+  }
+}
+
+@media (pointer: coarse) {
+  .viz-carousel:has(> .viz-carousel-controls) {
+    min-height: calc(76px + var(--viz-carousel-picker-height, 0px));
+    padding-bottom: 76px;
+  }
+
+  .btn,
+  .nav-link,
+  .viz-carousel-controls button,
+  .viz-carousel-picker > summary,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Keep small-screen WebKit from zooming when a text field receives focus. */
+  .form-control,
+  .form-select {
+    font-size: max(16px, calc(var(--font-size-base) * 14 / 16));
+    font-size: max(
+      16px,
+      round(nearest, calc(var(--font-size-base) * 14 / 16), 1px)
+    );
+  }
+  .form-control:is(
+    [type="file"],
+    [type="date"],
+    [type="datetime-local"],
+    [type="month"],
+    [type="week"],
+    [type="time"],
+    [type="color"]
+  ) {
+    height: 44px;
+    min-height: 44px;
+    font-size: max(16px, calc(var(--font-size-base) * 14 / 16));
+    font-size: max(
+      16px,
+      round(nearest, calc(var(--font-size-base) * 14 / 16), 1px)
+    );
+  }
+
+  .form-control[type="file"]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type="color"] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type="date"],
+    [type="datetime-local"],
+    [type="month"],
+    [type="time"],
+    [type="week"]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: "";
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget > svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: var(--icon-size) !important;
+  height: var(--icon-size) !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html>body{padding:0}</style>
+</head>
+<body>
+
+<div id="weekly-briefing-oct9">
+  <header class="briefing-header">
+    <div>
+      <p class="text-small text-muted header-kicker"><i data-lucide="sunrise" aria-hidden="true"></i> Friday briefing · October 9, 2026</p>
+      <h1>The interface is becoming part of the answer.</h1>
+      <p class="header-dek">The most useful shift this week is not another benchmark: ChatGPT can now choose interactive controls, comparisons, and diagrams when plain text is not enough. Four workflow changes follow, plus one urgent U.S. news snapshot.</p>
+    </div>
+    <div class="header-signal" aria-label="Editorial mix: four workflow stories and one world-news story">
+      <div class="signal-mark" aria-hidden="true"><span>4</span><i data-lucide="plus"></i><span>1</span></div>
+      <p class="text-small"><strong>Best first test</strong><br>Turn one property due-diligence memo into a source-linked interactive decision surface.</p>
+    </div>
+  </header>
+
+  <section class="glance-section" aria-labelledby="glance-title">
+    <div class="section-heading">
+      <div><p class="text-small text-muted">Today at a glance</p><h2 id="glance-title">Five verified developments</h2></div>
+      <p class="text-small text-muted"><i data-lucide="clock-3" aria-hidden="true"></i> Oct 6–9</p>
+    </div>
+    <div class="glance-track" role="list" aria-label="Five stories by publication date and practical use">
+      <button type="button" class="glance-node cursor-interaction" data-jump="ui" role="listitem" aria-label="October 7, OpenAI Intelligent UI, interactive deliverables">
+        <span class="node-date">Oct 7</span><span class="node-dot"></span><strong>Intelligent UI</strong><span class="text-small text-muted">Interactive deliverables</span>
+      </button>
+      <button type="button" class="glance-node cursor-interaction" data-jump="haiku" role="listitem" aria-label="October 7, Anthropic Haiku 5.5, low-cost repetitive work">
+        <span class="node-date">Oct 7</span><span class="node-dot"></span><strong>Haiku 5.5</strong><span class="text-small text-muted">Low-cost triage</span>
+      </button>
+      <button type="button" class="glance-node cursor-interaction" data-jump="audio" role="listitem" aria-label="October 6, OpenAI audio uploads, evidence intake">
+        <span class="node-date">Oct 6</span><span class="node-dot"></span><strong>Audio uploads</strong><span class="text-small text-muted">Evidence intake</span>
+      </button>
+      <button type="button" class="glance-node cursor-interaction" data-jump="synthid" role="listitem" aria-label="October 7, Google SynthID Detector, media provenance">
+        <span class="node-date">Oct 7</span><span class="node-dot"></span><strong>SynthID Detector</strong><span class="text-small text-muted">Media provenance</span>
+      </button>
+      <button type="button" class="glance-node cursor-interaction world-node" data-jump="storm" role="listitem" aria-label="October 9, Hurricane Isaias, Gulf Coast emergency">
+        <span class="node-date">Oct 9</span><span class="node-dot"></span><strong>Hurricane Isaias</strong><span class="text-small text-muted">U.S. emergency</span>
+      </button>
+    </div>
+    <p class="text-small text-muted glance-note"><i data-lucide="info" aria-hidden="true"></i> Ordering reflects practical relevance to your current work; dates are announcements or current advisories, not invented scores.</p>
+  </section>
+
+  <div class="controls-row" aria-label="Briefing controls">
+    <div class="viz-controls" role="group" aria-label="Filter stories by topic">
+      <button type="button" class="btn btn-primary brief-filter" data-filter="all" aria-pressed="true">All 5</button>
+      <button type="button" class="btn brief-filter" data-filter="openai" aria-pressed="false">OpenAI</button>
+      <button type="button" class="btn brief-filter" data-filter="anthropic" aria-pressed="false">Anthropic</button>
+      <button type="button" class="btn brief-filter" data-filter="workflow" aria-pressed="false">Workflow</button>
+      <button type="button" class="btn brief-filter" data-filter="world" aria-pressed="false">World</button>
+    </div>
+    <button type="button" class="btn" id="oct9-density" aria-pressed="false"><i data-lucide="rows-3" aria-hidden="true"></i><span>Compact view</span></button>
+  </div>
+
+  <main class="story-grid" id="oct9-stories">
+    <article id="story-1" class="card story-card lead-story" data-story="ui" data-tags="openai workflow">
+      <div class="story-inner">
+        <div class="story-meta"><span class="viz-badge">01 · OpenAI</span><span class="viz-badge">Released</span><time datetime="2026-10-07">Oct 7</time></div>
+        <h2>GPT-6 can now build the interface that best fits the answer</h2>
+        <p class="story-summary">ChatGPT’s new Intelligent UI can combine prose with diagrams, side-by-side comparisons, calculators, and small interactive tools directly in a response. It can also begin answering while it continues thinking or using tools, adding findings without requiring another prompt.</p>
+        <a class="source-figure ui-figure" href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener" aria-label="Open OpenAI's official GPT-6 Intelligent UI release notes">
+          <div role="img" aria-label="Illustration showing one audit question becoming a comparison, source panel, exception chart, and decision control">
+            <div class="ui-query"><i data-lucide="sparkles" aria-hidden="true"></i><span>Turn this evidence into a decision</span></div>
+            <div class="ui-output-grid">
+              <div class="mini-panel"><i data-lucide="git-compare-arrows" aria-hidden="true"></i><strong>Compare</strong><span>Price · risk · commute</span></div>
+              <div class="mini-panel"><i data-lucide="chart-no-axes-combined" aria-hidden="true"></i><strong>Explore</strong><span>Change assumptions</span></div>
+              <div class="mini-panel"><i data-lucide="file-check-2" aria-hidden="true"></i><strong>Verify</strong><span>Open every source</span></div>
+            </div>
+          </div>
+          <span class="text-small text-muted">Illustration based on OpenAI’s official Intelligent UI announcement</span>
+        </a>
+        <div class="story-tabs">
+          <div class="nav nav-pills" role="tablist" aria-label="Intelligent UI story sections">
+            <button class="nav-link active" id="ui-changed-tab" role="tab" aria-controls="ui-changed" aria-selected="true" type="button">What changed</button>
+            <button class="nav-link" id="ui-matters-tab" role="tab" aria-controls="ui-matters" aria-selected="false" type="button">Why it matters</button>
+            <button class="nav-link" id="ui-try-tab" role="tab" aria-controls="ui-try" aria-selected="false" type="button">Try this</button>
+            <button class="nav-link" id="ui-sources-tab" role="tab" aria-controls="ui-sources" aria-selected="false" type="button">Sources</button>
+          </div>
+          <div id="ui-changed" role="tabpanel" aria-labelledby="ui-changed-tab"><p>Paid plans use GPT-6 Sol; Free and Go use GPT-6 Luna. The rollout began globally for Plus, Pro, Business, and Enterprise on October 7 and for Free/Go on October 8. Enterprise access can depend on admin settings. The Astra-powered Pro reasoning option does not support Intelligent UI, and Work/Codex models did not change with this release.</p></div>
+          <div id="ui-matters" role="tabpanel" aria-labelledby="ui-matters-tab" hidden><p>Your property due-diligence reports, SFUL indexes, and audit status memos can become inspectable decision tools instead of long static pages—while keeping sources and uncertainty visible.</p></div>
+          <div id="ui-try" role="tabpanel" aria-labelledby="ui-try-tab" hidden><div class="copy-block"><p>Using the attached property due-diligence memorandum, create a mobile-friendly interactive decision surface with: a source-linked issue matrix; price, HOA, commute, and repair assumptions I can change; a red/yellow/green risk view that explains every classification; and a print-ready conclusion. Do not add facts that are not in the memo. Mark unknowns explicitly.</p><button type="button" class="btn copy-action"><i data-lucide="copy" aria-hidden="true"></i><span>Copy prompt</span></button></div></div>
+          <div id="ui-sources" role="tabpanel" aria-labelledby="ui-sources-tab" hidden><ul><li><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener">OpenAI · ChatGPT release notes</a></li><li><a href="https://openai.com/index/introducing-gpt-6/" target="_blank" rel="noopener">OpenAI · GPT-6 announcement</a></li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <article id="story-2" class="card story-card" data-story="haiku" data-tags="anthropic workflow">
+      <div class="story-inner">
+        <div class="story-meta"><span class="viz-badge">02 · Anthropic</span><span class="viz-badge">Released</span><time datetime="2026-10-07">Oct 7</time></div>
+        <h2>Claude Haiku 5.5 turns repetitive review into a low-cost first pass</h2>
+        <p class="story-summary">Anthropic’s fastest small model is designed for summaries, compaction, classification, database queries, and browser work. Anthropic says it costs about 75% less per task than Haiku 4.5 on average, while Sonnet 5.5 cache reads were cut in half.</p>
+        <a class="source-figure haiku-figure" href="https://www.anthropic.com/claude-haiku-5-5" target="_blank" rel="noopener" aria-label="Open Anthropic's official Claude Haiku 5.5 announcement">
+          <div role="img" aria-label="Illustration of a large support packet being separated into a fast low-cost triage lane and a smaller judgment review lane">
+            <div class="packet-stack"><span>01</span><span>07</span><span>14</span><span>22</span></div>
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+            <div class="triage-lanes"><div><i data-lucide="zap" aria-hidden="true"></i><strong>Haiku</strong><span>index · classify · extract</span></div><div><i data-lucide="brain" aria-hidden="true"></i><strong>Reviewer</strong><span>exceptions · judgment</span></div></div>
+          </div>
+          <span class="text-small text-muted">Illustration based on Anthropic’s official Haiku 5.5 release</span>
+        </a>
+        <div class="story-tabs">
+          <div class="nav nav-pills" role="tablist" aria-label="Haiku 5.5 story sections">
+            <button class="nav-link active" id="haiku-changed-tab" role="tab" aria-controls="haiku-changed" aria-selected="true" type="button">What changed</button>
+            <button class="nav-link" id="haiku-matters-tab" role="tab" aria-controls="haiku-matters" aria-selected="false" type="button">Why it matters</button>
+            <button class="nav-link" id="haiku-try-tab" role="tab" aria-controls="haiku-try" aria-selected="false" type="button">Try this</button>
+            <button class="nav-link" id="haiku-sources-tab" role="tab" aria-controls="haiku-sources" aria-selected="false" type="button">Sources</button>
+          </div>
+          <div id="haiku-changed" role="tabpanel" aria-labelledby="haiku-changed-tab"><p>Haiku 5.5 is available across Anthropic’s platforms and major clouds. For prompts up to 100,000 tokens, API pricing is $0.10 per million input tokens, $0.50 per million output tokens, and $0.01 per million cache-read tokens. Monthly API credit is rolling out to Max and Team subscribers: $100 for Max 5x, $200 for Max 20x, and up to $500 pooled for Team.</p></div>
+          <div id="haiku-matters" role="tabpanel" aria-labelledby="haiku-matters-tab" hidden><p>Your 22-selection Cocopah SFUL support file and kitchen-photo inventory both contain high-volume, low-judgment steps that can be delegated cheaply, reserving the stronger model—and your attention—for conflicting evidence and conclusions.</p></div>
+          <div id="haiku-try" role="tabpanel" aria-labelledby="haiku-try-tab" hidden><div class="copy-block"><p>Process each indexed selection independently. Extract document type, vendor/payee, date, amount, selection number, supporting-agent section, and missing-evidence flags. Return strict JSON plus a one-row exception summary. Do not conclude whether the item passes; route conflicts, unreadable pages, and missing support to the reviewer.</p><button type="button" class="btn copy-action"><i data-lucide="copy" aria-hidden="true"></i><span>Copy prompt</span></button></div></div>
+          <div id="haiku-sources" role="tabpanel" aria-labelledby="haiku-sources-tab" hidden><ul><li><a href="https://www.anthropic.com/claude-haiku-5-5" target="_blank" rel="noopener">Anthropic · Claude Haiku 5.5</a></li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <article id="story-3" class="card story-card" data-story="audio" data-tags="openai workflow">
+      <div class="story-inner">
+        <div class="story-meta"><span class="viz-badge">03 · OpenAI</span><span class="viz-badge">Paid plans</span><time datetime="2026-10-06">Oct 6</time></div>
+        <h2>ChatGPT can now accept audio files as source material</h2>
+        <p class="story-summary">Paid ChatGPT plans and workspaces can upload audio for transcription, summaries, questions, and follow-up drafts. This moves recorded client walkthroughs and interviews into the same source-grounded workflow as PDFs and spreadsheets.</p>
+        <a class="source-figure audio-figure" href="https://help.openai.com/en/articles/8555545-uploading-files-and-audio-to-chatgpt" target="_blank" rel="noopener" aria-label="Open OpenAI's official audio upload guide">
+          <div role="img" aria-label="Illustration of a client walkthrough recording becoming timestamped notes, PBC requests, and an unresolved-questions list">
+            <div class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+            <div class="audio-outputs"><span><i data-lucide="list-checks" aria-hidden="true"></i> Walkthrough notes</span><span><i data-lucide="clock" aria-hidden="true"></i> Timestamp citations</span><span><i data-lucide="mail-plus" aria-hidden="true"></i> PBC follow-up</span></div>
+          </div>
+          <span class="text-small text-muted">Illustration based on OpenAI’s official audio-upload documentation</span>
+        </a>
+        <div class="story-tabs">
+          <div class="nav nav-pills" role="tablist" aria-label="Audio upload story sections">
+            <button class="nav-link active" id="audio-changed-tab" role="tab" aria-controls="audio-changed" aria-selected="true" type="button">What changed</button>
+            <button class="nav-link" id="audio-matters-tab" role="tab" aria-controls="audio-matters" aria-selected="false" type="button">Why it matters</button>
+            <button class="nav-link" id="audio-try-tab" role="tab" aria-controls="audio-try" aria-selected="false" type="button">Try this</button>
+            <button class="nav-link" id="audio-sources-tab" role="tab" aria-controls="audio-sources" aria-selected="false" type="button">Sources</button>
+          </div>
+          <div id="audio-changed" role="tabpanel" aria-labelledby="audio-changed-tab"><p>Attach a supported audio file and ask ChatGPT to transcribe or analyze it. Availability can vary by workspace settings, region, client version, and model. OpenAI warns that transcripts may contain errors and language performance varies, so high-stakes facts still need source verification.</p></div>
+          <div id="audio-matters" role="tabpanel" aria-labelledby="audio-matters-tab" hidden><p>A Sage Intacct export walkthrough, pension explanation, or controls interview can be converted into a timestamped memo and a PBC request list—provided recording consent and your firm’s data policy are satisfied.</p></div>
+          <div id="audio-try" role="tabpanel" aria-labelledby="audio-try-tab" hidden><div class="copy-block"><p>Transcribe this approved recording verbatim enough to preserve accounting terms. Then create: (1) a timestamped process narrative, (2) systems and reports mentioned, (3) control owners and frequencies, (4) unresolved questions, and (5) a draft PBC request list. Quote no more than needed and label uncertain words with timestamps.</p><button type="button" class="btn copy-action"><i data-lucide="copy" aria-hidden="true"></i><span>Copy prompt</span></button></div></div>
+          <div id="audio-sources" role="tabpanel" aria-labelledby="audio-sources-tab" hidden><ul><li><a href="https://help.openai.com/en/articles/8555545-uploading-files-and-audio-to-chatgpt" target="_blank" rel="noopener">OpenAI · Uploading files and audio</a></li><li><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener">OpenAI · ChatGPT release notes</a></li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <article id="story-4" class="card story-card" data-story="synthid" data-tags="workflow google">
+      <div class="story-inner">
+        <div class="story-meta"><span class="viz-badge">04 · Google</span><span class="viz-badge">Free web tool</span><time datetime="2026-10-07">Oct 7</time></div>
+        <h2>Google opens SynthID Detector globally for AI-media provenance checks</h2>
+        <p class="story-summary">Anyone can now upload an image, video, or audio file to check for invisible SynthID watermarks from Google and participating partners, including OpenAI, NVIDIA, and Kakao. The tool is available globally in English and adds a useful verification step—but it is not a universal detector.</p>
+        <a class="source-figure synth-figure" href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/" target="_blank" rel="noopener" aria-label="Open Google's official SynthID Detector announcement">
+          <div role="img" aria-label="Illustration of a property-listing photo passing through a watermark scan and returning a source-context result">
+            <div class="photo-frame"><i data-lucide="house" aria-hidden="true"></i><span>Listing image</span></div>
+            <div class="scan-rings"><i data-lucide="scan-search" aria-hidden="true"></i></div>
+            <div class="provenance-result"><i data-lucide="badge-check" aria-hidden="true"></i><strong>Watermark context</strong><span>Provider · media region · confidence</span></div>
+          </div>
+          <span class="text-small text-muted">Illustration based on Google DeepMind’s official SynthID Detector announcement</span>
+        </a>
+        <div class="story-tabs">
+          <div class="nav nav-pills" role="tablist" aria-label="SynthID story sections">
+            <button class="nav-link active" id="synth-changed-tab" role="tab" aria-controls="synth-changed" aria-selected="true" type="button">What changed</button>
+            <button class="nav-link" id="synth-matters-tab" role="tab" aria-controls="synth-matters" aria-selected="false" type="button">Why it matters</button>
+            <button class="nav-link" id="synth-try-tab" role="tab" aria-controls="synth-try" aria-selected="false" type="button">Try this</button>
+            <button class="nav-link" id="synth-sources-tab" role="tab" aria-controls="synth-sources" aria-selected="false" type="button">Sources</button>
+          </div>
+          <div id="synth-changed" role="tabpanel" aria-labelledby="synth-changed-tab"><p>Google says SynthID has already watermarked more than 180 billion images and videos plus 240,000 years of audio. Detector access is now global in English. <strong>Important limitation:</strong> “No watermark found” does not prove media is human-made; the tool only recognizes supported watermarks and participating systems.</p></div>
+          <div id="synth-matters" role="tabpanel" aria-labelledby="synth-matters-tab" hidden><p>For property due diligence and your photo inventory, the detector gives you one more way to flag virtual staging, altered listing media, or generated imagery before treating a picture as evidence.</p></div>
+          <div id="synth-try" role="tabpanel" aria-labelledby="synth-try-tab" hidden><div class="copy-block"><p>For one shortlisted property, check the most decision-relevant listing images—roof, HVAC, kitchen, windows, and structural areas. Record filename, source URL, upload date, SynthID result, and whether the image appears virtually staged. Treat a negative result as “no supported watermark detected,” not proof of authenticity.</p><button type="button" class="btn copy-action"><i data-lucide="copy" aria-hidden="true"></i><span>Copy checklist</span></button></div></div>
+          <div id="synth-sources" role="tabpanel" aria-labelledby="synth-sources-tab" hidden><ul><li><a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/" target="_blank" rel="noopener">Google DeepMind · global SynthID Detector access</a></li><li><a href="https://synthid.com/" target="_blank" rel="noopener">Open SynthID Detector</a></li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <article id="story-5" class="card story-card world-story" data-story="storm" data-tags="world">
+      <div class="story-inner">
+        <div class="story-meta"><span class="viz-badge">05 · World snapshot</span><span class="viz-badge">Active emergency</span><time datetime="2026-10-09">Oct 9</time></div>
+        <h2>Category 3 Hurricane Isaias is approaching the Alabama–Florida Gulf Coast</h2>
+        <p class="story-summary">Isaias strengthened to 120 mph and is forecast to make landfall Friday evening near the Alabama–Florida line. Officials warn of life-threatening storm surge, damaging winds, flash flooding, and tornadoes; some coastal areas are under mandatory evacuation orders.</p>
+        <a class="source-figure storm-figure" href="https://www.nhc.noaa.gov/" target="_blank" rel="noopener" aria-label="Open the National Hurricane Center for the latest Hurricane Isaias advisory">
+          <div role="img" aria-label="Schematic Gulf Coast impact panel showing a Category 3 hurricane approaching the Alabama and Florida Panhandle coast with a 5 to 7 foot surge risk">
+            <div class="storm-mark"><i data-lucide="hurricane" aria-hidden="true"></i><strong>CAT 3</strong><span>120 mph</span></div>
+            <div class="coast-track"><span class="coast-label">AL</span><span class="landfall-zone">Landfall zone</span><span class="coast-label">FL Panhandle</span><i></i></div>
+            <div class="impact-list"><span><strong>5–7 ft</strong> surge possible</span><span><strong>4–10 in</strong> widespread rain</span><span><strong>Tonight</strong> expected landfall</span></div>
+          </div>
+          <span class="text-small text-muted">Current-impact illustration · NOAA/NHC and NWS advisories, October 9</span>
+        </a>
+        <div class="story-tabs">
+          <div class="nav nav-pills" role="tablist" aria-label="Hurricane story sections">
+            <button class="nav-link active" id="storm-changed-tab" role="tab" aria-controls="storm-changed" aria-selected="true" type="button">What changed</button>
+            <button class="nav-link" id="storm-matters-tab" role="tab" aria-controls="storm-matters" aria-selected="false" type="button">Why it matters</button>
+            <button class="nav-link" id="storm-try-tab" role="tab" aria-controls="storm-try" aria-selected="false" type="button">Try this</button>
+            <button class="nav-link" id="storm-sources-tab" role="tab" aria-controls="storm-sources" aria-selected="false" type="button">Sources</button>
+          </div>
+          <div id="storm-changed" role="tabpanel" aria-labelledby="storm-changed-tab"><p>NOAA says Isaias is at or near major-hurricane strength ahead of landfall. The National Weather Service forecasts 5–7 feet of storm-surge inundation along parts of the Panhandle coast, with widespread 4–10 inches of rain and localized totals near 15 inches. Conditions can change quickly; use current official advisories.</p></div>
+          <div id="storm-matters" role="tabpanel" aria-labelledby="storm-matters-tab" hidden><p>This is a significant U.S. emergency with likely travel, logistics, insurance, and recovery effects across the Gulf Coast and Southeast—even if Arizona is outside the impact area.</p></div>
+          <div id="storm-try" role="tabpanel" aria-labelledby="storm-try-tab" hidden><div class="copy-block"><p>If you have travel, clients, family, or vendors in the affected region, check the current NHC advisory and local emergency-management instructions rather than relying on this morning snapshot. Avoid travel into warning areas and treat evacuation orders as authoritative.</p><button type="button" class="btn copy-action"><i data-lucide="copy" aria-hidden="true"></i><span>Copy note</span></button></div></div>
+          <div id="storm-sources" role="tabpanel" aria-labelledby="storm-sources-tab" hidden><ul><li><a href="https://www.nhc.noaa.gov/" target="_blank" rel="noopener">NOAA · National Hurricane Center</a></li><li><a href="https://www.weather.gov/mob/" target="_blank" rel="noopener">National Weather Service · Mobile/Pensacola</a></li><li><a href="https://apnews.com/article/b647d3e93f2b7bcd41ed1843d5a2a0e9" target="_blank" rel="noopener">Associated Press · current impacts and preparations</a></li></ul></div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <section class="watch-section" aria-labelledby="watch-title">
+    <div class="section-heading"><div><p class="text-small text-muted">Worth watching</p><h2 id="watch-title">Two signals, not yet headline items</h2></div><i data-lucide="radar" aria-hidden="true"></i></div>
+    <div class="watch-grid">
+      <a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener"><span class="viz-badge">OpenAI</span><div><strong>Intelligent UI has not changed Work or Codex models</strong><p class="text-small text-muted">Watch for the interface layer to reach longer-running Work deliverables; OpenAI has not announced that expansion yet.</p></div><i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+      <a href="https://www.perplexity.ai/en-GB/hub/blog" target="_blank" rel="noopener"><span class="viz-badge">Perplexity / xAI</span><div><strong>No consequential cloud-workflow release this week</strong><p class="text-small text-muted">Research updates landed, but nothing new cleared your usefulness threshold for a main story.</p></div><i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+    </div>
+  </section>
+
+  <footer class="briefing-footer"><p class="text-small text-muted">Five stories selected for practical relevance to your audit, property, and evidence workflows. Product access and active-weather conditions can change after publication.</p><a href="#weekly-briefing-oct9"><i data-lucide="arrow-up" aria-hidden="true"></i> Back to top</a></footer>
+</div>
+
+<style>
+  #weekly-briefing-oct9 { color: var(--foreground); font-family: var(--font-sans); padding: 1.5rem 1rem 3rem; max-width: 1120px; margin: 0 auto; }
+  #weekly-briefing-oct9 * { box-sizing: border-box; }
+  #weekly-briefing-oct9 .briefing-header { display: grid; grid-template-columns: minmax(0,1fr) 18rem; gap: 2rem; align-items: end; padding: 1.5rem 0 2rem; border-bottom: 1px solid var(--border); }
+  #weekly-briefing-oct9 .header-kicker, #weekly-briefing-oct9 .section-heading > div > p { display: flex; gap: .5rem; align-items: center; text-transform: uppercase; letter-spacing: .12em; margin: 0; }
+  #weekly-briefing-oct9 h1 { max-width: 52rem; margin: .75rem 0 1rem; }
+  #weekly-briefing-oct9 .header-dek { max-width: 48rem; color: var(--muted-foreground); margin: 0; }
+  #weekly-briefing-oct9 .header-signal { border-left: .35rem solid var(--viz-series-1); padding-left: 1rem; }
+  #weekly-briefing-oct9 .header-signal p { margin: .75rem 0 0; }
+  #weekly-briefing-oct9 .signal-mark { display: flex; align-items: center; gap: .5rem; color: var(--viz-series-1); }
+  #weekly-briefing-oct9 .signal-mark span { font-family: var(--font-mono); }
+  #weekly-briefing-oct9 .signal-mark svg { width: 1rem; }
+  #weekly-briefing-oct9 .glance-section { padding: 2rem 0 1.25rem; }
+  #weekly-briefing-oct9 .section-heading { display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+  #weekly-briefing-oct9 .section-heading h2 { margin: .25rem 0 0; }
+  #weekly-briefing-oct9 .section-heading > p { display: flex; align-items: center; gap: .4rem; }
+  #weekly-briefing-oct9 .section-heading svg { width: 1.1rem; }
+  #weekly-briefing-oct9 .glance-track { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); position: relative; margin-top: 1.75rem; }
+  #weekly-briefing-oct9 .glance-track::before { content:""; position: absolute; top: 2.25rem; left: 9%; right: 9%; height: 2px; background: var(--border); }
+  #weekly-briefing-oct9 .glance-node { border: 0; background: transparent; color: var(--foreground); display: flex; flex-direction: column; align-items: center; gap: .35rem; padding: 0 .4rem; text-align: center; }
+  #weekly-briefing-oct9 .node-date { color: var(--muted-foreground); }
+  #weekly-briefing-oct9 .node-dot { width: .9rem; height: .9rem; border-radius: 50%; background: var(--background); border: .2rem solid var(--viz-series-1); z-index: 1; transition: transform var(--duration-normal) var(--ease-standard); }
+  #weekly-briefing-oct9 .glance-node:first-child .node-dot { background: var(--viz-series-1); box-shadow: 0 0 0 .4rem color-mix(in srgb, var(--viz-series-1) 16%, transparent); }
+  #weekly-briefing-oct9 .world-node .node-dot { border-color: var(--viz-series-2); }
+  #weekly-briefing-oct9 .glance-node:hover .node-dot { transform: scale(1.3); }
+  #weekly-briefing-oct9 .glance-note { display: flex; align-items: flex-start; gap: .45rem; margin: 1.25rem 0 0; }
+  #weekly-briefing-oct9 .glance-note svg { width: 1rem; flex: 0 0 auto; }
+  #weekly-briefing-oct9 .controls-row { display: flex; justify-content: space-between; gap: 1rem; align-items: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: .75rem 0; margin-bottom: 1.5rem; }
+  #weekly-briefing-oct9 .story-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+  #weekly-briefing-oct9 .lead-story { grid-column: 1 / -1; }
+  #weekly-briefing-oct9 .story-inner { padding: 1.35rem; }
+  #weekly-briefing-oct9 .lead-story .story-inner { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(18rem,.95fr); gap: 0 1.5rem; }
+  #weekly-briefing-oct9 .lead-story .story-meta, #weekly-briefing-oct9 .lead-story h2, #weekly-briefing-oct9 .lead-story .story-summary { grid-column: 1; }
+  #weekly-briefing-oct9 .lead-story .source-figure { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; }
+  #weekly-briefing-oct9 .lead-story .story-tabs { grid-column: 1 / -1; }
+  #weekly-briefing-oct9 .story-card[hidden] { display: none; }
+  #weekly-briefing-oct9 .story-card.is-highlighted { animation: briefPulse .8s var(--ease-standard); }
+  @keyframes briefPulse { 50% { transform: translateY(-.25rem); } }
+  #weekly-briefing-oct9 .story-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+  #weekly-briefing-oct9 .story-meta time { margin-left: auto; color: var(--muted-foreground); }
+  #weekly-briefing-oct9 .story-card h2 { margin: 1rem 0 .75rem; }
+  #weekly-briefing-oct9 .story-summary { color: var(--muted-foreground); margin: 0; }
+  #weekly-briefing-oct9 .source-figure { display: flex; flex-direction: column; color: inherit; text-decoration: none; margin: 1.25rem 0 0; background: var(--muted); overflow: hidden; }
+  #weekly-briefing-oct9 .source-figure > div { min-height: 13.5rem; padding: 1.25rem; display: flex; align-items: center; justify-content: center; }
+  #weekly-briefing-oct9 .source-figure > span { background: var(--background); padding: .55rem .75rem; border-top: 1px solid var(--border); }
+  #weekly-briefing-oct9 .ui-figure > div { flex-direction: column; gap: 1rem; }
+  #weekly-briefing-oct9 .ui-query { width: min(100%,26rem); background: var(--primary); color: var(--primary-foreground); padding: .8rem 1rem; display: flex; gap: .6rem; align-items: center; }
+  #weekly-briefing-oct9 .ui-query svg { width: 1.1rem; }
+  #weekly-briefing-oct9 .ui-output-grid { width: min(100%,26rem); display: grid; grid-template-columns: repeat(3,1fr); gap: .65rem; }
+  #weekly-briefing-oct9 .mini-panel { background: var(--card); color: var(--card-foreground); padding: .8rem; min-height: 7rem; display: flex; flex-direction: column; gap: .3rem; justify-content: center; }
+  #weekly-briefing-oct9 .mini-panel svg { color: var(--viz-series-1); }
+  #weekly-briefing-oct9 .mini-panel span { color: var(--muted-foreground); }
+  #weekly-briefing-oct9 .haiku-figure > div { gap: 1rem; }
+  #weekly-briefing-oct9 .packet-stack { width: 8rem; height: 8rem; position: relative; }
+  #weekly-briefing-oct9 .packet-stack span { position: absolute; display: grid; place-items: center; width: 4.2rem; height: 5.6rem; background: var(--card); color: var(--card-foreground); border: 1px solid var(--border); font-family: var(--font-mono); }
+  #weekly-briefing-oct9 .packet-stack span:nth-child(2) { transform: translate(.8rem,.5rem); } #weekly-briefing-oct9 .packet-stack span:nth-child(3) { transform: translate(1.6rem,1rem); } #weekly-briefing-oct9 .packet-stack span:nth-child(4) { transform: translate(2.4rem,1.5rem); color: var(--viz-series-1); }
+  #weekly-briefing-oct9 .haiku-figure > div > svg { width: 1.5rem; color: var(--viz-series-1); }
+  #weekly-briefing-oct9 .triage-lanes { display: grid; gap: .65rem; }
+  #weekly-briefing-oct9 .triage-lanes > div { display: grid; grid-template-columns: auto 1fr; gap: 0 .6rem; background: var(--card); padding: .75rem; }
+  #weekly-briefing-oct9 .triage-lanes svg { grid-row: 1 / span 2; color: var(--viz-series-1); }
+  #weekly-briefing-oct9 .triage-lanes span { color: var(--muted-foreground); }
+  #weekly-briefing-oct9 .audio-figure > div { gap: 1rem; }
+  #weekly-briefing-oct9 .waveform { display: flex; gap: .25rem; align-items: center; height: 7rem; }
+  #weekly-briefing-oct9 .waveform i { width: .35rem; background: var(--viz-series-1); }
+  #weekly-briefing-oct9 .waveform i:nth-child(1), #weekly-briefing-oct9 .waveform i:nth-child(9) { height: 20%; } #weekly-briefing-oct9 .waveform i:nth-child(2), #weekly-briefing-oct9 .waveform i:nth-child(8) { height: 45%; } #weekly-briefing-oct9 .waveform i:nth-child(3), #weekly-briefing-oct9 .waveform i:nth-child(7) { height: 70%; } #weekly-briefing-oct9 .waveform i:nth-child(4), #weekly-briefing-oct9 .waveform i:nth-child(6) { height: 90%; } #weekly-briefing-oct9 .waveform i:nth-child(5) { height: 55%; }
+  #weekly-briefing-oct9 .audio-figure > div > svg { color: var(--muted-foreground); }
+  #weekly-briefing-oct9 .audio-outputs { display: grid; gap: .6rem; }
+  #weekly-briefing-oct9 .audio-outputs span { display: flex; align-items: center; gap: .5rem; background: var(--card); padding: .65rem; }
+  #weekly-briefing-oct9 .audio-outputs svg { width: 1rem; color: var(--viz-series-1); }
+  #weekly-briefing-oct9 .synth-figure > div { gap: 1rem; }
+  #weekly-briefing-oct9 .photo-frame { width: 7rem; height: 8rem; background: var(--card); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; }
+  #weekly-briefing-oct9 .photo-frame svg { width: 2rem; color: var(--viz-series-1); }
+  #weekly-briefing-oct9 .scan-rings { width: 4.5rem; height: 4.5rem; border-radius: 50%; display: grid; place-items: center; background: color-mix(in srgb, var(--viz-series-1) 16%, transparent); box-shadow: 0 0 0 .6rem color-mix(in srgb, var(--viz-series-1) 9%, transparent); }
+  #weekly-briefing-oct9 .scan-rings svg { color: var(--viz-series-1); }
+  #weekly-briefing-oct9 .provenance-result { background: var(--card); padding: .8rem; display: grid; grid-template-columns: auto 1fr; gap: 0 .55rem; }
+  #weekly-briefing-oct9 .provenance-result svg { grid-row: 1 / span 2; color: var(--viz-series-1); }
+  #weekly-briefing-oct9 .provenance-result span { color: var(--muted-foreground); }
+  #weekly-briefing-oct9 .storm-figure > div { display: grid; grid-template-columns: auto 1fr; gap: 1rem; }
+  #weekly-briefing-oct9 .storm-mark { display: flex; flex-direction: column; align-items: center; color: var(--viz-series-2); }
+  #weekly-briefing-oct9 .storm-mark svg { width: 3.5rem; height: 3.5rem; }
+  #weekly-briefing-oct9 .coast-track { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .5rem; position: relative; }
+  #weekly-briefing-oct9 .coast-track i { grid-column: 1 / -1; height: .6rem; background: var(--muted-foreground); opacity: .35; }
+  #weekly-briefing-oct9 .landfall-zone { text-align: center; color: var(--viz-series-2); }
+  #weekly-briefing-oct9 .impact-list { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3,1fr); gap: .6rem; }
+  #weekly-briefing-oct9 .impact-list span { background: var(--card); padding: .65rem; display: flex; flex-direction: column; }
+  #weekly-briefing-oct9 .story-tabs { margin-top: 1.25rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  #weekly-briefing-oct9 [role="tabpanel"] { padding-top: 1rem; min-height: 7.5rem; }
+  #weekly-briefing-oct9 [role="tabpanel"] p { margin: 0; }
+  #weekly-briefing-oct9 .copy-block { background: var(--muted); padding: 1rem; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 1rem; align-items: start; }
+  #weekly-briefing-oct9 .copy-block p { font-family: var(--font-mono); color: var(--muted-foreground); }
+  #weekly-briefing-oct9 .story-tabs ul { margin: 0; padding-left: 1.25rem; }
+  #weekly-briefing-oct9 .story-tabs li { margin: .35rem 0; }
+  #weekly-briefing-oct9 .compact-mode .story-inner { padding: 1rem; }
+  #weekly-briefing-oct9 .compact-mode .story-summary { display: none; }
+  #weekly-briefing-oct9 .compact-mode .source-figure > div { min-height: 9rem; }
+  #weekly-briefing-oct9 .compact-mode .lead-story .story-inner { display: block; }
+  #weekly-briefing-oct9 .compact-mode .lead-story .source-figure { margin-top: 1rem; }
+  #weekly-briefing-oct9 .compact-mode [role="tabpanel"] { min-height: 0; }
+  #weekly-briefing-oct9 .watch-section { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  #weekly-briefing-oct9 .watch-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin-top: 1rem; }
+  #weekly-briefing-oct9 .watch-grid a { color: inherit; text-decoration: none; display: grid; grid-template-columns: auto 1fr auto; gap: .75rem; align-items: start; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+  #weekly-briefing-oct9 .watch-grid p { margin: .3rem 0 0; }
+  #weekly-briefing-oct9 .watch-grid > a > svg { width: 1rem; }
+  #weekly-briefing-oct9 .briefing-footer { display: flex; justify-content: space-between; gap: 1rem; align-items: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+  #weekly-briefing-oct9 .briefing-footer p { margin: 0; }
+  #weekly-briefing-oct9 .briefing-footer a { display: flex; align-items: center; gap: .35rem; white-space: nowrap; }
+  #weekly-briefing-oct9 .briefing-footer svg { width: 1rem; }
+  @media (max-width: 820px) {
+    #weekly-briefing-oct9 .briefing-header { grid-template-columns: 1fr; }
+    #weekly-briefing-oct9 .header-signal { max-width: 28rem; }
+    #weekly-briefing-oct9 .story-grid { grid-template-columns: 1fr; }
+    #weekly-briefing-oct9 .lead-story { grid-column: auto; }
+    #weekly-briefing-oct9 .lead-story .story-inner { display: block; }
+    #weekly-briefing-oct9 .lead-story .source-figure { margin-top: 1.25rem; }
+  }
+  @media (max-width: 620px) {
+    #weekly-briefing-oct9 { padding: 1rem .5rem 2.5rem; }
+    #weekly-briefing-oct9 .glance-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .5rem; }
+    #weekly-briefing-oct9 .glance-track::before { left: 3rem; right: 3rem; }
+    #weekly-briefing-oct9 .glance-node { flex: 0 0 8.5rem; scroll-snap-align: center; }
+    #weekly-briefing-oct9 .controls-row { align-items: flex-end; }
+    #weekly-briefing-oct9 #oct9-density span { display: none; }
+    #weekly-briefing-oct9 .ui-output-grid { grid-template-columns: 1fr; }
+    #weekly-briefing-oct9 .ui-output-grid .mini-panel { min-height: auto; }
+    #weekly-briefing-oct9 .haiku-figure > div, #weekly-briefing-oct9 .audio-figure > div, #weekly-briefing-oct9 .synth-figure > div { flex-wrap: wrap; }
+    #weekly-briefing-oct9 .storm-figure > div { grid-template-columns: 1fr; }
+    #weekly-briefing-oct9 .coast-track, #weekly-briefing-oct9 .impact-list { grid-column: 1; }
+    #weekly-briefing-oct9 .impact-list { grid-template-columns: 1fr; }
+    #weekly-briefing-oct9 .copy-block { grid-template-columns: 1fr; }
+    #weekly-briefing-oct9 .copy-action { justify-self: start; }
+    #weekly-briefing-oct9 .watch-grid { grid-template-columns: 1fr; }
+    #weekly-briefing-oct9 .briefing-footer { align-items: flex-start; }
+  }
+  @media (prefers-reduced-motion: reduce) { #weekly-briefing-oct9 *, #weekly-briefing-oct9 *::before, #weekly-briefing-oct9 *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById('weekly-briefing-oct9');
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = 'true';
+  const stories = [...root.querySelectorAll('.story-card')];
+  root.querySelectorAll('.brief-filter').forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      root.querySelectorAll('.brief-filter').forEach(item => {
+        const selected = item === button;
+        item.setAttribute('aria-pressed', selected ? 'true' : 'false');
+        item.classList.toggle('btn-primary', selected);
+      });
+      stories.forEach(story => story.hidden = filter !== 'all' && !story.dataset.tags.includes(filter));
+    });
+  });
+  const density = root.querySelector('#oct9-density');
+  density.addEventListener('click', () => {
+    const active = root.classList.toggle('compact-mode');
+    density.setAttribute('aria-pressed', active ? 'true' : 'false');
+    density.querySelector('span').textContent = active ? 'Expanded view' : 'Compact view';
+  });
+  root.querySelectorAll('.copy-action').forEach(button => {
+    button.addEventListener('click', async () => {
+      const copyText = button.closest('.copy-block').querySelector('p').innerText;
+      const label = button.querySelector('span');
+      const original = label.textContent;
+      try { await navigator.clipboard.writeText(copyText); label.textContent = 'Copied'; }
+      catch (_) { label.textContent = 'Select text'; }
+      setTimeout(() => label.textContent = original, 1600);
+    });
+  });
+  root.querySelectorAll('.glance-node').forEach(button => {
+    button.addEventListener('click', () => {
+      const all = root.querySelector('[data-filter="all"]');
+      if (all) all.click();
+      const story = root.querySelector(`[data-story="${button.dataset.jump}"]`);
+      if (!story) return;
+      story.scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center'});
+      story.classList.remove('is-highlighted');
+      void story.offsetWidth;
+      story.classList.add('is-highlighted');
+    });
+  });
+})();
+</script>
+
+<script src="https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js"></script>
+<script src="https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js"></script>
+<script>
+(() => {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set(["top", "right", "bottom", "left"]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+  let lastPointerWasTouch = false;
+  let pinnedByTouch = false;
+
+  const getTrigger = (event) => {
+    for (const target of event.composedPath()) {
+      if (target?.nodeType === Node.ELEMENT_NODE) {
+        const trigger = target.closest("[data-tooltip]");
+        if (trigger) return trigger;
+      }
+    }
+    return null;
+  };
+  const containsTarget = (trigger, target) =>
+    target?.nodeType != null && trigger.contains(target);
+  const getContent = (trigger) =>
+    trigger.getAttribute("data-tooltip")?.trim() ?? "";
+  const getPlacement = (trigger) => {
+    const placement = trigger.getAttribute("data-tooltip-placement");
+    return tooltipPlacements.has(placement) ? placement : "top";
+  };
+  const getTooltip = () => {
+    if (tooltip == null) {
+      tooltip = document.createElement("div");
+      tooltip.id = tooltipId;
+      tooltip.className = "tooltip";
+      tooltip.setAttribute("role", "tooltip");
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) => {
+    const ids = new Set(
+      (trigger.getAttribute("aria-describedby") ?? "")
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute("aria-describedby");
+    } else {
+      trigger.setAttribute("aria-describedby", [...ids].join(" "));
+    }
+  };
+  const clearOpenTimeout = () => {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) => {
+    clearOpenTimeout();
+    pinnedByTouch = false;
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) => {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              "--tooltip-available-width",
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              "--tooltip-available-height",
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: "fixed",
+    })
+      .then(({ x, y }) => {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = "visible";
+      })
+      .catch(() => {
+        if (activeTrigger === trigger && request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) => {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = "hidden";
+    floating.style.transform = "translate(0, 0)";
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () => {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) => {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() < skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() => {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) => {
+    if (event.pointerType === "touch") {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handlePointer = (event) => {
+    lastPointerWasTouch =
+      event.type === "pointerdown" && event.pointerType === "touch";
+  };
+  const handleTouchClick = (event) => {
+    const isTouch = event.pointerType === "touch" || lastPointerWasTouch;
+    lastPointerWasTouch = false;
+    if (!isTouch || event.detail === 0) {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (
+      trigger == null ||
+      !trigger.isConnected ||
+      getContent(trigger).length === 0 ||
+      (pinnedByTouch && activeTrigger === trigger)
+    ) {
+      if (pinnedByTouch) {
+        closeTooltip();
+      }
+      return;
+    }
+    openTooltip(trigger);
+    pinnedByTouch = activeTrigger === trigger;
+    window.setTimeout(() => {
+      if (activeTrigger === trigger && !trigger.isConnected) {
+        closeTooltip(false);
+      }
+    }, 0);
+  };
+  const handleLeave = (event) => {
+    if (pinnedByTouch) {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) => {
+    const trigger = getTrigger(event);
+    if (trigger?.matches(":focus-visible")) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) => {
+    lastPointerWasTouch = false;
+    const trigger = getTrigger(event);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handlers = {
+    pointerover: handlePointerOpen,
+    pointerdown: handlePointer,
+    pointercancel: handlePointer,
+    click: handleTouchClick,
+    pointerout: handleLeave,
+    focusin: handleFocusIn,
+    focusout: handleLeave,
+    keydown: handleKeyDown,
+    contextmenu: handleContextMenu,
+  };
+  const roots = new Map();
+  const handledEvents = new WeakSet();
+  const handleEvent = (event) => {
+    if (handledEvents.has(event)) return;
+    handledEvents.add(event);
+    handlers[event.type](event);
+  };
+  const discoverRoots = (node) => {
+    if (node.shadowRoot) listen(node.shadowRoot);
+    for (const element of node.querySelectorAll("*")) {
+      if (element.shadowRoot) listen(element.shadowRoot);
+    }
+  };
+  const listen = (root) => {
+    if (roots.has(root)) return;
+    for (const type of Object.keys(handlers)) root.addEventListener(type, handleEvent);
+    const observer = new window.MutationObserver((records) => {
+      for (const { addedNodes } of records) {
+        for (const node of addedNodes) {
+          if (node.nodeType === Node.ELEMENT_NODE) discoverRoots(node);
+        }
+      }
+      for (const [root, cleanup] of roots) {
+        if (root.host && !root.host.isConnected) {
+          cleanup();
+          roots.delete(root);
+        }
+      }
+      if (activeTrigger && !activeTrigger.isConnected) closeTooltip(false);
+    });
+    observer.observe(root, { childList: true, subtree: true });
+    roots.set(root, () => {
+      observer.disconnect();
+      for (const type of Object.keys(handlers)) root.removeEventListener(type, handleEvent);
+    });
+    discoverRoots(root);
+  };
+  const destroy = () => {
+    closeTooltip(false);
+    lastPointerWasTouch = false;
+    for (const cleanup of roots.values()) cleanup();
+    roots.clear();
+    tooltip = null;
+  };
+
+  // Events between children of one shadow root never reach the document.
+  listen(document);
+  window.addEventListener("pagehide", destroy, { once: true });
+})();
+</script>
+<script id="codex-visualization-tabs">
+(() => {
+  const selector = '.nav[role="tablist"] [role="tab"]';
+  const disabled = ':disabled,[aria-disabled="true"]';
+  const selectTab = (selected) => {
+    const panelId = selected.getAttribute("aria-controls");
+    for (const tab of selected.closest('[role="tablist"]').querySelectorAll('[role="tab"]')) {
+      const active = tab === selected;
+      tab.classList.toggle("active", active);
+      tab.setAttribute("aria-selected", String(active));
+      const id = tab.getAttribute("aria-controls");
+      const panel = id && document.getElementById(id);
+      if (panel != null) {
+        panel.hidden = id !== panelId;
+        if (!panel.hidden && selected.id) {
+          panel.setAttribute("aria-labelledby", selected.id);
+        }
+      }
+    }
+  };
+  const interact = (event) => {
+    const tab = event.target?.closest?.(selector);
+    if (event.defaultPrevented || tab == null || tab.matches(disabled)) {
+      return;
+    }
+    if (event.type === "click") {
+      selectTab(tab);
+      return;
+    }
+    const tabs = Array.from(
+      tab.closest('[role="tablist"]').querySelectorAll('[role="tab"]'),
+    ).filter((candidate) => !candidate.matches(disabled));
+    const current = tabs.indexOf(tab);
+    let next;
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      next = (current + 1) % tabs.length;
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      next = (current + tabs.length - 1) % tabs.length;
+    } else if (event.key === "Home") {
+      next = 0;
+    } else if (event.key === "End") {
+      next = tabs.length - 1;
+    } else {
+      return;
+    }
+    event.preventDefault();
+    tabs[next].focus();
+    selectTab(tabs[next]);
+  };
+
+  for (const list of document.querySelectorAll('.nav[role="tablist"]')) {
+    const selected =
+      list.querySelector('[role="tab"][aria-selected="true"]') ??
+      list.querySelector('[role="tab"].active') ??
+      list.querySelector('[role="tab"]');
+    if (selected != null) {
+      selectTab(selected);
+    }
+  }
+  document.addEventListener("click", interact);
+  document.addEventListener("keydown", interact);
+  window.addEventListener("pagehide", () => {
+    document.removeEventListener("click", interact);
+    document.removeEventListener("keydown", interact);
+  }, { once: true });
+})();
+</script>
+<script id="codex-visualization-carousel">
+  (() => {
+    for (const root of document.querySelectorAll(".viz-carousel")) {
+      const panels = Array.from(
+        root.querySelectorAll(":scope > [data-variant]"),
+      );
+      if (panels.length === 0) {
+        continue;
+      }
+      root.setAttribute("role", "group");
+      panels.forEach((panel, index) => {
+        panel.hidden = index !== 0;
+        panel.setAttribute("role", "group");
+        if (!panel.hasAttribute("aria-label")) {
+          panel.setAttribute("aria-label", panel.dataset.variant);
+        }
+      });
+      root.dataset.activeVariant = panels[0].dataset.variant;
+      if (panels.length === 1) {
+        continue;
+      }
+
+      const controls = document.createElement("div");
+      controls.className = "viz-carousel-controls";
+      // Portable copy of the settings dropdown's legacy glyph; no 14px icon-package preset matches it.
+      // https://github.com/openai/openai/blob/master/codex/codex-apps/webview/src/icons/chevron.svg
+      controls.innerHTML = `
+      <button type="button" class="viz-carousel-previous cursor-interaction"><i data-lucide="chevron-left" aria-hidden="true"></i></button>
+      <details class="viz-carousel-picker">
+        <summary class="cursor-interaction">
+          <span class="viz-carousel-count tabular-nums"></span>
+          <span class="viz-carousel-name"></span>
+          <svg class="viz-carousel-caret" width="14" height="14" viewBox="0 0 20 21" fill="none" aria-hidden="true" focusable="false">
+            <path d="M15.2793 7.71101C15.539 7.45131 15.961 7.45131 16.2207 7.71101C16.4804 7.97071 16.4804 8.39272 16.2207 8.65242L10.4707 14.4024C10.211 14.6621 9.78902 14.6621 9.52932 14.4024L3.77932 8.65242L3.69436 8.54792C3.52385 8.28979 3.55205 7.93828 3.77932 7.71101C4.00659 7.48374 4.3581 7.45554 4.61623 7.62605L4.72073 7.71101L10 12.9903L15.2793 7.71101Z" fill="currentColor" stroke="currentColor" stroke-width="0.6" />
+          </svg>
+        </summary>
+        <div class="viz-carousel-options"></div>
+      </details>
+      <button type="button" class="viz-carousel-next cursor-interaction"><i data-lucide="chevron-right" aria-hidden="true"></i></button>`;
+      const previous = controls.querySelector(".viz-carousel-previous");
+      const next = controls.querySelector(".viz-carousel-next");
+      const picker = controls.querySelector(".viz-carousel-picker");
+      const summary = picker.querySelector("summary");
+      const count = controls.querySelector(".viz-carousel-count");
+      const name = controls.querySelector(".viz-carousel-name");
+      const options = controls.querySelector(".viz-carousel-options");
+      const status = document.createElement("span");
+      status.className = "sr-only";
+      status.setAttribute("role", "status");
+      status.setAttribute("aria-live", "polite");
+      status.setAttribute("aria-atomic", "true");
+      previous.setAttribute(
+        "aria-label",
+        root.dataset.previousLabel ?? "Previous variant",
+      );
+      next.setAttribute("aria-label", root.dataset.nextLabel ?? "Next variant");
+
+      let active = 0;
+      let mousePointerId = null;
+      let summaryPointerHandled = false;
+      summary.addEventListener("pointerdown", (event) => {
+        summaryPointerHandled =
+          event.pointerType === "mouse" && event.button === 0 && !event.ctrlKey;
+        if (!summaryPointerHandled) {
+          return;
+        }
+        event.preventDefault();
+        summary.focus({ preventScroll: true });
+        picker.open = !picker.open;
+        mousePointerId = picker.open ? event.pointerId : null;
+      });
+      summary.addEventListener("click", (event) => {
+        if (summaryPointerHandled && event.detail > 0) {
+          event.preventDefault();
+        }
+      });
+      const choices = panels.map((panel, index) => {
+        const choice = document.createElement("button");
+        choice.type = "button";
+        choice.className = "cursor-interaction";
+        choice.textContent = panel.dataset.variant;
+        choice.addEventListener("click", () => {
+          select(index);
+          summary.focus();
+        });
+        choice.addEventListener("pointerup", (event) => {
+          if (
+            picker.open &&
+            event.pointerType === "mouse" &&
+            event.button === 0 &&
+            event.pointerId === mousePointerId
+          ) {
+            choice.click();
+          }
+        });
+        options.appendChild(choice);
+        return choice;
+      });
+      const select = (index) => {
+        const changed = active !== index;
+        active = index;
+        panels.forEach((panel, position) => {
+          panel.hidden = position !== active;
+          choices[position].setAttribute(
+            "aria-current",
+            String(position === active),
+          );
+        });
+        root.dataset.activeVariant = panels[active].dataset.variant;
+        count.textContent = `${active + 1} / ${panels.length}`;
+        name.textContent = panels[active].dataset.variant;
+        picker.open = false;
+        mousePointerId = null;
+        if (changed) {
+          status.textContent = `${count.textContent}: ${name.textContent}`;
+        }
+      };
+      previous.addEventListener("click", () =>
+        select((active + panels.length - 1) % panels.length),
+      );
+      next.addEventListener("click", () =>
+        select((active + 1) % panels.length),
+      );
+      picker.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && picker.open) {
+          event.preventDefault();
+          picker.open = false;
+          mousePointerId = null;
+          summary.focus();
+          return;
+        }
+        if (event.altKey || event.ctrlKey || event.metaKey) {
+          return;
+        }
+        const index = choices.indexOf(document.activeElement);
+        let nextIndex;
+        if (event.key === "ArrowDown") {
+          nextIndex = index < 0 ? active : (index + 1) % choices.length;
+        } else if (event.key === "ArrowUp") {
+          nextIndex = index < 0 ? active : (index + choices.length - 1) % choices.length;
+        } else if (picker.open && event.key === "Home") {
+          nextIndex = 0;
+        } else if (picker.open && event.key === "End") {
+          nextIndex = choices.length - 1;
+        } else {
+          return;
+        }
+        event.preventDefault();
+        picker.open = true;
+        choices[nextIndex].focus();
+      });
+      picker.addEventListener("focusout", (event) => {
+        if (!picker.contains(event.relatedTarget)) {
+          picker.open = false;
+          mousePointerId = null;
+        }
+      });
+      const dismiss = (event) => {
+        if (!summary.contains(event.target)) {
+          mousePointerId = null;
+        }
+        if (!picker.contains(event.target)) {
+          picker.open = false;
+        }
+      };
+      const endPointerSelection = () => {
+        mousePointerId = null;
+      };
+      const sizePicker = () => {
+        root.style.setProperty(
+          "--viz-carousel-picker-height",
+          `${picker.open ? options.offsetHeight : 0}px`,
+        );
+      };
+      picker.addEventListener("toggle", sizePicker);
+      window.addEventListener("resize", sizePicker);
+      document.addEventListener("pointerdown", dismiss);
+      document.addEventListener("pointerup", endPointerSelection);
+      document.addEventListener("pointercancel", endPointerSelection);
+      window.addEventListener("blur", endPointerSelection);
+      window.addEventListener(
+        "pagehide",
+        () => {
+          document.removeEventListener("pointerdown", dismiss);
+          document.removeEventListener("pointerup", endPointerSelection);
+          document.removeEventListener("pointercancel", endPointerSelection);
+          window.removeEventListener("blur", endPointerSelection);
+          window.removeEventListener("resize", sizePicker);
+        },
+        { once: true },
+      );
+      root.append(controls, status);
+      select(0);
+    }
+  })();
+</script>
+<script id="codex-visualization-lucide" async src="https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js"></script>
+<script>
+(() => {
+  const initialize = () => {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById("codex-visualization-lucide")
+    ?.addEventListener("load", initialize, { once: true });
+})();
+</script>
+
+</body>
+</html>

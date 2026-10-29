@@ -59,15 +59,15 @@ const firstMatch = (html, re) => (String(html).match(re) ?? [])[1] ?? '';
 const allMatches = (html, re) => [...String(html).matchAll(re)];
 const unique = (values) => [...new Set(values.filter(Boolean))];
 
-/** Depth-aware element lookup: every `tagPattern` element whose class matches. */
-function findByClass(html, tagPattern, classPattern) {
+/** Depth-aware element lookup: every `tagPattern` element whose attributes match. */
+function findWhere(html, tagPattern, matches) {
   const source = String(html);
   const openTag = new RegExp(`<(${tagPattern})\\b([^>]*)>`, 'gi');
   const results = [];
   let open;
   while ((open = openTag.exec(source)) !== null) {
     const [tag, attrs] = [open[1], open[2] ?? ''];
-    if (classPattern && !classPattern.test(attr(attrs, 'class'))) continue;
+    if (matches && !matches(attrs)) continue;
     const walker = new RegExp(`<${tag}\\b[^>]*>|<\\/${tag}\\s*>`, 'gi');
     walker.lastIndex = openTag.lastIndex;
     let depth = 1;
@@ -86,9 +86,12 @@ function findByClass(html, tagPattern, classPattern) {
   return results;
 }
 
+const findByClass = (html, tagPattern, classPattern) =>
+  findWhere(html, tagPattern, classPattern ? (attrs) => classPattern.test(attr(attrs, 'class')) : null);
+
 /** First <b>/<strong> label plus its following <span>/<small> note. */
 function labelledPair(html) {
-  const label = toText(firstMatch(html, /<(?:strong|b)[^>]*>([\s\S]*?)<\/(?:strong|b)>/i));
+  const label = toText(firstMatch(html, /<(?:strong|b)(?=[\\s>])[^>]*>([\s\S]*?)<\/(?:strong|b)>/i));
   const notes = allMatches(html, /<(?:span|small)(\s[^>]*)?>([\s\S]*?)<\/(?:span|small)>/gi)
     .map((m) => toText(m[2]))
     .filter((text) => text.length > 2 && !/^\d+$/.test(text));
@@ -147,11 +150,25 @@ function sanitizeArt(svg) {
 
 /* ------------------------------------------------------------------ parse */
 
+const PROMPT_BOX = /\b(copy-block|copy-row|copy-box|prompt)\b/;
+
+/** The copyable prompt: a data-copy attribute, a <code> block, or a copy box. */
+function extractPrompt(html) {
+  const fromAttribute = attr(html, 'data-copy');
+  if (fromAttribute) return fromAttribute;
+  const fromCode = toText(firstMatch(html, /<code[^>]*>([\s\S]*?)<\/code>/i));
+  if (fromCode) return fromCode;
+  const box = findByClass(html, 'div|p|blockquote', PROMPT_BOX)[0];
+  return box ? toText(box.inner.replace(/<button[\s\S]*?<\/button>/gi, ' ')) : '';
+}
+
 /** Section prose only: button labels and copyable prompts render separately. */
 function sectionBody(html) {
-  return toText(String(html)
+  let out = String(html)
     .replace(/<button[\s\S]*?<\/button>/gi, ' ')
-    .replace(/<code[\s\S]*?<\/code>/gi, ' '));
+    .replace(/<code[\s\S]*?<\/code>/gi, ' ');
+  for (const box of findByClass(out, 'div|blockquote', PROMPT_BOX)) out = out.replace(box.outer, ' ');
+  return toText(out);
 }
 
 /** Disclosure sections: <details> in most editions, tab panels in others. */
@@ -159,18 +176,33 @@ function parseSections(articleHtml) {
   const details = findByClass(articleHtml, 'details', null).map((block) => ({
     label: toText(firstMatch(block.inner, /<summary[^>]*>([\s\S]*?)<\/summary>/i)),
     body: sectionBody(block.inner.replace(/<summary[^>]*>[\s\S]*?<\/summary>/i, '')),
-    copy: attr(block.inner, 'data-copy') || decodeEntities(toText(firstMatch(block.inner, /<code[^>]*>([\s\S]*?)<\/code>/i))),
+    copy: extractPrompt(block.inner),
   }));
   if (details.length) return details;
 
   const tabs = findByClass(articleHtml, 'div', /\btabs\b/)[0];
-  if (!tabs) return [];
-  const labels = allMatches(tabs.inner, /<button[^>]*class="tab"[^>]*>([\s\S]*?)<\/button>/gi).map((m) => toText(m[1]));
-  return findByClass(tabs.inner, 'div', /\bpanel\b/).map((panel, index) => ({
-    label: labels[index] ?? '',
-    body: sectionBody(panel.inner),
-    copy: attr(panel.inner, 'data-copy') || decodeEntities(toText(firstMatch(panel.inner, /<code[^>]*>([\s\S]*?)<\/code>/i))),
-  }));
+  if (tabs) {
+    const labels = allMatches(tabs.inner, /<button[^>]*class="tab"[^>]*>([\s\S]*?)<\/button>/gi).map((m) => toText(m[1]));
+    const panels = findByClass(tabs.inner, 'div', /\bpanel\b/);
+    if (panels.length) {
+      return panels.map((panel, index) => ({
+        label: labels[index] ?? '',
+        body: sectionBody(panel.inner),
+        copy: extractPrompt(panel.inner),
+      }));
+    }
+  }
+
+  // Bootstrap-style tabs: role="tab" buttons pointing at role="tabpanel" panels.
+  const tabButtons = allMatches(articleHtml, /<button([^>]*role="tab"[^>]*)>([\s\S]*?)<\/button>/gi)
+    .map((m) => ({ controls: attr(m[1], 'aria-controls'), label: toText(m[2]) }));
+  const panels = findWhere(articleHtml, 'div|section', (attrs) => /role="tabpanel"/.test(attrs));
+  if (!panels.length) return [];
+  return panels.map((panel, index) => {
+    const id = attr(panel.attrs, 'id');
+    const tab = tabButtons.find((button) => button.controls && button.controls === id) ?? tabButtons[index];
+    return { label: tab?.label ?? '', body: sectionBody(panel.inner), copy: extractPrompt(panel.inner) };
+  });
 }
 
 function parseLinks(articleHtml) {
@@ -178,8 +210,13 @@ function parseLinks(articleHtml) {
   for (const match of allMatches(articleHtml, /<a\b([^>]*)>([\s\S]*?)<\/a>/gi)) {
     const href = attr(match[1], 'href');
     if (!/^https?:\/\//.test(href)) continue;
-    const label = toText(match[2]).replace(/\s*[↗→]\s*$/, '').replace(/^Source:\s*/i, '').trim();
-    if (!label || /^(illustration|visual|chart|figure)\b/i.test(label)) continue;
+    const label = toText(match[2])
+      .replace(/\s*[↗→]\s*$/, '')
+      .replace(/^(?:editorial visual|illustration|visual)\s*·\s*/i, '')
+      .replace(/^Source:\s*/i, '')
+      .trim();
+    if (!label || label.length > 70) continue;
+    if (/^(illustration|visual|chart|figure|editorial)\b/i.test(label)) continue;
     if (!seen.has(href) || seen.get(href).length > label.length) seen.set(href, label);
   }
   const labels = new Set();
@@ -191,15 +228,22 @@ function parseLinks(articleHtml) {
 
 function parseStory(article, index) {
   const { attrs, inner } = article;
-  const headline = toText(firstMatch(inner, /<h3[^>]*>([\s\S]*?)<\/h3>/i));
+  const headline = toText(firstMatch(inner, /<h3[^>]*>([\s\S]*?)<\/h3>/i)) ||
+    toText(firstMatch(inner, /<h2[^>]*>([\s\S]*?)<\/h2>/i));
   if (!headline) return null;
 
   const paragraphs = allMatches(inner, /<p(\s[^>]*)?>([\s\S]*?)<\/p>/gi)
     .map((m) => ({ className: attr(m[1] ?? '', 'class'), text: toText(m[2]) }))
     .filter((p) => p.text.length > 40);
-  const summary = (paragraphs.find((p) => /summary|dek|deck|lede/.test(p.className)) ?? paragraphs[0])?.text ?? '';
+  const summary = (paragraphs.find((p) => /summary|dek|deck|lede/.test(p.className)) ??
+    paragraphs.find((p) => !/restriction|caption|credit/.test(p.className)))?.text ?? '';
 
-  const chips = unique(findByClass(inner, 'span', /\b(chip|tag|fresh|when)\b/).map((span) => toText(span.inner)))
+  const chipGroups = findByClass(inner, 'div|p', /\b(chips|story-meta|meta|badges)\b/);
+  const chips = unique([
+    ...findByClass(inner, 'span', /\b(chip|tag|fresh|when|viz-badge|badge)\b/).map((span) => toText(span.inner)),
+    ...chipGroups.flatMap((group) => allMatches(group.inner, /<span(?:\s[^>]*)?>([\s\S]*?)<\/span>/gi).map((m) => toText(m[1]))),
+    ...allMatches(inner, /<time[^>]*>([\s\S]*?)<\/time>/gi).map((m) => toText(m[1])),
+  ])
     .filter((chip) => chip.length > 1 && chip.length < 46)
     .slice(0, 3);
 
@@ -211,7 +255,7 @@ function parseStory(article, index) {
   const watchFor = pick(/what to watch|watch for/i);
 
   const topics = unique((attr(attrs, 'data-topic') || attr(attrs, 'data-tags') || '').toLowerCase().split(/[\s,]+/));
-  const isWorld = /world|global|snapshot/i.test([...topics, ...chips].join(' '));
+  const isWorld = topics.includes('world') || /\b(world|world snapshot|geopolitic\w*)\b/i.test(chips.join(' '));
 
   return {
     id: attr(attrs, 'id') || `story-${index + 1}`,
@@ -230,14 +274,26 @@ function parseStory(article, index) {
   };
 }
 
-const GLANCE_ITEM = /\b(glance-item|flow-item|time-node|tick|glance-card)\b/;
+const GLANCE_ITEM = /\b(glance-item|flow-item|time-node|tick|glance-card|glance-node|moment)\b/;
+
+/** A glance entry: a bold label, an optional date, and a short note. */
+function glanceItem(html) {
+  const label = toText(firstMatch(html, /<(?:strong|b)(?=[\\s>])[^>]*>([\s\S]*?)<\/(?:strong|b)>/i));
+  const date = toText(findByClass(html, 'span|small|time', /\b(date|node-date|when)\b/)[0]?.inner ??
+    firstMatch(html, /<time[^>]*>([\s\S]*?)<\/time>/i));
+  const notes = allMatches(html, /<(?:span|small|p)(\s[^>]*)?>([\s\S]*?)<\/(?:span|small|p)>/gi)
+    .map((m) => toText(m[2]))
+    .filter((text) => text.length > 2 && text !== label && text !== date && !/^\d+$/.test(text));
+  const note = [notes[0], date].filter(Boolean).filter((part, index, all) => all.indexOf(part) === index).join(' · ');
+  return { label, note };
+}
 
 function parseGlance(html) {
-  const candidates = findByClass(html, 'div|section', /\b(glance|timeline|flow-grid|flow)\b/)
+  const candidates = findByClass(html, 'div|section', /\b(glance|timeline|flow-grid|flow|glance-track)\b/)
     .sort((a, b) => a.inner.length - b.inner.length);
   for (const container of candidates) {
-    const items = findByClass(container.inner, 'div|li', GLANCE_ITEM)
-      .map((item) => labelledPair(item.inner))
+    const items = findByClass(container.inner, 'div|li|button|a', GLANCE_ITEM)
+      .map((item) => glanceItem(item.inner))
       .filter((pair) => pair.label && pair.label.length < 60 && pair.note && pair.note.length < 120);
     if (items.length >= 2) return items.slice(0, 6);
   }
@@ -245,12 +301,22 @@ function parseGlance(html) {
 }
 
 function parseWatch(html) {
-  const container = findByClass(html, 'footer|aside|section', /\bwatch\b/)[0];
+  const container = findByClass(html, 'footer|aside|section|div', /\bwatch\b/)[0];
   if (!container) return [];
   const items = findByClass(container.inner, 'div|li', /\bwatch-item\b/);
   if (items.length) {
     return items.map((item) => labelledPair(item.inner)).filter((pair) => pair.label);
   }
+
+  // Newer editions mark each signal with a bold lead-in followed by its note.
+  const bolded = container.inner.split(/<(?:strong|b)(?=[\\s>])[^>]*>/i).slice(1)
+    .map((part) => {
+      const [label, ...rest] = part.split(/<\/(?:strong|b)>/i);
+      return { label: toText(label).replace(/[:·]\s*$/, ''), note: toText(rest.join('')).slice(0, 420) };
+    })
+    .filter((item) => item.label && item.label.length < 80 && item.note.length > 20);
+  if (bolded.length) return bolded.slice(0, 4);
+
   const text = toText(container.inner).replace(/^Worth watching\s*[·—-]?\s*/i, '');
   return text.split(/\s+·\s+/).map((part) => {
     const split = part.match(/^([^:]{3,44}):\s*(.+)$/);

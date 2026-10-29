@@ -1,0 +1,1995 @@
+<!doctype html>
+<html lang="en" data-visualize-standalone>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Weekly Briefing Sep 25</title>
+<style>:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, "Segoe UI", sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --icon-size: 16px;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --corner-shape: round;
+  --radius: var(--border-radius-lg, 10px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 17'%3E%3Cpath d='M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z'/%3E%3C/svg%3E");
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html > body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: var(--visualize-paint-gutter, 0px);
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+:root:not([data-app-block-surface], [data-visualize-standalone]) > body {
+  padding: 12px;
+}
+
+.cursor-interaction {
+  cursor: var(--cursor-interaction, pointer);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: var(--cursor-interaction, pointer);
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive > .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align="right"]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align="center"]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: var(--corner-shape);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+.widget {
+  min-width: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  box-shadow: 0 0 0 0.5px var(--border-strong, var(--border));
+  color: var(--foreground);
+  background: var(--background);
+}
+
+#widget > :not(.card, .widget, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* The shared runtime owns data-tooltip; suppress AppBlock's pseudo-tooltip. */
+main [data-tooltip]::after {
+  content: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin-block: 6px;
+  border: 0;
+  background: var(--border);
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress {
+  display: flex;
+  height: 8px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 8px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar:only-child {
+  border-radius: var(--radius-full);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls > .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls > .form-label > :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.nav-link,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn,
+.nav-link {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: var(--cursor-interaction, pointer);
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover,
+.nav-link:not(:disabled):not([aria-disabled="true"]):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.nav-pills .nav-link {
+  min-width: 0;
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.nav-justified .nav-link {
+  flex: 1 1 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.nav-pills .nav-link.active {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+/* Shared preview chrome; product styles stay inside each variant. */
+.viz-dotted-background {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--foreground) 14%, transparent) 0.8px,
+    transparent 0.8px
+  );
+  background-position: center;
+  background-size: 16px 16px;
+}
+
+.viz-carousel {
+  position: relative;
+  min-width: 0;
+}
+
+.viz-carousel:has(> .viz-carousel-controls) {
+  min-height: calc(60px + var(--viz-carousel-picker-height, 0px));
+  padding-bottom: 60px;
+}
+
+.viz-carousel > [data-variant][hidden] {
+  display: none !important;
+}
+
+.viz-carousel > [data-variant] {
+  isolation: isolate;
+}
+
+.viz-carousel-controls {
+  --viz-carousel-hover: light-dark(
+    color-mix(in srgb, var(--foreground) 5.4%, transparent),
+    color-mix(in srgb, var(--foreground) 7.8%, transparent)
+  );
+  position: absolute;
+  z-index: 2;
+  bottom: 8px;
+  left: 50%;
+  display: flex;
+  width: max-content;
+  /* Leave room for the host's design-controls launcher at the trailing edge. */
+  max-width: calc(100% - 96px);
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+  /* Match the settings dropdown chrome independently of the content font size. */
+  font-size: 13px;
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+  transform: translateX(-50%);
+  user-select: none;
+}
+
+.viz-carousel-controls button,
+.viz-carousel-picker > summary {
+  display: flex;
+  min-height: 30px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 6px;
+  -webkit-app-region: no-drag;
+  border: 0;
+  border-radius: 14px;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.viz-carousel-controls > button,
+.viz-carousel-picker > summary {
+  position: relative;
+  isolation: isolate;
+}
+
+.viz-carousel-controls > button {
+  --icon-size: 16px;
+  width: 30px;
+  padding: 0;
+}
+
+.viz-carousel-picker > summary {
+  padding-inline: 12px;
+}
+
+.viz-carousel-controls .viz-carousel-caret {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  margin: 0;
+  color: inherit;
+  transform: rotate(180deg);
+}
+
+.viz-carousel-controls > button > svg,
+.viz-carousel-controls .viz-carousel-caret,
+.viz-carousel-count {
+  opacity: 0.5;
+}
+
+.viz-carousel-controls > button::before,
+.viz-carousel-picker > summary::before {
+  position: absolute;
+  z-index: -1;
+  inset: 3px;
+  border-radius: 12px;
+  content: "";
+  pointer-events: none;
+}
+
+.viz-carousel-controls > button:hover::before,
+.viz-carousel-picker > summary:hover::before {
+  background: var(--viz-carousel-hover);
+}
+
+.viz-carousel-controls > button,
+.viz-carousel-controls [data-lucide],
+.viz-carousel-controls .lucide {
+  flex-shrink: 0;
+}
+
+.viz-carousel-picker {
+  min-width: 0;
+}
+
+.viz-carousel-picker > summary {
+  min-width: 0;
+  list-style: none;
+}
+
+.viz-carousel-picker > summary::-webkit-details-marker {
+  display: none;
+}
+
+.viz-carousel-count {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.viz-carousel-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.viz-carousel-options {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 4px);
+  left: 0;
+  display: flex;
+  max-height: 240px;
+  flex-direction: column;
+  gap: 2px;
+  overflow: auto;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--background);
+  box-shadow: 0 4px 12px light-dark(rgb(0 0 0 / 6%), rgb(0 0 0 / 25%));
+}
+
+.viz-carousel-options > button {
+  width: 100%;
+  min-height: 28px;
+  justify-content: flex-start;
+  padding: 4px 8px;
+  font-size: var(--font-size-small);
+  text-align: start;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.viz-carousel-options > [aria-current="true"],
+.viz-carousel-options > button:hover {
+  background: var(--viz-carousel-hover);
+}
+
+.btn:disabled,
+.nav-link:disabled,
+.nav-link[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type="file"] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type="file"]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type="file"]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type="color"] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type="color"]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: var(--corner-shape);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type="checkbox"] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type="checkbox"]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type="checkbox"]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: "";
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type="radio"] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type="radio"]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: "";
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed="true"],
+  [aria-selected="true"],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed="true"], [aria-selected="true"], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible,
+.viz-carousel-controls :is(button, summary):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .viz-carousel:has(> .viz-carousel-controls) {
+    min-height: calc(76px + var(--viz-carousel-picker-height, 0px));
+    padding-bottom: 76px;
+  }
+
+  .btn,
+  .nav-link,
+  .viz-carousel-controls button,
+  .viz-carousel-picker > summary,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Keep small-screen WebKit from zooming when a text field receives focus. */
+  .form-control,
+  .form-select {
+    font-size: max(16px, var(--font-size-normal));
+  }
+
+  .form-control[type="file"]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type="color"] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type="date"],
+    [type="datetime-local"],
+    [type="month"],
+    [type="time"],
+    [type="week"]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: "";
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+
+  .form-range::-webkit-slider-runnable-track {
+    height: 44px;
+  }
+
+  .form-range::-moz-range-track {
+    height: 44px;
+  }
+
+  .form-range::-webkit-slider-thumb {
+    margin-top: 12px;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget > svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: var(--icon-size) !important;
+  height: var(--icon-size) !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html>body{padding:0}</style>
+</head>
+<body>
+
+<style>
+#weeklyBrief925{--story-accent:var(--viz-series-1);color:var(--foreground);background:transparent;display:grid;gap:20px}
+#weeklyBrief925 *{box-sizing:border-box}
+#weeklyBrief925 .mast{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(240px,.7fr);gap:18px;align-items:end;padding:18px 0 6px}
+#weeklyBrief925 .eyebrow{color:var(--muted-foreground);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+#weeklyBrief925 .mast h1{margin:0;max-width:760px}
+#weeklyBrief925 .mast p{color:var(--muted-foreground);max-width:740px;margin:12px 0 0}
+#weeklyBrief925 .stamp{display:grid;gap:6px;justify-items:end;text-align:right;color:var(--muted-foreground)}
+#weeklyBrief925 .stamp strong{color:var(--foreground);font-weight:500}
+#weeklyBrief925 .glance{display:grid;gap:10px}
+#weeklyBrief925 .timeline{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;position:relative;padding:16px 0 4px}
+#weeklyBrief925 .timeline:before{content:"";position:absolute;left:5%;right:5%;top:27px;height:2px;background:var(--border)}
+#weeklyBrief925 .moment{position:relative;display:grid;gap:6px;justify-items:center;text-align:center;min-width:0}
+#weeklyBrief925 .dot{width:22px;height:22px;border-radius:50%;background:var(--card);border:5px solid var(--story-accent);z-index:1}
+#weeklyBrief925 .moment strong{font-weight:500}
+#weeklyBrief925 .moment span{color:var(--muted-foreground)}
+#weeklyBrief925 .action-key{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted-foreground)}
+#weeklyBrief925 .key{display:inline-flex;gap:6px;align-items:center}
+#weeklyBrief925 .key:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--story-accent)}
+#weeklyBrief925 .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:4px 0}
+#weeklyBrief925 .controls .density{margin-left:auto}
+#weeklyBrief925 .story-list{display:grid;gap:18px}
+#weeklyBrief925 article.card{overflow:hidden;--story-accent:var(--viz-series-1)}
+#weeklyBrief925 article[data-kind="finance"]{--story-accent:var(--viz-series-2)}
+#weeklyBrief925 article[data-kind="claude"]{--story-accent:var(--viz-series-3)}
+#weeklyBrief925 article[data-kind="search"]{--story-accent:var(--viz-series-4)}
+#weeklyBrief925 article[data-kind="world"]{--story-accent:var(--viz-series-5)}
+#weeklyBrief925 .story-top{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:20px;align-items:stretch}
+#weeklyBrief925 .story-copy{padding:18px;display:grid;align-content:start;gap:10px}
+#weeklyBrief925 .chips{display:flex;gap:6px;flex-wrap:wrap}
+#weeklyBrief925 .story-copy h2{margin:0}
+#weeklyBrief925 .story-copy p{margin:0;color:var(--muted-foreground)}
+#weeklyBrief925 .restriction{border-left:3px solid var(--story-accent);padding-left:10px;color:var(--foreground)!important}
+#weeklyBrief925 .story-visual{min-height:230px;display:grid;place-items:center;padding:18px;background:color-mix(in srgb,var(--story-accent) 11%,var(--card));color:var(--foreground);position:relative;text-decoration:none}
+#weeklyBrief925 .visual-frame{width:min(100%,340px);min-height:174px;display:grid;place-items:center;position:relative}
+#weeklyBrief925 .credit{position:absolute;right:10px;bottom:8px;color:var(--muted-foreground)}
+#weeklyBrief925 .voice-demo{width:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}
+#weeklyBrief925 .mini-pane{background:var(--card);color:var(--card-foreground);padding:14px;border-radius:12px;display:grid;gap:9px;justify-items:center;text-align:center}
+#weeklyBrief925 .voice-wave{display:flex;gap:4px;align-items:center;height:34px}
+#weeklyBrief925 .voice-wave span{width:5px;border-radius:999px;background:var(--story-accent)}
+#weeklyBrief925 .voice-wave span:nth-child(1),#weeklyBrief925 .voice-wave span:nth-child(5){height:12px}
+#weeklyBrief925 .voice-wave span:nth-child(2),#weeklyBrief925 .voice-wave span:nth-child(4){height:24px}
+#weeklyBrief925 .voice-wave span:nth-child(3){height:34px}
+#weeklyBrief925 .finance-demo{width:100%;display:grid;gap:12px}
+#weeklyBrief925 .score-ring{width:108px;height:108px;border-radius:50%;display:grid;place-items:center;margin:auto;background:conic-gradient(var(--story-accent) 0 72%,var(--border) 72% 100%);position:relative}
+#weeklyBrief925 .score-ring:after{content:"";position:absolute;inset:12px;border-radius:50%;background:var(--card)}
+#weeklyBrief925 .score-ring strong{z-index:1;font-weight:500}
+#weeklyBrief925 .factor-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+#weeklyBrief925 .factor-row span{background:var(--card);padding:9px;border-radius:9px;text-align:center}
+#weeklyBrief925 .claude-demo{width:100%;display:grid;gap:12px}
+#weeklyBrief925 .model-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#weeklyBrief925 .model-box{background:var(--card);padding:14px;border-radius:12px;display:grid;gap:7px;text-align:center}
+#weeklyBrief925 .model-box strong{font-weight:500}
+#weeklyBrief925 .efficiency{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;color:var(--muted-foreground)}
+#weeklyBrief925 .efficiency .bar{height:9px;background:var(--border);border-radius:999px;overflow:hidden}
+#weeklyBrief925 .efficiency .bar span{display:block;width:60%;height:100%;background:var(--story-accent)}
+#weeklyBrief925 .search-demo{width:100%;display:grid;gap:12px}
+#weeklyBrief925 .route-row{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center}
+#weeklyBrief925 .route-box{background:var(--card);padding:14px;border-radius:12px;display:grid;gap:7px;justify-items:center;text-align:center}
+#weeklyBrief925 .state-strip{display:flex;justify-content:space-between;gap:8px;color:var(--muted-foreground)}
+#weeklyBrief925 .fed-demo{width:100%;display:grid;gap:12px}
+#weeklyBrief925 .rate-step{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center}
+#weeklyBrief925 .rate-box{background:var(--card);padding:15px;border-radius:12px;text-align:center;display:grid;gap:6px}
+#weeklyBrief925 .rate-box strong{font-weight:500}
+#weeklyBrief925 .impact-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+#weeklyBrief925 .impact-row span{background:var(--card);padding:10px;border-radius:9px;text-align:center}
+#weeklyBrief925 .story-tabs{padding:0 18px 18px}
+#weeklyBrief925 .story-tabs .nav{margin-bottom:12px}
+#weeklyBrief925 [role="tabpanel"] p{margin:0}
+#weeklyBrief925 .copy-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start}
+#weeklyBrief925 .copy-row pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;background:var(--muted);color:var(--foreground);padding:12px;border-radius:10px}
+#weeklyBrief925 .source-row{display:flex;gap:10px;flex-wrap:wrap}
+#weeklyBrief925 .source-row a{color:var(--foreground)}
+#weeklyBrief925 .compact article.card .story-top{grid-template-columns:minmax(0,1fr) 190px}
+#weeklyBrief925 .compact .story-visual{min-height:155px}
+#weeklyBrief925 .compact .story-copy>p:not(.restriction){display:none}
+#weeklyBrief925 .watch{display:grid;grid-template-columns:auto 1fr 1fr;gap:16px;align-items:start;padding:12px 0}
+#weeklyBrief925 .watch h2{margin:0}
+#weeklyBrief925 .watch p{margin:0;color:var(--muted-foreground)}
+#weeklyBrief925 .watch strong{color:var(--foreground);font-weight:500}
+#weeklyBrief925 .is-hidden{display:none!important}
+#weeklyBrief925 .copy-status{min-height:22px;color:var(--muted-foreground)}
+@media(max-width:760px){#weeklyBrief925 .mast{grid-template-columns:1fr}#weeklyBrief925 .stamp{justify-items:start;text-align:left}#weeklyBrief925 .timeline{grid-template-columns:1fr 1fr}#weeklyBrief925 .timeline:before{display:none}#weeklyBrief925 .moment{justify-items:start;text-align:left;grid-template-columns:auto 1fr;align-items:center}#weeklyBrief925 .moment span{grid-column:2}#weeklyBrief925 .controls .density{margin-left:0}#weeklyBrief925 .story-top,#weeklyBrief925 .compact article.card .story-top{grid-template-columns:1fr}#weeklyBrief925 .story-visual{min-height:190px;grid-row:1}#weeklyBrief925 .copy-row{grid-template-columns:1fr}#weeklyBrief925 .watch{grid-template-columns:1fr}}
+@media(max-width:420px){#weeklyBrief925 .timeline{grid-template-columns:1fr}#weeklyBrief925 .voice-demo,#weeklyBrief925 .route-row,#weeklyBrief925 .rate-step{grid-template-columns:1fr}#weeklyBrief925 .voice-demo>i,#weeklyBrief925 .route-row>i,#weeklyBrief925 .rate-step>i{rotate:90deg}#weeklyBrief925 .factor-row,#weeklyBrief925 .impact-row{grid-template-columns:1fr}#weeklyBrief925 .model-row{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:no-preference){#weeklyBrief925 article.card{transition:translate .2s ease}#weeklyBrief925 article.card:hover{translate:0 -2px}}
+</style>
+
+<main id="weeklyBrief925" aria-labelledby="briefTitle">
+  <header class="mast">
+    <div>
+      <p class="eyebrow text-small">Personalized weekly briefing · five stories</p>
+      <h1 id="briefTitle">Voice becomes a working interface, not just a conversation.</h1>
+      <p>This week’s strongest practical change is ChatGPT Voice gaining access to connected apps and Work on web and mobile. The rest of the briefing turns new finance, model-efficiency, search-cost and interest-rate developments into experiments for your audit, property and recurring-monitor workflows.</p>
+    </div>
+    <div class="stamp"><strong>Week ending September 25, 2026</strong><span class="text-small">New since the September 18 briefing</span></div>
+  </header>
+
+  <section class="glance" aria-labelledby="glanceTitle">
+    <div class="viz-row"><h2 id="glanceTitle">Today at a glance</h2><span class="text-muted">Chronology is factual; editorial order reflects usefulness to your current work.</span></div>
+    <div class="timeline" role="img" aria-label="Timeline of five stories: Federal Reserve rate increase on September 16, ChatGPT credit scores on September 21, Claude Opus 5.5 on September 22, ChatGPT Voice plugins on September 23, and Perplexity Fast Search during September">
+      <div class="moment" style="--story-accent:var(--viz-series-5)"><span class="dot"></span><strong>Sep 16</strong><span class="text-small">Fed rate hike · monitor</span></div>
+      <div class="moment" style="--story-accent:var(--viz-series-2)"><span class="dot"></span><strong>Sep 21</strong><span class="text-small">Credit scores · evaluate</span></div>
+      <div class="moment" style="--story-accent:var(--viz-series-3)"><span class="dot"></span><strong>Sep 22</strong><span class="text-small">Opus 5.5 · benchmark</span></div>
+      <div class="moment" style="--story-accent:var(--viz-series-1)"><span class="dot"></span><strong>Sep 23</strong><span class="text-small">Voice + apps · try now</span></div>
+      <div class="moment" style="--story-accent:var(--viz-series-4)"><span class="dot"></span><strong>September</strong><span class="text-small">Fast Search · pilot</span></div>
+    </div>
+    <div class="action-key text-small" aria-label="Action key"><span class="key" style="--story-accent:var(--viz-series-1)">Try now</span><span class="key" style="--story-accent:var(--viz-series-3)">Benchmark</span><span class="key" style="--story-accent:var(--viz-series-5)">Monitor</span></div>
+  </section>
+
+  <div class="controls" aria-label="Briefing controls">
+    <button type="button" class="btn btn-primary filter" data-filter="all" aria-pressed="true">All five</button>
+    <button type="button" class="btn filter" data-filter="openai" aria-pressed="false">OpenAI</button>
+    <button type="button" class="btn filter" data-filter="workflow" aria-pressed="false">Workflow</button>
+    <button type="button" class="btn filter" data-filter="world" aria-pressed="false">World</button>
+    <label class="form-check form-switch density"><input class="form-check-input" id="compactBrief925" type="checkbox"><span class="form-check-label">Compact cards</span></label>
+  </div>
+
+  <section class="story-list" aria-live="polite">
+    <article id="story-1" class="card" data-tags="openai workflow" data-kind="voice">
+      <div class="story-top">
+        <div class="story-copy">
+          <div class="chips"><span class="viz-badge">OpenAI</span><span class="viz-badge">Voice + connected apps</span><span class="viz-badge">Sep 23</span></div>
+          <h2>ChatGPT Voice can now use plugins—and Work can keep going after you stop speaking</h2>
+          <p>Voice can use the plugins and connected apps already available to your account on web, iOS and Android. In Work, it can also create documents, presentations or spreadsheets and use a browser; if a job is unfinished when the call ends, it can continue in text.</p>
+          <p class="restriction text-small">Free and Go users can use supported plugins in Voice Chat; Voice in Work requires both Voice and Work access. Existing permissions and usage limits apply, and sensitive actions still require on-screen—not spoken—approval.</p>
+        </div>
+        <a class="story-visual" href="https://help.openai.com/en/articles/20001274-chatgpt-voice" target="_blank" rel="noopener" aria-label="Open the official ChatGPT Voice guide. Illustration shows a spoken request flowing into a connected app and an editable work product.">
+          <div class="visual-frame voice-demo" role="img" aria-label="A voice waveform flows into connected apps and then into a document checklist"><div class="mini-pane"><div class="voice-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><strong>Speak</strong><span class="text-small">running checklist</span></div><i data-lucide="arrow-right" aria-hidden="true"></i><div class="mini-pane"><i data-lucide="workflow" aria-hidden="true"></i><strong>Act + draft</strong><span class="text-small">apps · browser · files</span></div></div><span class="credit text-small">Official Voice guide ↗</span>
+        </a>
+      </div>
+      <div class="story-tabs">
+        <div class="nav nav-pills" role="tablist" aria-label="Voice and plugins details"><button class="nav-link active" id="v-change" type="button" role="tab" aria-controls="v-change-p" aria-selected="true">What changed</button><button class="nav-link" id="v-why" type="button" role="tab" aria-controls="v-why-p" aria-selected="false">Why it matters</button><button class="nav-link" id="v-try" type="button" role="tab" aria-controls="v-try-p" aria-selected="false">Try this</button><button class="nav-link" id="v-src" type="button" role="tab" aria-controls="v-src-p" aria-selected="false">Sources</button></div>
+        <div id="v-change-p" role="tabpanel" aria-labelledby="v-change"><p>Voice is no longer isolated from cloud tools: it can invoke available plugins, show written results in the chat and hand an unfinished Work task into text for completion.</p></div>
+        <div id="v-why-p" role="tabpanel" aria-labelledby="v-why" hidden><p>This lets you narrate a Sage Intacct export checklist beside a client while ChatGPT maintains the evidence log and drafts the handoff document.</p></div>
+        <div id="v-try-p" role="tabpanel" aria-labelledby="v-try" hidden><div class="copy-row"><pre><code>We are exporting an audit PBC package from Sage Intacct. Maintain a live checklist with report name, entity, period, filters, run date, output filename, page/row count, and exceptions. After every spoken update, restate only the open items. Do not mark an item complete unless I explicitly confirm the export and validation.</code></pre><button type="button" class="btn copy-btn">Copy prompt</button></div></div>
+        <div id="v-src-p" role="tabpanel" aria-labelledby="v-src" hidden><div class="source-row"><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener">OpenAI release notes · Sep 23</a><a href="https://help.openai.com/en/articles/20001274-chatgpt-voice" target="_blank" rel="noopener">ChatGPT Voice guide</a></div></div>
+      </div>
+    </article>
+
+    <article id="story-2" class="card" data-tags="openai workflow" data-kind="finance">
+      <div class="story-top">
+        <div class="story-copy">
+          <div class="chips"><span class="viz-badge">OpenAI</span><span class="viz-badge">Personal finance</span><span class="viz-badge">Sep 21</span></div>
+          <h2>ChatGPT Finances adds Experian credit-score tracking and monitoring</h2>
+          <p>Eligible users can connect an Experian report and VantageScore 3.0, ask what is affecting the score and receive alerts for changes such as a new inquiry, account or address. The report updates monthly and the Experian connection is separate from bank accounts connected through Plaid.</p>
+          <p class="restriction text-small">Rolling out to U.S. Plus and Pro users on web, iOS and Android, so some eligible accounts may not see it yet. It is a soft inquiry, but lenders may use different bureaus or scoring models; enter identity details only in Experian’s verification form, not in chat.</p>
+        </div>
+        <a class="story-visual" href="https://help.openai.com/en/articles/20001222-finances-in-chatgpt" target="_blank" rel="noopener" aria-label="Open the official Finances guide. Illustration shows a monthly credit-score gauge and three factor categories.">
+          <div class="visual-frame finance-demo" role="img" aria-label="A generic credit-score gauge with monthly update and factor categories; no personal score is shown"><div class="score-ring"><strong>Monthly</strong></div><div class="factor-row text-small"><span>Utilization</span><span>History</span><span>Inquiries</span></div></div><span class="credit text-small">Official Finances guide ↗</span>
+        </a>
+      </div>
+      <div class="story-tabs">
+        <div class="nav nav-pills" role="tablist" aria-label="Credit score details"><button class="nav-link active" id="f-change" type="button" role="tab" aria-controls="f-change-p" aria-selected="true">What changed</button><button class="nav-link" id="f-why" type="button" role="tab" aria-controls="f-why-p" aria-selected="false">Why it matters</button><button class="nav-link" id="f-try" type="button" role="tab" aria-controls="f-try-p" aria-selected="false">Try this</button><button class="nav-link" id="f-src" type="button" role="tab" aria-controls="f-src-p" aria-selected="false">Sources</button></div>
+        <div id="f-change-p" role="tabpanel" aria-labelledby="f-change"><p>Finances now combines bank-account context with an optional, separately authorized credit-report view, while preserving separate connections and disconnect controls.</p></div>
+        <div id="f-why-p" role="tabpanel" aria-labelledby="f-why" hidden><p>This can turn your property-purchase goal into a current mortgage-readiness checklist without requiring a live bank-account connection.</p></div>
+        <div id="f-try-p" role="tabpanel" aria-labelledby="f-try" hidden><div class="copy-row"><pre><code>Using only the connected credit report and the assumptions I provide, build a 90-day mortgage-readiness plan. Separate verified report facts from assumptions, rank actions by likely impact and reversibility, flag anything that could temporarily lower the score, and tell me which questions require a lender or certified financial professional.</code></pre><button type="button" class="btn copy-btn">Copy prompt</button></div></div>
+        <div id="f-src-p" role="tabpanel" aria-labelledby="f-src" hidden><div class="source-row"><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener">OpenAI release notes · Sep 21</a><a href="https://help.openai.com/en/articles/20001222-finances-in-chatgpt" target="_blank" rel="noopener">Finances guide and disclosures</a></div></div>
+      </div>
+    </article>
+
+    <article id="story-3" class="card" data-tags="workflow" data-kind="claude">
+      <div class="story-top">
+        <div class="story-copy">
+          <div class="chips"><span class="viz-badge">Anthropic</span><span class="viz-badge">Claude Opus 5.5</span><span class="viz-badge">Sep 22</span></div>
+          <h2>Claude Opus 5.5 targets the same class of work with lower cost and faster output</h2>
+          <p>Anthropic says Opus 5.5 performs at Fable 5.1’s level on most work while costing about 40% less than Opus 5 on typical workloads. It lists $4 per million input tokens, $20 per million output tokens, $0.20 cache reads and output more than 30% faster than Opus 5.</p>
+          <p class="restriction text-small">Available across Claude platforms and major clouds. The performance and savings figures are vendor tests and early-customer reports, so validate them on your own document set before changing a production workflow.</p>
+        </div>
+        <a class="story-visual" href="https://www.anthropic.com/claude-opus-5-5" target="_blank" rel="noopener" aria-label="Open Anthropic's Opus 5.5 announcement. Illustration compares two model runs and highlights a shorter cost bar for the new model.">
+          <div class="visual-frame claude-demo" role="img" aria-label="Two model workload boxes with a shorter relative cost bar for Opus 5.5, reflecting Anthropic's claimed typical-workload reduction"><div class="model-row"><div class="model-box"><i data-lucide="file-stack" aria-hidden="true"></i><strong>Opus 5</strong><span class="text-small">baseline workload</span></div><div class="model-box"><i data-lucide="gauge" aria-hidden="true"></i><strong>Opus 5.5</strong><span class="text-small">faster output</span></div></div><div class="efficiency"><div class="bar"><span></span></div><span class="text-small">claimed 40% lower</span></div></div><span class="credit text-small">Source: Anthropic ↗</span>
+        </a>
+      </div>
+      <div class="story-tabs">
+        <div class="nav nav-pills" role="tablist" aria-label="Claude Opus 5.5 details"><button class="nav-link active" id="c-change" type="button" role="tab" aria-controls="c-change-p" aria-selected="true">What changed</button><button class="nav-link" id="c-why" type="button" role="tab" aria-controls="c-why-p" aria-selected="false">Why it matters</button><button class="nav-link" id="c-try" type="button" role="tab" aria-controls="c-try-p" aria-selected="false">Try this</button><button class="nav-link" id="c-src" type="button" role="tab" aria-controls="c-src-p" aria-selected="false">Sources</button></div>
+        <div id="c-change-p" role="tabpanel" aria-labelledby="c-change"><p>The flagship tier is being repositioned around efficiency: lower per-token prices, much cheaper cache reads and fewer tokens or calls on Anthropic’s test workloads.</p></div>
+        <div id="c-why-p" role="tabpanel" aria-labelledby="c-why" hidden><p>Long, source-heavy jobs such as bank-statement consolidation or an evidence-indexed property brief are exactly where fewer calls and cheaper cached context could matter.</p></div>
+        <div id="c-try-p" role="tabpanel" aria-labelledby="c-try" hidden><div class="copy-row"><pre><code>Run the same 20-page bank-statement bundle through my current model and Opus 5.5. Produce identical outputs: page-by-page coverage log, transaction table, opening/closing balance roll-forward, exceptions, and source citations. Score only completeness, arithmetic agreement, unsupported inferences, elapsed time, and total usage cost.</code></pre><button type="button" class="btn copy-btn">Copy benchmark</button></div></div>
+        <div id="c-src-p" role="tabpanel" aria-labelledby="c-src" hidden><div class="source-row"><a href="https://www.anthropic.com/claude-opus-5-5" target="_blank" rel="noopener">Anthropic announcement · Sep 22</a></div></div>
+      </div>
+    </article>
+
+    <article id="story-4" class="card" data-tags="workflow" data-kind="search">
+      <div class="story-top">
+        <div class="story-copy">
+          <div class="chips"><span class="viz-badge">Perplexity</span><span class="viz-badge">Cloud API</span><span class="viz-badge">September</span></div>
+          <h2>Perplexity Fast Search cuts lightweight web checks to $1 per 1,000 calls</h2>
+          <p>Perplexity added <code>search_type: "fast"</code> for lower-latency web retrieval, priced at $1 per 1,000 Search API requests instead of $5 for standard web search. Its Agent API fast preset now uses the same path, with web-search calls dropping from $2.50 to $1 per 1,000 and Perplexity reporting about 800 ms lower latency.</p>
+          <p class="restriction text-small">This is a paid cloud API, not a free-tier consumer-chat feature; Agent API model tokens are billed separately. Use standard web search for rare, difficult or ambiguous questions, and note the temporary SDK workarounds in the docs.</p>
+        </div>
+        <a class="story-visual" href="https://docs.perplexity.ai/docs/search/fast-search" target="_blank" rel="noopener" aria-label="Open Perplexity Fast Search documentation. Illustration shows a cheap first-pass check escalating changed or ambiguous results to deeper review.">
+          <div class="visual-frame search-demo" role="img" aria-label="Fast search checks a saved URL state, then escalates only changed or ambiguous results to standard research"><div class="route-row"><div class="route-box"><i data-lucide="zap" aria-hidden="true"></i><strong>Fast pass</strong><span class="text-small">$1 / 1K</span></div><i data-lucide="arrow-right" aria-hidden="true"></i><div class="route-box"><i data-lucide="search-check" aria-hidden="true"></i><strong>Deep only if needed</strong><span class="text-small">changed · ambiguous</span></div></div><div class="state-strip text-small"><span>URL</span><span>last_seen</span><span>checked_at</span></div></div><span class="credit text-small">Source: Perplexity docs ↗</span>
+        </a>
+      </div>
+      <div class="story-tabs">
+        <div class="nav nav-pills" role="tablist" aria-label="Fast Search details"><button class="nav-link active" id="p-change" type="button" role="tab" aria-controls="p-change-p" aria-selected="true">What changed</button><button class="nav-link" id="p-why" type="button" role="tab" aria-controls="p-why-p" aria-selected="false">Why it matters</button><button class="nav-link" id="p-try" type="button" role="tab" aria-controls="p-try-p" aria-selected="false">Try this</button><button class="nav-link" id="p-src" type="button" role="tab" aria-controls="p-src-p" aria-selected="false">Sources</button></div>
+        <div id="p-change-p" role="tabpanel" aria-labelledby="p-change"><p>The same result shape can now come from a cheaper fast path, making a two-stage retrieval design practical without rewriting downstream parsers.</p></div>
+        <div id="p-why-p" role="tabpanel" aria-labelledby="p-why" hidden><p>Your listing-status and AI-news monitors can spend pennies on first-pass freshness checks, keep state in Google Sheets, and reserve full research for genuinely changed pages.</p></div>
+        <div id="p-try-p" role="tabpanel" aria-labelledby="p-try" hidden><div class="copy-row"><pre><code>For each tracked URL, read url, last_seen_title, last_seen_date, content_hash, and checked_at from Google Sheets. Use Fast Search first. If title/date/hash is unchanged, update checked_at only and stop. If changed, missing, contradictory, or older than the expected cadence, escalate to standard search and return only the changed fields plus direct evidence links.</code></pre><button type="button" class="btn copy-btn">Copy routing rule</button></div></div>
+        <div id="p-src-p" role="tabpanel" aria-labelledby="p-src" hidden><div class="source-row"><a href="https://docs.perplexity.ai/docs/search/fast-search" target="_blank" rel="noopener">Fast Search documentation</a><a href="https://docs.perplexity.ai/docs/resources/changelog" target="_blank" rel="noopener">Perplexity changelog</a></div></div>
+      </div>
+    </article>
+
+    <article id="story-5" class="card" data-tags="world" data-kind="world">
+      <div class="story-top">
+        <div class="story-copy">
+          <div class="chips"><span class="viz-badge">U.S. snapshot</span><span class="viz-badge">Rates + housing</span><span class="viz-badge">Sep 16–23</span></div>
+          <h2>The Federal Reserve raises rates to 3.75%–4.00% as inflation stays broad</h2>
+          <p>The FOMC unanimously raised its target range by a quarter point on September 16. This week, several Fed officials said persistent inflation—not only energy or tariff shocks—supported the move, reinforcing the risk that borrowing costs remain elevated.</p>
+          <p class="restriction text-small">Policy signals can change with new data, and mortgage rates do not move one-for-one with the federal funds rate. Treat this as a decision input, not a timing forecast for buying property.</p>
+        </div>
+        <a class="story-visual" href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm" target="_blank" rel="noopener" aria-label="Open the Federal Reserve's September statement. Illustration shows the quarter-point policy-rate increase and its links to mortgages, savings and markets.">
+          <div class="visual-frame fed-demo" role="img" aria-label="Federal funds target range moves from 3.50 to 3.75 percent up to 3.75 to 4.00 percent, with mortgage, savings and market effects"><div class="rate-step"><div class="rate-box"><span class="text-small">Previous</span><strong>3.50–3.75%</strong></div><i data-lucide="arrow-right" aria-hidden="true"></i><div class="rate-box"><span class="text-small">Sep 16</span><strong>3.75–4.00%</strong></div></div><div class="impact-row text-small"><span>Mortgage quotes</span><span>Savings yields</span><span>Market rates</span></div></div><span class="credit text-small">Federal Reserve statement ↗</span>
+        </a>
+      </div>
+      <div class="story-tabs">
+        <div class="nav nav-pills" role="tablist" aria-label="Federal Reserve rate details"><button class="nav-link active" id="r-change" type="button" role="tab" aria-controls="r-change-p" aria-selected="true">What changed</button><button class="nav-link" id="r-why" type="button" role="tab" aria-controls="r-why-p" aria-selected="false">Why it matters</button><button class="nav-link" id="r-try" type="button" role="tab" aria-controls="r-try-p" aria-selected="false">Try this</button><button class="nav-link" id="r-src" type="button" role="tab" aria-controls="r-src-p" aria-selected="false">Sources</button></div>
+        <div id="r-change-p" role="tabpanel" aria-labelledby="r-change"><p>The direction reversed from the 2025 easing cycle: the Fed tightened by 25 basis points, and this week’s commentary emphasized inflation persistence across the economy.</p></div>
+        <div id="r-why-p" role="tabpanel" aria-labelledby="r-why" hidden><p>For your property search, the immediate practical variable is the actual lender quote and monthly-payment sensitivity, not a guess about the next Fed meeting.</p></div>
+        <div id="r-try-p" role="tabpanel" aria-labelledby="r-try" hidden><div class="copy-row"><pre><code>Build a property-offer sensitivity table using my actual lender quote, not an assumed Fed pass-through. Show monthly principal and interest at the quoted rate, quoted rate ±0.50%, and quoted rate ±1.00%, holding price and down payment constant. Label taxes, insurance, HOA and maintenance separately, and do not present the result as financial advice.</code></pre><button type="button" class="btn copy-btn">Copy prompt</button></div></div>
+        <div id="r-src-p" role="tabpanel" aria-labelledby="r-src" hidden><div class="source-row"><a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm" target="_blank" rel="noopener">Federal Reserve statement · Sep 16</a><a href="https://www.reuters.com/business/feds-barkin-says-economy-may-be-firming-inflation-not-limited-energy-tariff-2026-09-22/" target="_blank" rel="noopener">Reuters · Fed commentary · Sep 22</a></div></div>
+      </div>
+    </article>
+  </section>
+
+  <aside class="watch" aria-labelledby="watchTitle"><h2 id="watchTitle">Worth watching</h2><p><strong>GPT-6 Sol and Luna in Work</strong><br>OpenAI added both models on September 22; plan and workspace settings control access and reasoning levels, so benchmark only after they appear in your picker.</p><p><strong>Grok 4.7 is not yet a SuperGrok story</strong><br>xAI launched it September 21 in Grok Build, Cursor, API and third-party cloud routes; the announcement does not claim consumer Grok or SuperGrok availability.</p></aside>
+  <div class="copy-status text-small" role="status" aria-live="polite"></div>
+</main>
+
+<script>
+(()=>{const root=document.getElementById('weeklyBrief925');const cards=[...root.querySelectorAll('article.card')];root.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{root.querySelectorAll('.filter').forEach(item=>{item.setAttribute('aria-pressed','false');item.classList.remove('btn-primary')});button.setAttribute('aria-pressed','true');button.classList.add('btn-primary');const selected=button.dataset.filter;cards.forEach(card=>card.classList.toggle('is-hidden',selected!=='all'&&!card.dataset.tags.split(' ').includes(selected)))}));root.querySelector('#compactBrief925').addEventListener('change',event=>root.classList.toggle('compact',event.target.checked));const status=root.querySelector('.copy-status');root.querySelectorAll('.copy-btn').forEach(button=>button.addEventListener('click',async()=>{const value=button.previousElementSibling.innerText.trim();try{await navigator.clipboard.writeText(value)}catch{const field=document.createElement('textarea');field.value=value;root.append(field);field.select();document.execCommand('copy');field.remove()}const original=button.textContent;button.textContent='Copied';status.textContent='Prompt copied to clipboard.';setTimeout(()=>{button.textContent=original;status.textContent=''},1400)}))})();
+</script>
+
+<script src="https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js"></script>
+<script src="https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js"></script>
+<script>
+(() => {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set(["top", "right", "bottom", "left"]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+  let lastPointerWasTouch = false;
+  let pinnedByTouch = false;
+
+  const getTrigger = (event) => {
+    for (const target of event.composedPath()) {
+      if (target?.nodeType === Node.ELEMENT_NODE) {
+        const trigger = target.closest("[data-tooltip]");
+        if (trigger) return trigger;
+      }
+    }
+    return null;
+  };
+  const containsTarget = (trigger, target) =>
+    target?.nodeType != null && trigger.contains(target);
+  const getContent = (trigger) =>
+    trigger.getAttribute("data-tooltip")?.trim() ?? "";
+  const getPlacement = (trigger) => {
+    const placement = trigger.getAttribute("data-tooltip-placement");
+    return tooltipPlacements.has(placement) ? placement : "top";
+  };
+  const getTooltip = () => {
+    if (tooltip == null) {
+      tooltip = document.createElement("div");
+      tooltip.id = tooltipId;
+      tooltip.className = "tooltip";
+      tooltip.setAttribute("role", "tooltip");
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) => {
+    const ids = new Set(
+      (trigger.getAttribute("aria-describedby") ?? "")
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute("aria-describedby");
+    } else {
+      trigger.setAttribute("aria-describedby", [...ids].join(" "));
+    }
+  };
+  const clearOpenTimeout = () => {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) => {
+    clearOpenTimeout();
+    pinnedByTouch = false;
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) => {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              "--tooltip-available-width",
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              "--tooltip-available-height",
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: "fixed",
+    })
+      .then(({ x, y }) => {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = "visible";
+      })
+      .catch(() => {
+        if (activeTrigger === trigger && request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) => {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = "hidden";
+    floating.style.transform = "translate(0, 0)";
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () => {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) => {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() < skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() => {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) => {
+    if (event.pointerType === "touch") {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handlePointer = (event) => {
+    lastPointerWasTouch =
+      event.type === "pointerdown" && event.pointerType === "touch";
+  };
+  const handleTouchClick = (event) => {
+    const isTouch = event.pointerType === "touch" || lastPointerWasTouch;
+    lastPointerWasTouch = false;
+    if (!isTouch || event.detail === 0) {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (
+      trigger == null ||
+      !trigger.isConnected ||
+      getContent(trigger).length === 0 ||
+      (pinnedByTouch && activeTrigger === trigger)
+    ) {
+      if (pinnedByTouch) {
+        closeTooltip();
+      }
+      return;
+    }
+    openTooltip(trigger);
+    pinnedByTouch = activeTrigger === trigger;
+    window.setTimeout(() => {
+      if (activeTrigger === trigger && !trigger.isConnected) {
+        closeTooltip(false);
+      }
+    }, 0);
+  };
+  const handleLeave = (event) => {
+    if (pinnedByTouch) {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) => {
+    const trigger = getTrigger(event);
+    if (trigger?.matches(":focus-visible")) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) => {
+    lastPointerWasTouch = false;
+    const trigger = getTrigger(event);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handlers = {
+    pointerover: handlePointerOpen,
+    pointerdown: handlePointer,
+    pointercancel: handlePointer,
+    click: handleTouchClick,
+    pointerout: handleLeave,
+    focusin: handleFocusIn,
+    focusout: handleLeave,
+    keydown: handleKeyDown,
+    contextmenu: handleContextMenu,
+  };
+  const roots = new Map();
+  const handledEvents = new WeakSet();
+  const handleEvent = (event) => {
+    if (handledEvents.has(event)) return;
+    handledEvents.add(event);
+    handlers[event.type](event);
+  };
+  const discoverRoots = (node) => {
+    if (node.shadowRoot) listen(node.shadowRoot);
+    for (const element of node.querySelectorAll("*")) {
+      if (element.shadowRoot) listen(element.shadowRoot);
+    }
+  };
+  const listen = (root) => {
+    if (roots.has(root)) return;
+    for (const type of Object.keys(handlers)) root.addEventListener(type, handleEvent);
+    const observer = new window.MutationObserver((records) => {
+      for (const { addedNodes } of records) {
+        for (const node of addedNodes) {
+          if (node.nodeType === Node.ELEMENT_NODE) discoverRoots(node);
+        }
+      }
+      for (const [root, cleanup] of roots) {
+        if (root.host && !root.host.isConnected) {
+          cleanup();
+          roots.delete(root);
+        }
+      }
+      if (activeTrigger && !activeTrigger.isConnected) closeTooltip(false);
+    });
+    observer.observe(root, { childList: true, subtree: true });
+    roots.set(root, () => {
+      observer.disconnect();
+      for (const type of Object.keys(handlers)) root.removeEventListener(type, handleEvent);
+    });
+    discoverRoots(root);
+  };
+  const destroy = () => {
+    closeTooltip(false);
+    lastPointerWasTouch = false;
+    for (const cleanup of roots.values()) cleanup();
+    roots.clear();
+    tooltip = null;
+  };
+
+  // Events between children of one shadow root never reach the document.
+  listen(document);
+  window.addEventListener("pagehide", destroy, { once: true });
+})();
+</script>
+<script id="codex-visualization-tabs">
+(() => {
+  const selector = '.nav[role="tablist"] [role="tab"]';
+  const disabled = ':disabled,[aria-disabled="true"]';
+  const selectTab = (selected) => {
+    const panelId = selected.getAttribute("aria-controls");
+    for (const tab of selected.closest('[role="tablist"]').querySelectorAll('[role="tab"]')) {
+      const active = tab === selected;
+      tab.classList.toggle("active", active);
+      tab.setAttribute("aria-selected", String(active));
+      const id = tab.getAttribute("aria-controls");
+      const panel = id && document.getElementById(id);
+      if (panel != null) {
+        panel.hidden = id !== panelId;
+        if (!panel.hidden && selected.id) {
+          panel.setAttribute("aria-labelledby", selected.id);
+        }
+      }
+    }
+  };
+  const interact = (event) => {
+    const tab = event.target?.closest?.(selector);
+    if (event.defaultPrevented || tab == null || tab.matches(disabled)) {
+      return;
+    }
+    if (event.type === "click") {
+      selectTab(tab);
+      return;
+    }
+    const tabs = Array.from(
+      tab.closest('[role="tablist"]').querySelectorAll('[role="tab"]'),
+    ).filter((candidate) => !candidate.matches(disabled));
+    const current = tabs.indexOf(tab);
+    let next;
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      next = (current + 1) % tabs.length;
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      next = (current + tabs.length - 1) % tabs.length;
+    } else if (event.key === "Home") {
+      next = 0;
+    } else if (event.key === "End") {
+      next = tabs.length - 1;
+    } else {
+      return;
+    }
+    event.preventDefault();
+    tabs[next].focus();
+    selectTab(tabs[next]);
+  };
+
+  for (const list of document.querySelectorAll('.nav[role="tablist"]')) {
+    const selected =
+      list.querySelector('[role="tab"][aria-selected="true"]') ??
+      list.querySelector('[role="tab"].active') ??
+      list.querySelector('[role="tab"]');
+    if (selected != null) {
+      selectTab(selected);
+    }
+  }
+  document.addEventListener("click", interact);
+  document.addEventListener("keydown", interact);
+  window.addEventListener("pagehide", () => {
+    document.removeEventListener("click", interact);
+    document.removeEventListener("keydown", interact);
+  }, { once: true });
+})();
+</script>
+<script id="codex-visualization-carousel">
+  (() => {
+    for (const root of document.querySelectorAll(".viz-carousel")) {
+      const panels = Array.from(
+        root.querySelectorAll(":scope > [data-variant]"),
+      );
+      if (panels.length === 0) {
+        continue;
+      }
+      root.setAttribute("role", "group");
+      panels.forEach((panel, index) => {
+        panel.hidden = index !== 0;
+        panel.setAttribute("role", "group");
+        if (!panel.hasAttribute("aria-label")) {
+          panel.setAttribute("aria-label", panel.dataset.variant);
+        }
+      });
+      root.dataset.activeVariant = panels[0].dataset.variant;
+      if (panels.length === 1) {
+        continue;
+      }
+
+      const controls = document.createElement("div");
+      controls.className = "viz-carousel-controls";
+      // Portable copy of the settings dropdown's legacy glyph; no 14px icon-package preset matches it.
+      // https://github.com/openai/openai/blob/master/codex/codex-apps/webview/src/icons/chevron.svg
+      controls.innerHTML = `
+      <button type="button" class="viz-carousel-previous cursor-interaction"><i data-lucide="chevron-left" aria-hidden="true"></i></button>
+      <details class="viz-carousel-picker">
+        <summary class="cursor-interaction">
+          <span class="viz-carousel-count tabular-nums"></span>
+          <span class="viz-carousel-name"></span>
+          <svg class="viz-carousel-caret" width="14" height="14" viewBox="0 0 20 21" fill="none" aria-hidden="true" focusable="false">
+            <path d="M15.2793 7.71101C15.539 7.45131 15.961 7.45131 16.2207 7.71101C16.4804 7.97071 16.4804 8.39272 16.2207 8.65242L10.4707 14.4024C10.211 14.6621 9.78902 14.6621 9.52932 14.4024L3.77932 8.65242L3.69436 8.54792C3.52385 8.28979 3.55205 7.93828 3.77932 7.71101C4.00659 7.48374 4.3581 7.45554 4.61623 7.62605L4.72073 7.71101L10 12.9903L15.2793 7.71101Z" fill="currentColor" stroke="currentColor" stroke-width="0.6" />
+          </svg>
+        </summary>
+        <div class="viz-carousel-options"></div>
+      </details>
+      <button type="button" class="viz-carousel-next cursor-interaction"><i data-lucide="chevron-right" aria-hidden="true"></i></button>`;
+      const previous = controls.querySelector(".viz-carousel-previous");
+      const next = controls.querySelector(".viz-carousel-next");
+      const picker = controls.querySelector(".viz-carousel-picker");
+      const summary = picker.querySelector("summary");
+      const count = controls.querySelector(".viz-carousel-count");
+      const name = controls.querySelector(".viz-carousel-name");
+      const options = controls.querySelector(".viz-carousel-options");
+      const status = document.createElement("span");
+      status.className = "sr-only";
+      status.setAttribute("role", "status");
+      status.setAttribute("aria-live", "polite");
+      status.setAttribute("aria-atomic", "true");
+      previous.setAttribute(
+        "aria-label",
+        root.dataset.previousLabel ?? "Previous variant",
+      );
+      next.setAttribute("aria-label", root.dataset.nextLabel ?? "Next variant");
+
+      let active = 0;
+      const choices = panels.map((panel, index) => {
+        const choice = document.createElement("button");
+        choice.type = "button";
+        choice.className = "cursor-interaction";
+        choice.textContent = panel.dataset.variant;
+        choice.addEventListener("click", () => {
+          select(index);
+          summary.focus();
+        });
+        options.appendChild(choice);
+        return choice;
+      });
+      const select = (index) => {
+        const changed = active !== index;
+        active = index;
+        panels.forEach((panel, position) => {
+          panel.hidden = position !== active;
+          choices[position].setAttribute(
+            "aria-current",
+            String(position === active),
+          );
+        });
+        root.dataset.activeVariant = panels[active].dataset.variant;
+        count.textContent = `${active + 1} / ${panels.length}`;
+        name.textContent = panels[active].dataset.variant;
+        picker.open = false;
+        if (changed) {
+          status.textContent = `${count.textContent}: ${name.textContent}`;
+        }
+      };
+      previous.addEventListener("click", () =>
+        select((active + panels.length - 1) % panels.length),
+      );
+      next.addEventListener("click", () =>
+        select((active + 1) % panels.length),
+      );
+      picker.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && picker.open) {
+          event.preventDefault();
+          picker.open = false;
+          summary.focus();
+        }
+      });
+      const dismiss = (event) => {
+        if (!picker.contains(event.target)) {
+          picker.open = false;
+        }
+      };
+      const sizePicker = () => {
+        root.style.setProperty(
+          "--viz-carousel-picker-height",
+          `${picker.open ? options.offsetHeight : 0}px`,
+        );
+      };
+      picker.addEventListener("toggle", sizePicker);
+      window.addEventListener("resize", sizePicker);
+      document.addEventListener("pointerdown", dismiss);
+      window.addEventListener(
+        "pagehide",
+        () => {
+          document.removeEventListener("pointerdown", dismiss);
+          window.removeEventListener("resize", sizePicker);
+        },
+        { once: true },
+      );
+      root.append(controls, status);
+      select(0);
+    }
+  })();
+</script>
+<script id="codex-visualization-lucide" async src="https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js"></script>
+<script>
+(() => {
+  const initialize = () => {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById("codex-visualization-lucide")
+    ?.addEventListener("load", initialize, { once: true });
+})();
+</script>
+
+</body>
+</html>
